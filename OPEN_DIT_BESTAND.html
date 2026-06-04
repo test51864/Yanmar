@@ -3296,6 +3296,46 @@
         background: rgba(215, 25, 32, 0.12);
       }
 
+      body.dark-mode .assistant-dock {
+        border-color: #4b5563;
+        background: #111827;
+        color: #f9fafb;
+      }
+
+      body.dark-mode .assistant-dock-head {
+        border-bottom: 1px solid #374151;
+        background: #111827;
+        color: #ffffff;
+      }
+
+      body.dark-mode .assistant-dock-head strong {
+        color: #ffffff;
+      }
+
+      body.dark-mode .assistant-dock-toggle {
+        border-color: rgba(255, 255, 255, 0.55);
+        background: #ffffff;
+        color: #111827;
+      }
+
+      body.dark-mode .assistant-dock-body {
+        background: #181b20;
+        color: #f4f6f8;
+      }
+
+      body.dark-mode .assistant-dock-output {
+        border-color: #4b5563;
+        background: #0f1115;
+        color: #f4f6f8;
+      }
+
+      body.dark-mode .assistant-dock textarea,
+      body.dark-mode .assistant-dock select {
+        border-color: #4b5563;
+        background: #0f1115;
+        color: #f4f6f8;
+      }
+
       body.dark-mode .attention-ribbon {
         border-color: rgba(251, 146, 60, 0.62);
         background: rgba(124, 45, 18, 0.92);
@@ -4423,7 +4463,7 @@
                     <div class="placeholder"><img src="assets/YDG Cherry sakura.png" alt="YDG generator product visual" style="width:100%;height:100%;object-fit:cover"></div>
                     <div class="placeholder-card-body"><p class="small-red">YDG Diesel Generators</p><h3>Product shot</h3><p>Clean YDG product image on a neutral background.</p></div>
                   </div>
-                  <div class="placeholder-card" data-asset-index="14" role="button" tabindex="0">
+                  <div class="placeholder-card" data-asset-index="15" role="button" tabindex="0">
                     <!-- Insert YDG application scene image here. -->
                     <div class="placeholder"><img src="assets/YDG3700N construction site.png" alt="YDG worksite application visual" style="width:100%;height:100%;object-fit:cover"></div>
                     <div class="placeholder-card-body"><p class="small-red">YDG Diesel Generators</p><h3>Application scene</h3><p>YDG in a realistic outdoor or worksite setting.</p></div>
@@ -6313,6 +6353,25 @@
               <div><p class="label">Yanmar content manager</p><h2>Add toolkit content</h2></div>
               <div class="icon-box">ADD</div>
             </div>
+            <div class="source-note" style="margin-bottom: 16px">
+              <p><strong>Edit existing campaign or asset bank item.</strong> Select an existing campaign gallery item or visual asset, load it into the form and save it as an updated admin-managed version.</p>
+              <div class="form-grid" style="margin-top: 12px">
+                <div class="field">
+                  <label for="admin-content-source">Source</label>
+                  <select id="admin-content-source">
+                    <option value="visuals">Visual Asset Workspace</option>
+                    <option value="campaigns">Campaign Gallery</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="admin-content-source-item">Item to edit</label>
+                  <select id="admin-content-source-item"></select>
+                </div>
+              </div>
+              <div class="form-actions" style="margin-top: 12px">
+                <button class="header-action secondary" type="button" id="admin-content-load-source">Load selected item for editing</button>
+              </div>
+            </div>
             <form class="request-form" id="admin-content-form">
               <div class="form-grid">
                 <div class="field">
@@ -6380,6 +6439,11 @@
                 <input id="admin-content-title" placeholder="Example: YDP agriculture LinkedIn visual" />
               </div>
               <div class="field">
+                <label for="admin-content-file">Upload asset file</label>
+                <input id="admin-content-file" type="file" accept="image/*,.pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.csv,.txt" />
+                <p class="helper-text">Use this for Yanmar-owned files such as visuals, PDFs, templates, sales sheets or approved copy documents. In the final portal this would upload to secure Yanmar storage.</p>
+              </div>
+              <div class="field">
                 <label for="admin-content-url">Asset file name or link</label>
                 <input id="admin-content-url" placeholder="Example: assets/YDP.png or https://..." />
               </div>
@@ -6398,7 +6462,8 @@
                 </label>
               </div>
               <div class="form-actions">
-                <button class="primary-button" type="submit">Add content item</button>
+                <button class="primary-button" type="submit" id="admin-content-submit">Add content item</button>
+                <button class="header-action secondary" type="button" id="admin-content-cancel-edit" hidden>Cancel edit</button>
                 <button class="header-action secondary" type="button" id="admin-content-comingsoon-button">Add coming soon slot</button>
               </div>
               <div class="confirmation" id="admin-content-confirmation">
@@ -6843,6 +6908,42 @@
             "Mandatory final check: Yanmar brand guidelines, product claims, legal sensitivity and image rights must be approved before sharing.",
           ],
         },
+        {
+          title: "Empty harbor background 1",
+          product: "Marine / Event / Brand",
+          format: "Editable background / campaign base",
+          image: "assets/Empty background 1 Harbor.png",
+          note: "Use this clean harbor background as an empty base for distributor event, marine, logistics or brand communication.",
+          instructions: [
+            "Add approved Yanmar or distributor copy, logo placement and local contact details before use.",
+            "Use as a background for event announcements, marine-related distributor posts or general brand communication.",
+            "Keep text readable against the blue sky/water area and validate final layout against Yanmar brand guidelines.",
+          ],
+        },
+        {
+          title: "Empty harbor background 2",
+          product: "Marine / Event / Brand",
+          format: "Editable background / campaign base",
+          image: "assets/Empty background 2 Harbor.png",
+          note: "Use this wider harbor background as an empty base for distributor banners, LinkedIn headers or event visuals.",
+          instructions: [
+            "Add the final approved message, distributor details, logo and CTA in the open space.",
+            "Use Canva for quick edits; use Adobe InDesign, Photoshop or Illustrator for heavier production or professional adjustments.",
+            "Translate copy locally and complete brand, claim, legal and image-rights checks before publishing.",
+          ],
+        },
+        {
+          title: "YDG specsheet black background",
+          product: "YDG",
+          format: "In-store brochure / specsheet visual",
+          image: "assets/YDG spec sheet black background.png",
+          note: "Use this black-background YDG feature visual for in-store brochures, showroom explanation and technical product support.",
+          instructions: [
+            "Use for showroom, sales-counter or brochure contexts where feature callouts need to be visible.",
+            "Pair with verified YDG model details and avoid changing technical labels without checking the official product data.",
+            "Keep this as a product-support asset, not a generic social campaign visual.",
+          ],
+        },
       ];
 
       const ydpProductImage = "assets/YDP Warehouse.png";
@@ -7002,7 +7103,7 @@
 
       const highlightedCampaignIndexes = new Set([0, 1, 6, 11]);
       const highlightedAssetNames = new Set(["LinkedIn post", "Campaign visual", "Application video", "YouTube explainer script", "SEO product page copy", "Sales training one-pager", "Co-advertising brief", "Event LinkedIn post"]);
-      const highlightedVisualIndexes = new Set([0, 1, 2, 5, 16]);
+      const highlightedVisualIndexes = new Set([0, 1, 2, 5, 16, 24, 25, 26]);
 
       function attentionIndicator(label = "New", title = "New item or needs attention") {
         return `<span class="attention-ribbon" title="${escapeHTML(title)}"><span class="attention-marker">!</span>${escapeHTML(label)}</span>`;
@@ -7100,6 +7201,114 @@
         return "Brand";
       }
 
+      function adminProductSelectValue(product) {
+        const value = String(product || "").toLowerCase();
+        if (value.includes("ydg")) return "YDG Diesel Generators";
+        if (value.includes("ydp")) return "YDP Diesel Pumps";
+        if (value.includes("l-series") || value.includes("l series")) return "L-Series Diesel Engines";
+        if (value.includes("all product") || value.includes("multiple")) return "All product categories";
+        return "Other";
+      }
+
+      function adminContentTypeForAsset(asset) {
+        const value = `${asset?.title || ""} ${asset?.format || ""}`.toLowerCase();
+        if (value.includes("brochure") || value.includes("spec") || value.includes("manual")) return "Brochure / spec sheet";
+        if (value.includes("product image") || value.includes("product visual")) return "Product image";
+        if (value.includes("copy")) return "Ready-to-use copy";
+        if (value.includes("localization")) return "Localization example";
+        return "Campaign visual";
+      }
+
+      function resetAdminContentEditMode() {
+        currentAdminContentEditId = "";
+        if (adminContentSubmit) adminContentSubmit.textContent = "Add content item";
+        if (adminContentCancelEdit) adminContentCancelEdit.hidden = true;
+        if (adminContentFile) adminContentFile.value = "";
+      }
+
+      function startAdminContentEdit(item, { editableCopy = false } = {}) {
+        if (!adminContentForm || !item) return;
+        currentAdminContentEditId = editableCopy ? "" : item.id || "";
+        setSelectIfAvailable(document.getElementById("admin-content-type"), item.type || adminContentTypeForAsset(item));
+        setSelectIfAvailable(document.getElementById("admin-content-product"), item.product || adminProductSelectValue(item.product));
+        setSelectIfAvailable(document.getElementById("admin-content-channel"), item.channel || channelForCalendar(item.format));
+        setSelectIfAvailable(document.getElementById("admin-content-status"), item.status || "Draft");
+        const version = document.getElementById("admin-content-version");
+        const owner = document.getElementById("admin-content-owner");
+        const review = document.getElementById("admin-content-review");
+        const title = document.getElementById("admin-content-title");
+        const url = document.getElementById("admin-content-url");
+        const copy = document.getElementById("admin-content-copy");
+        if (version) version.value = item.version || "v1.0";
+        if (owner) owner.value = item.owner || "Yanmar marketing";
+        if (review) review.value = item.reviewDate && item.reviewDate !== "Not scheduled" ? item.reviewDate : "";
+        if (title) title.value = item.title || "";
+        if (url) url.value = item.url || item.image || "";
+        if (copy) copy.value = item.copy || item.note || "";
+        if (adminContentWorkspace) adminContentWorkspace.checked = item.showInWorkspace !== false;
+        if (adminContentComingSoon) adminContentComingSoon.checked = Boolean(item.comingSoon);
+        if (adminContentFile) adminContentFile.value = "";
+        if (adminContentSubmit) adminContentSubmit.textContent = editableCopy ? "Save editable copy" : "Update content item";
+        if (adminContentCancelEdit) adminContentCancelEdit.hidden = false;
+        scrollToAdminTarget("admin-content-manager");
+        setTimeout(() => title?.focus({ preventScroll: true }), 150);
+      }
+
+      function campaignToEditableAsset(campaign) {
+        const [title, product, description, format, image] = campaign || [];
+        return {
+          title: title || "",
+          product: product || "Brand",
+          format: format || "All channels",
+          image: image || "",
+          note: description || "",
+          status: "Draft",
+        };
+      }
+
+      function editableItemFromAsset(asset) {
+        return {
+          id: "",
+          type: adminContentTypeForAsset(asset),
+          product: adminProductSelectValue(asset.product),
+          channel: channelForCalendar(asset.format),
+          status: asset.comingSoon ? "Coming soon" : "Draft",
+          version: "v1.0",
+          owner: "Yanmar marketing",
+          reviewDate: "Not scheduled",
+          title: asset.title || "",
+          url: asset.image || "",
+          copy: asset.note || "",
+          showInWorkspace: true,
+          comingSoon: Boolean(asset.comingSoon),
+        };
+      }
+
+      function populateAdminContentSourceEditor() {
+        if (!adminContentSource || !adminContentSourceItem) return;
+        const source = adminContentSource.value;
+        const options = source === "campaigns"
+          ? campaigns.map((campaign, index) => ({ index, label: `${campaign[1]} · ${campaign[0]}` }))
+          : visualAssets.map((asset, index) => ({ index, label: `${asset.product} · ${asset.title}` }));
+        adminContentSourceItem.innerHTML = options
+          .map((option) => `<option value="${option.index}">${escapeHTML(option.label)}</option>`)
+          .join("");
+      }
+
+      function loadSelectedSourceForEditing() {
+        if (!adminContentSource || !adminContentSourceItem) return;
+        const index = Number(adminContentSourceItem.value);
+        const sourceAsset = adminContentSource.value === "campaigns"
+          ? campaignToEditableAsset(campaigns[index])
+          : visualAssets[index];
+        if (!sourceAsset) {
+          showToast("Select an existing campaign or asset first.");
+          return;
+        }
+        startAdminContentEdit(editableItemFromAsset(sourceAsset), { editableCopy: true });
+        showToast("Existing campaign or asset loaded as an editable admin copy.");
+      }
+
       function adminContentVisualAssets() {
         return loadAdminContent()
           .filter((item) => item.showInWorkspace)
@@ -7109,12 +7318,13 @@
             const product = adminProductLabel(item.product);
             return {
               title: item.title || `${product} content slot`,
+              adminContentId: item.id,
               product,
               format: comingSoon ? "Coming soon / admin-planned asset" : `${item.type || "Admin content"} / ${item.channel || "All channels"}`,
-              image: comingSoon ? "" : item.url,
+              image: comingSoon ? "" : (item.assetDataUrl || item.url || ""),
               fit: "contain",
               comingSoon,
-              note: item.copy || (comingSoon
+              note: item.copy || item.assetPreviewNote || (comingSoon
                 ? "Admin has planned this asset slot. The final visual, copy or file will be added after Yanmar review."
                 : "Admin-added toolkit content for distributor use."),
               instructions: comingSoon
@@ -7521,6 +7731,7 @@
       const portalToast = document.getElementById("portal-toast");
       let toastTimer = null;
       let currentModalAsset = null;
+      let currentAdminContentEditId = "";
 
       function showToast(message) {
         if (!portalToast) return;
@@ -7963,10 +8174,14 @@
           : `<div style="text-align:center; padding: 24px"><div class="icon-box" style="margin: 0 auto">${asset.product.split(" ")[0]}</div><p class="small-red" style="margin-top: 14px">${asset.comingSoon ? "Coming soon" : "Image placeholder"}</p><p>${asset.comingSoon ? "Yanmar has planned this asset slot. Request priority or local requirements through support." : "Insert your final campaign, store or product visual here."}</p></div>`;
         modalInstructions.innerHTML = "";
         if (modalActions) {
+          const adminEditAction = document.body.classList.contains("admin-mode")
+            ? `<button class="header-action secondary" type="button" data-modal-action="edit-admin">Edit in Content Manager</button>`
+            : "";
           modalActions.innerHTML = `
             ${asset.comingSoon ? "" : `<button class="primary-button" type="button" data-modal-action="used">Mark as used</button>`}
             ${asset.image ? `<a class="primary-button" href="${asset.image}" download target="_blank" rel="noreferrer" data-track-download="${escapeHTML(asset.title)}" data-track-product="${escapeHTML(asset.product)}">Download visual</a>` : ""}
             <button class="header-action secondary" type="button" data-modal-action="adapt">${asset.comingSoon ? "Request this asset" : "Request adaptation"}</button>
+            ${adminEditAction}
           `;
         }
         renderPlatformGuidance();
@@ -8074,6 +8289,35 @@
         }
         if (briefField) briefField.value = `Please adapt \"${currentModalAsset.title}\" for our local distributor campaign. Suggested platform: ${modalPlatform.value}.`;
         showToast("Support request form prepared for this asset.");
+      }
+
+      function editModalAssetInContentManager() {
+        if (!currentModalAsset) return;
+        const existingItem = currentModalAsset.adminContentId
+          ? loadAdminContent().find((item) => item.id === currentModalAsset.adminContentId)
+          : null;
+        const editableItem = existingItem || {
+          id: "",
+          type: adminContentTypeForAsset(currentModalAsset),
+          product: adminProductSelectValue(currentModalAsset.product),
+          channel: channelForCalendar(currentModalAsset.format),
+          status: currentModalAsset.comingSoon ? "Coming soon" : "Draft",
+          version: "v1.0",
+          owner: "Yanmar marketing",
+          reviewDate: "Not scheduled",
+          title: currentModalAsset.title || "",
+          url: currentModalAsset.image || "",
+          copy: currentModalAsset.note || "",
+          showInWorkspace: true,
+          comingSoon: Boolean(currentModalAsset.comingSoon),
+        };
+        const editableCopy = !existingItem;
+        closeAssetModal();
+        openAdminView();
+        window.setTimeout(() => {
+          startAdminContentEdit(editableItem, { editableCopy });
+          showToast(editableCopy ? "Asset loaded as an editable admin copy." : "Admin content item loaded for editing.");
+        }, 180);
       }
 
       modalClose.addEventListener("click", closeAssetModal);
@@ -8197,6 +8441,12 @@
       const adminContentWorkspace = document.getElementById("admin-content-workspace");
       const adminContentComingSoon = document.getElementById("admin-content-comingsoon");
       const adminContentComingSoonButton = document.getElementById("admin-content-comingsoon-button");
+      const adminContentFile = document.getElementById("admin-content-file");
+      const adminContentSubmit = document.getElementById("admin-content-submit");
+      const adminContentCancelEdit = document.getElementById("admin-content-cancel-edit");
+      const adminContentSource = document.getElementById("admin-content-source");
+      const adminContentSourceItem = document.getElementById("admin-content-source-item");
+      const adminContentLoadSource = document.getElementById("admin-content-load-source");
       const adminRoleMatrix = document.getElementById("admin-role-matrix");
       const adminNotificationList = document.getElementById("admin-notification-list");
       const adminApprovalList = document.getElementById("admin-approval-list");
@@ -9318,7 +9568,19 @@
       }
 
       function saveAdminContent(items) {
-        localStorage.setItem(contentKey, JSON.stringify(items));
+        try {
+          localStorage.setItem(contentKey, JSON.stringify(items));
+        } catch {
+          const metadataOnly = items.map((item) => item.assetDataUrl
+            ? {
+                ...item,
+                assetDataUrl: "",
+                assetPreviewNote: item.assetPreviewNote || "File metadata saved. In the final portal, the full file would be uploaded to secure Yanmar storage.",
+              }
+            : item);
+          localStorage.setItem(contentKey, JSON.stringify(metadataOnly));
+          showToast("Admin content saved, but the file preview was omitted because browser demo storage is full.");
+        }
       }
 
       function loadContributions() {
@@ -10198,6 +10460,17 @@
           return;
         }
 
+        const adminContentEdit = event.target.closest("[data-admin-content-edit]");
+        if (adminContentEdit) {
+          event.preventDefault();
+          const item = loadAdminContent().find((contentItem) => contentItem.id === adminContentEdit.dataset.adminContentEdit);
+          if (item) {
+            startAdminContentEdit(item);
+            showToast("Admin content item loaded for editing.");
+          }
+          return;
+        }
+
         const completeButton = event.target.closest("[data-calendar-complete]");
         if (completeButton) {
           event.preventDefault();
@@ -10239,6 +10512,9 @@
           }
           if (modalAction.dataset.modalAction === "adapt") {
             requestModalAdaptation();
+          }
+          if (modalAction.dataset.modalAction === "edit-admin") {
+            editModalAssetInContentManager();
           }
           return;
         }
@@ -12244,9 +12520,13 @@
       }
 
       function renderAdminContentCard(item) {
-        const imageHTML = item.url && item.url.match(/\.(png|jpg|jpeg|webp|avif|gif|svg)$/i)
+        const uploadedImageHTML = item.assetDataUrl && item.assetIsImage
+          ? `<img src="${item.assetDataUrl}" alt="${escapeHTML(item.title)}" />`
+          : "";
+        const linkedImageHTML = item.url && item.url.match(/\.(png|jpg|jpeg|webp|avif|gif|svg)$/i)
           ? `<img src="${escapeHTML(item.url)}" alt="${escapeHTML(item.title)}" />`
           : "";
+        const imageHTML = uploadedImageHTML || linkedImageHTML;
         const comingSoonHTML = item.comingSoon || item.status === "Coming soon"
           ? `<div class="coming-soon-admin">Coming soon<span>Visible as a planned asset slot for distributors</span></div>`
           : "";
@@ -12273,14 +12553,19 @@
               ${detail("Content owner", escapeHTML(item.owner || "Not assigned"))}
               ${detail("Next review", escapeHTML(item.reviewDate || "Not scheduled"))}
             </div>
+            ${item.assetName ? `<div class="detail" style="margin-top: 12px"><div class="detail-label">Uploaded file</div><p>${escapeHTML(item.assetName)} · ${escapeHTML(item.assetType || "Unknown file type")} · ${escapeHTML(item.assetSize || "")}</p><p style="margin-top: 6px; color: #666">${escapeHTML(item.assetPreviewNote || "File attached for admin-managed toolkit content.")}</p></div>` : ""}
             ${item.url ? `<div class="detail" style="margin-top: 12px"><div class="detail-label">Asset link</div><p><a href="${escapeHTML(item.url)}" target="_blank" rel="noreferrer" data-track-download="${escapeHTML(item.title || "Admin asset")}" data-track-product="${escapeHTML(item.product || "Admin content")}">${escapeHTML(item.url)}</a></p></div>` : ""}
             ${item.copy ? `<div class="detail" style="margin-top: 12px"><div class="detail-label">Message / instructions</div><p>${escapeHTML(item.copy)}</p></div>` : ""}
+            <div class="form-actions" style="margin-top: 14px">
+              <button class="header-action secondary" type="button" data-admin-content-edit="${escapeHTML(item.id)}">Edit content item</button>
+            </div>
           </article>
         `;
       }
 
       function renderAdminContentLibrary() {
         const items = loadAdminContent();
+        populateAdminContentSourceEditor();
         adminContentList.innerHTML = items.length
           ? items.map(renderAdminContentCard).join("")
           : `<div class="admin-empty">No admin content added yet. Add a campaign visual, copy block, product image or brochure link above.</div>`;
@@ -12699,16 +12984,31 @@
         });
       }
 
-      adminContentForm.addEventListener("submit", (event) => {
+      adminContentForm.addEventListener("submit", async (event) => {
         event.preventDefault();
         const items = loadAdminContent();
+        const editingId = currentAdminContentEditId;
+        const existingItem = editingId ? items.find((item) => item.id === editingId) : null;
         const isComingSoon = Boolean(adminContentComingSoon?.checked) || getValue("admin-content-status") === "Coming soon";
         const selectedProduct = getValue("admin-content-product");
         const productLabel = adminProductLabel(selectedProduct);
         const title = getValue("admin-content-title") || `${productLabel} coming soon asset`;
-        items.unshift({
-          id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
-          createdAt: new Date().toLocaleString(),
+        const uploadedAsset = isComingSoon ? {} : await contributionFilePayload(adminContentFile);
+        const preservedUpload = existingItem && !uploadedAsset.assetName
+          ? {
+              assetDataUrl: existingItem.assetDataUrl || "",
+              assetName: existingItem.assetName || "",
+              assetType: existingItem.assetType || "",
+              assetSize: existingItem.assetSize || "",
+              assetIsImage: Boolean(existingItem.assetIsImage),
+              assetCanPreview: Boolean(existingItem.assetCanPreview),
+              assetPreviewNote: existingItem.assetPreviewNote || "",
+            }
+          : {};
+        const contentItem = {
+          id: editingId || `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+          createdAt: existingItem?.createdAt || new Date().toLocaleString(),
+          updatedAt: editingId ? new Date().toLocaleString() : "",
           type: getValue("admin-content-type"),
           product: selectedProduct,
           channel: getValue("admin-content-channel"),
@@ -12719,18 +13019,54 @@
           title,
           url: isComingSoon ? "" : getValue("admin-content-url"),
           copy: getValue("admin-content-copy") || (isComingSoon ? "Coming soon: final asset, approved message and local usage instructions will be added by Yanmar." : ""),
+          ...preservedUpload,
+          ...uploadedAsset,
+          assetSource: uploadedAsset.assetName
+            ? "Yanmar admin upload"
+            : existingItem?.assetSource || (getValue("admin-content-url") ? "External or library link" : "Manual content record"),
           showInWorkspace: Boolean(adminContentWorkspace?.checked) || isComingSoon,
           comingSoon: isComingSoon,
-        });
+        };
+        if (editingId) {
+          const itemIndex = items.findIndex((item) => item.id === editingId);
+          if (itemIndex >= 0) items[itemIndex] = contentItem;
+          else items.unshift(contentItem);
+        } else {
+          items.unshift(contentItem);
+        }
         saveAdminContent(items);
         renderAdminContentLibrary();
         renderVisualLibrary();
         adminContentForm.reset();
         if (adminContentWorkspace) adminContentWorkspace.checked = true;
         if (adminContentComingSoon) adminContentComingSoon.checked = false;
+        resetAdminContentEditMode();
+        if (adminContentConfirmation) {
+          adminContentConfirmation.textContent = editingId
+            ? "Content item updated. The edited version is now reflected in the admin library and visual workspace."
+            : "Content item added. It is now available in the admin library and, if selected, the visual workspace.";
+        }
         adminContentConfirmation.classList.add("show");
-        showToast(isComingSoon ? "Coming soon asset slot added to the workspace." : "Admin content item added to the library.");
+        showToast(editingId ? "Admin content item updated." : (isComingSoon ? "Coming soon asset slot added to the workspace." : (uploadedAsset.assetName ? "Admin file uploaded to the content library." : "Admin content item added to the library.")));
       });
+
+      if (adminContentCancelEdit) {
+        adminContentCancelEdit.addEventListener("click", () => {
+          adminContentForm.reset();
+          if (adminContentWorkspace) adminContentWorkspace.checked = true;
+          if (adminContentComingSoon) adminContentComingSoon.checked = false;
+          resetAdminContentEditMode();
+          showToast("Content edit cancelled.");
+        });
+      }
+
+      if (adminContentSource) {
+        adminContentSource.addEventListener("change", populateAdminContentSourceEditor);
+      }
+
+      if (adminContentLoadSource) {
+        adminContentLoadSource.addEventListener("click", loadSelectedSourceForEditing);
+      }
 
       if (adminContentComingSoonButton) {
         adminContentComingSoonButton.addEventListener("click", () => {
