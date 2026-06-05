@@ -2231,17 +2231,39 @@
       .assistant-dock {
         position: fixed;
         right: 18px;
-        bottom: 18px;
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
         z-index: 80;
-        width: min(360px, calc(100vw - 32px));
+        width: min(320px, calc(100vw - 32px));
         border: 1px solid var(--line);
         border-radius: 10px;
         background: var(--white);
         box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
         overflow: hidden;
+        transition: width 180ms ease, border-radius 180ms ease, box-shadow 180ms ease;
+      }
+
+      .assistant-dock.is-collapsed {
+        width: 92px;
+        height: 54px;
+        border-radius: 999px;
+        box-shadow: 0 12px 34px rgba(224, 0, 26, 0.26);
       }
 
       .assistant-dock.is-collapsed .assistant-dock-body {
+        display: none;
+      }
+
+      .assistant-dock.is-collapsed .assistant-dock-head {
+        width: 92px;
+        height: 54px;
+        padding: 0;
+        justify-content: center;
+        background: var(--red);
+      }
+
+      .assistant-dock.is-collapsed .assistant-dock-head strong {
         display: none;
       }
 
@@ -2267,6 +2289,15 @@
         cursor: pointer;
         font-weight: 900;
         padding: 4px 9px;
+      }
+
+      .assistant-dock.is-collapsed .assistant-dock-toggle {
+        width: 92px;
+        height: 54px;
+        border: 0;
+        padding: 0;
+        font-size: 14px;
+        letter-spacing: 0;
       }
 
       .assistant-dock-body {
@@ -3318,6 +3349,17 @@
         color: #111827;
       }
 
+      body.dark-mode .assistant-dock.is-collapsed,
+      body.dark-mode .assistant-dock.is-collapsed .assistant-dock-head {
+        border-color: rgba(215, 25, 32, 0.65);
+        background: var(--red);
+      }
+
+      body.dark-mode .assistant-dock.is-collapsed .assistant-dock-toggle {
+        background: transparent;
+        color: #ffffff;
+      }
+
       body.dark-mode .assistant-dock-body {
         background: #181b20;
         color: #f4f6f8;
@@ -3934,9 +3976,22 @@
 
         .assistant-dock {
           right: 10px;
-          left: 10px;
+          left: auto;
           bottom: 10px;
-          width: auto;
+          top: auto;
+          transform: none;
+          width: min(320px, calc(100vw - 20px));
+        }
+
+        .assistant-dock.is-collapsed {
+          width: 92px;
+          height: 52px;
+        }
+
+        .assistant-dock.is-collapsed .assistant-dock-head,
+        .assistant-dock.is-collapsed .assistant-dock-toggle {
+          width: 92px;
+          height: 52px;
         }
       }
     </style>
@@ -4023,7 +4078,7 @@
     <aside class="assistant-dock is-collapsed" id="assistant-dock" aria-label="Toolkit assistant quick access">
       <div class="assistant-dock-head">
         <strong id="assistant-dock-title">Toolkit Assistant</strong>
-        <button class="assistant-dock-toggle" type="button" id="assistant-dock-toggle">Open</button>
+        <button class="assistant-dock-toggle" type="button" id="assistant-dock-toggle" aria-label="Open toolkit assistant">Assistant</button>
       </div>
       <div class="assistant-dock-body">
         <div class="field">
@@ -12987,7 +13042,8 @@
       if (assistantDockToggle && assistantDock) {
         assistantDockToggle.addEventListener("click", () => {
           const collapsed = assistantDock.classList.toggle("is-collapsed");
-          assistantDockToggle.textContent = collapsed ? "Open" : "Close";
+          assistantDockToggle.textContent = collapsed ? "Assistant" : "Close";
+          assistantDockToggle.setAttribute("aria-label", collapsed ? "Open toolkit assistant" : "Close toolkit assistant");
         });
       }
       if (assistantDockSend) assistantDockSend.addEventListener("click", runAssistantDock);
