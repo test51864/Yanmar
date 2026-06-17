@@ -112,6 +112,19 @@
         text-transform: uppercase;
       }
 
+      .version-badge {
+        border: 1px solid rgba(180, 126, 16, 0.35);
+        border-radius: 999px;
+        background: #fff8e1;
+        color: #9a6400;
+        font-size: 11px;
+        font-weight: 950;
+        letter-spacing: 0.12em;
+        line-height: 1;
+        padding: 6px 9px;
+        text-transform: uppercase;
+      }
+
       .brand-title {
         margin: 0;
         font-size: 18px;
@@ -2634,9 +2647,9 @@
         bottom: 24px;
         z-index: 80;
         max-width: min(420px, calc(100vw - 32px));
-        border: 1px solid #ffd1d4;
+        border: 1px solid #166534;
         border-radius: 10px;
-        background: var(--black);
+        background: #14532d;
         color: var(--white);
         box-shadow: var(--shadow);
         font-size: 14px;
@@ -2849,6 +2862,14 @@
         border-radius: 12px;
         background: var(--white);
         box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24);
+      }
+
+      .results-modal-card {
+        width: min(1120px, calc(100vw - 64px));
+      }
+
+      .results-modal-card .request-form {
+        padding: 22px 28px 28px;
       }
 
       .modal-head {
@@ -4009,6 +4030,7 @@
           <div class="brand-label">
             <span class="brand-title-main">Distributor Portal</span>
             <span class="demo-badge">Demo</span>
+            <span class="version-badge">V2.1</span>
           </div>
         </div>
         <div class="header-tools">
@@ -4205,6 +4227,9 @@
           </button>
           <button class="nav-button" data-admin-target="admin-campaign-analytics">
             <span class="nav-icon">ANA</span><span class="nav-text">Campaign Analytics</span><span>›</span>
+          </button>
+          <button class="nav-button" data-admin-target="admin-campaign-results">
+            <span class="nav-icon">RES</span><span class="nav-text">Campaign Results</span><span class="nav-badge" id="admin-nav-results-count" hidden>0</span><span>›</span>
           </button>
           <button class="nav-button" data-admin-target="admin-export-center">
             <span class="nav-icon">EXP</span><span class="nav-text">Export</span><span>›</span>
@@ -6379,6 +6404,19 @@
             </div>
             <div id="campaign-analytics-panel"></div>
           </article>
+          <article class="section-card" id="admin-campaign-results">
+            <div class="section-top">
+              <div>
+                <p class="label">Campaign results review</p>
+                <h2>Distributor-reported campaign results</h2>
+              </div>
+              <div class="icon-box">RES</div>
+            </div>
+            <div class="source-note" style="margin-bottom: 16px">
+              <p><strong>New function:</strong> Distributors can report campaign results after using a campaign concept. Yanmar can review the submitted stats, add an internal note and mark whether the activity was successful, needs follow-up or needs more data.</p>
+            </div>
+            <div class="admin-list" id="admin-campaign-results-list"></div>
+          </article>
           <article class="section-card" id="admin-export-center">
             <div class="section-top">
               <div><p class="label">Export center</p><h2>Manual export workbench</h2></div>
@@ -6434,6 +6472,7 @@
                   <label><input type="checkbox" data-export-dataset="approvals" /> Asset approvals</label>
                   <label><input type="checkbox" data-export-dataset="inbox" /> Requests / feedback</label>
                   <label><input type="checkbox" data-export-dataset="comparison" /> Region / country comparison</label>
+                  <label><input type="checkbox" data-export-dataset="campaignResults" checked /> Campaign result reports</label>
                   <label><input type="checkbox" data-export-dataset="crm" /> CRM follow-up list</label>
                   <label><input type="checkbox" data-export-dataset="content" /> Added content library</label>
                   <label><input type="checkbox" data-export-dataset="notifications" /> Notification log</label>
@@ -6457,6 +6496,7 @@
               <button class="primary-button" type="button" id="export-approvals">Export asset approvals</button>
               <button class="primary-button" type="button" id="export-inbox">Export requests / feedback</button>
               <button class="primary-button" type="button" id="export-comparison">Export comparison</button>
+              <button class="primary-button" type="button" id="export-campaign-results">Export campaign results</button>
               <button class="primary-button" type="button" id="export-crm">Export CRM follow-up list</button>
             </div>
           </article>
@@ -6683,6 +6723,82 @@
             <div class="modal-actions" id="modal-actions"></div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="modal" id="results-modal" aria-hidden="true">
+      <div class="modal-card results-modal-card" role="dialog" aria-modal="true" aria-labelledby="results-modal-title">
+        <div class="modal-head">
+          <div>
+            <p class="label">Campaign results report</p>
+            <h2 id="results-modal-title" style="margin: 0">Report campaign results</h2>
+            <p id="results-modal-note" style="margin: 10px 0 0; color: #666">Use this after publishing or sharing a campaign concept so Yanmar can track activation effect.</p>
+          </div>
+          <button class="modal-close" id="results-modal-close" type="button" aria-label="Close">×</button>
+        </div>
+        <form class="request-form" id="campaign-results-form">
+          <div class="form-grid">
+            <div class="field">
+              <label for="results-distributor">Distributor</label>
+              <select id="results-distributor"></select>
+            </div>
+            <div class="field">
+              <label for="results-campaign">Campaign / asset used</label>
+              <input id="results-campaign" readonly />
+            </div>
+            <div class="field">
+              <label for="results-product">Product focus</label>
+              <input id="results-product" readonly />
+            </div>
+            <div class="field">
+              <label for="results-channel">Channel</label>
+              <select id="results-channel">
+                <option>LinkedIn</option>
+                <option>Instagram</option>
+                <option>YouTube</option>
+                <option>TikTok</option>
+                <option>Distributor website</option>
+                <option>Email campaign</option>
+                <option>Showroom / store</option>
+                <option>Dealer network</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="results-date">Publication date</label>
+              <input id="results-date" type="date" />
+            </div>
+            <div class="field">
+              <label for="results-reach">Reach / impressions</label>
+              <input id="results-reach" type="number" min="0" placeholder="Example: 2500" />
+            </div>
+            <div class="field">
+              <label for="results-clicks">Clicks</label>
+              <input id="results-clicks" type="number" min="0" placeholder="Example: 45" />
+            </div>
+            <div class="field">
+              <label for="results-engagements">Likes / comments / shares</label>
+              <input id="results-engagements" type="number" min="0" placeholder="Example: 38" />
+            </div>
+            <div class="field">
+              <label for="results-inquiries">Inquiries / leads</label>
+              <input id="results-inquiries" type="number" min="0" placeholder="Example: 3" />
+            </div>
+            <div class="field">
+              <label for="results-quotes">Quote requests</label>
+              <input id="results-quotes" type="number" min="0" placeholder="Example: 1" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="results-link">Post link or screenshot reference</label>
+            <input id="results-link" placeholder="Paste a LinkedIn URL, campaign link or screenshot filename." />
+          </div>
+          <div class="field">
+            <label for="results-feedback">What worked / what should improve?</label>
+            <textarea id="results-feedback" placeholder="Example: Good reach with rental customers, but CTA should mention local stock availability next time."></textarea>
+          </div>
+          <button class="primary-button" type="submit">Submit results to Yanmar</button>
+          <div class="confirmation" id="campaign-results-confirmation">Campaign results submitted to Yanmar admin view.</div>
+        </form>
       </div>
     </div>
     <div class="portal-toast" id="portal-toast" aria-live="polite"></div>
@@ -7760,9 +7876,11 @@
               format,
               image,
               note: description,
+              reportable: true,
               instructions: [
                 `Recommended base channel: ${format}.`,
                 "Keep the original campaign idea visible and localize the distributor next step.",
+                "After publishing, use Report campaign results to send reach, engagement, inquiries and quote signals back to Yanmar.",
               ],
             });
           }
@@ -7868,9 +7986,14 @@
       const modalGuidelineChecklist = document.getElementById("modal-guideline-checklist");
       const modalTemplateNotice = document.getElementById("modal-template-notice");
       const modalActions = document.getElementById("modal-actions");
+      const resultsModal = document.getElementById("results-modal");
+      const resultsModalClose = document.getElementById("results-modal-close");
+      const campaignResultsForm = document.getElementById("campaign-results-form");
+      const adminCampaignResultsList = document.getElementById("admin-campaign-results-list");
       const portalToast = document.getElementById("portal-toast");
       let toastTimer = null;
       let currentModalAsset = null;
+      let currentResultsAsset = null;
       let currentAdminContentEditId = "";
 
       function showToast(message) {
@@ -8317,9 +8440,13 @@
           const adminEditAction = document.body.classList.contains("admin-mode")
             ? `<button class="header-action secondary" type="button" data-modal-action="edit-admin">Edit in Content Manager</button>`
             : "";
+          const reportResultsAction = asset.reportable && !document.body.classList.contains("admin-mode")
+            ? `<button class="header-action secondary" type="button" data-modal-action="report-results"><span class="attention-marker" title="New function">!</span> Report campaign results</button>`
+            : "";
           modalActions.innerHTML = `
             ${asset.comingSoon ? "" : `<button class="primary-button" type="button" data-modal-action="used">Mark as used</button>`}
             ${asset.image ? `<a class="primary-button" href="${asset.image}" download target="_blank" rel="noreferrer" data-track-download="${escapeHTML(asset.title)}" data-track-product="${escapeHTML(asset.product)}">Download visual</a>` : ""}
+            ${reportResultsAction}
             <button class="header-action secondary" type="button" data-modal-action="adapt">${asset.comingSoon ? "Request this asset" : "Request adaptation"}</button>
             ${adminEditAction}
           `;
@@ -8332,6 +8459,77 @@
       function closeAssetModal() {
         assetModal.classList.remove("show");
         assetModal.setAttribute("aria-hidden", "true");
+      }
+
+      function closeCampaignResultsModal() {
+        if (!resultsModal) return;
+        resultsModal.classList.remove("show");
+        resultsModal.setAttribute("aria-hidden", "true");
+        currentResultsAsset = null;
+      }
+
+      function setCampaignResultValue(id, value) {
+        const field = document.getElementById(id);
+        if (field) field.value = value || "";
+      }
+
+      function openCampaignResultsModal(asset) {
+        if (!resultsModal || !campaignResultsForm) return;
+        currentResultsAsset = asset;
+        closeAssetModal();
+        const selectedDistributor = distributorSelect ? distributorSelect.value : "Yanmar Europe Distributor";
+        const distributorField = document.getElementById("results-distributor");
+        if (distributorField) distributorField.innerHTML = distributorOptionHTML(selectedDistributor);
+        if (distributorField) distributorField.value = selectedDistributor;
+        const title = document.getElementById("results-modal-title");
+        const note = document.getElementById("results-modal-note");
+        if (title) title.textContent = `Report results: ${asset.title}`;
+        if (note) note.textContent = "Use this after publishing or sharing this campaign concept. The report becomes visible in Yanmar Admin View for follow-up and KPI tracking.";
+        setCampaignResultValue("results-campaign", asset.title);
+        setCampaignResultValue("results-product", asset.product);
+        setCampaignResultValue("results-channel", channelForCalendar(asset.format));
+        setCampaignResultValue("results-date", new Date().toISOString().slice(0, 10));
+        ["results-reach", "results-clicks", "results-engagements", "results-inquiries", "results-quotes", "results-link", "results-feedback"].forEach((id) => setCampaignResultValue(id, ""));
+        const confirmation = document.getElementById("campaign-results-confirmation");
+        if (confirmation) confirmation.classList.remove("show");
+        resultsModal.classList.add("show");
+        resultsModal.setAttribute("aria-hidden", "false");
+      }
+
+      function saveCampaignResultsReport() {
+        const distributor = getValue("results-distributor") || (distributorSelect ? distributorSelect.value : "Yanmar Europe Distributor");
+        const report = {
+          id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+          createdAt: new Date().toLocaleString(),
+          timestamp: Date.now(),
+          distributor,
+          region: normalizeRegion(distributor),
+          country: normalizeCountry(distributor),
+          campaign: getValue("results-campaign") || currentResultsAsset?.title || "Campaign concept",
+          product: getValue("results-product") || currentResultsAsset?.product || "Campaign",
+          channel: getValue("results-channel") || "All channels",
+          date: getValue("results-date"),
+          reach: Number(getValue("results-reach")) || 0,
+          clicks: Number(getValue("results-clicks")) || 0,
+          engagements: Number(getValue("results-engagements")) || 0,
+          inquiries: Number(getValue("results-inquiries")) || 0,
+          quoteRequests: Number(getValue("results-quotes")) || 0,
+          link: getValue("results-link"),
+          feedback: getValue("results-feedback"),
+          adminDecision: "Needs review",
+          adminNote: "",
+        };
+        const items = loadCampaignResults();
+        items.unshift(report);
+        saveCampaignResults(items.slice(0, 200));
+        addUsageEvent("Submitted campaign results", report.campaign, report.product);
+        renderCampaignResultsReview();
+        renderCampaignAnalytics();
+        renderUsageAnalytics();
+        updateNavigationBadges();
+        const confirmation = document.getElementById("campaign-results-confirmation");
+        if (confirmation) confirmation.classList.add("show");
+        showToast("Campaign results submitted to Yanmar Admin View.");
       }
 
       function channelForCalendar(channelText) {
@@ -8600,6 +8798,7 @@
       const exportApprovals = document.getElementById("export-approvals");
       const exportInbox = document.getElementById("export-inbox");
       const exportComparison = document.getElementById("export-comparison");
+      const exportCampaignResults = document.getElementById("export-campaign-results");
       const exportCrm = document.getElementById("export-crm");
       const exportScopeRegion = document.getElementById("export-scope-region");
       const exportScopeCountry = document.getElementById("export-scope-country");
@@ -8630,6 +8829,7 @@
       const contributionKey = "yanmarDistributorPortalContributions";
       const calendarKey = "yanmarDistributorPortalCalendar";
       const usageKey = "yanmarDistributorPortalUsage";
+      const campaignResultsKey = "yanmarDistributorPortalCampaignResults";
       const distributorKey = "yanmarDistributorPortalDistributors";
       const deletedDistributorKey = "yanmarDistributorPortalDeletedDistributors";
       const manualProgressKey = "yanmarDistributorPortalManualProgress";
@@ -9328,6 +9528,7 @@
         "Abdullah Hashim Co.Ltd (Jeddah) - Head Office": "Makkah Province",
         "Abdullah Hashim Co.Ltd (Riyadh) - Branch office": "Riyadh Province",
         "Abdullah Hashim Company Ltd (Buraidah)": "Al-Qassim Province",
+        "Oriental Trading Co. WLL": "Doha",
       };
       const verifiedDealer = (name, region, country, language, status = "Onboarding", products = compactPowerProducts, role = "Compact Power Products dealer", note = compactPowerDealerNote) => ({
         name,
@@ -9470,6 +9671,7 @@
         verifiedDealer("I.B.S.", "Africa", "Namibia", "English / Afrikaans", "Active", compactPowerProducts, "Compact Power Products dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=80&country=na."),
         verifiedDealer("Limousin Marine Sarl", "Oceania", "New Caledonia", "French / English", "Active", compactPowerProducts, "Compact Power Products dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=80&country=nc."),
         verifiedDealer("AL-SULTAN & KHALAF TRADING CO. SKT", "Middle East", "Kuwait", "Arabic / English", "Active", compactPowerProducts, "Compact Power Products dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=80&country=kw."),
+        verifiedDealer("Oriental Trading Co. WLL", "Middle East", "Qatar", "Arabic / English", "Active", compactPowerProducts, "Compact Power Products dealer", "Dealer locator record: https://www.yanmar.com/eu/dealerlocator/qa/212538/."),
         verifiedDealer("Al Saleh Technical Supply LLC", "Middle East", "Oman", "Arabic / English", "Active", compactPowerProducts, "Compact Power Products dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=80&country=om."),
         verifiedDealer("Oman Marketing and Services Company LLC", "Middle East", "Oman", "Arabic / English", "Active", compactPowerProducts, "Compact Power Products dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=80&country=om."),
         verifiedDealer("Al-Futtaim Auto & Machinery Co. Branch Office", "Middle East", "United Arab Emirates", "Arabic / English", "Active", compactPowerProducts, "Compact Power Products dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=80&country=ae."),
@@ -9859,10 +10061,12 @@
 
       function tagStatusClass(status) {
         const value = String(status || "").toLowerCase();
+        if (value.includes("not successful")) return "changes";
+        if (value.includes("successful") || value.includes("best-practice")) return "approved";
         if (value.includes("approved") || value.includes("completed")) return "approved";
         if (value.includes("new submission") || value === "new") return "new";
         if (value.includes("coming soon")) return "new";
-        if (value.includes("review") || value.includes("waiting")) return "review";
+        if (value.includes("review") || value.includes("waiting") || value.includes("follow-up") || value.includes("not enough")) return "review";
         if (value.includes("changes") || value.includes("progress")) return "changes";
         if (value.includes("archived") || value.includes("nothing")) return "archived";
         return "";
@@ -9890,6 +10094,18 @@
 
       function saveUsage(items) {
         localStorage.setItem(usageKey, JSON.stringify(items));
+      }
+
+      function loadCampaignResults() {
+        try {
+          return JSON.parse(localStorage.getItem(campaignResultsKey) || "[]");
+        } catch {
+          return [];
+        }
+      }
+
+      function saveCampaignResults(items) {
+        localStorage.setItem(campaignResultsKey, JSON.stringify(items));
       }
 
       function inferRegion(distributor) {
@@ -10660,6 +10876,34 @@
           if (modalAction.dataset.modalAction === "edit-admin") {
             editModalAssetInContentManager();
           }
+          if (modalAction.dataset.modalAction === "report-results") {
+            openCampaignResultsModal(currentModalAsset);
+          }
+          return;
+        }
+
+        const campaignResultSave = event.target.closest("[data-campaign-result-save]");
+        if (campaignResultSave) {
+          const id = campaignResultSave.dataset.campaignResultSave;
+          const decision = document.querySelector(`[data-campaign-result-decision="${CSS.escape(id)}"]`);
+          const note = document.querySelector(`[data-campaign-result-note="${CSS.escape(id)}"]`);
+          const custom = document.querySelector(`[data-campaign-result-custom="${CSS.escape(id)}"]`);
+          const items = loadCampaignResults().map((item) =>
+            item.id === id
+              ? {
+                  ...item,
+                  adminDecision: decision ? decision.value : item.adminDecision,
+                  adminCustomOutcome: custom ? custom.value.trim() : item.adminCustomOutcome,
+                  adminNote: note ? note.value.trim() : item.adminNote,
+                  reviewedAt: new Date().toLocaleString(),
+                }
+              : item,
+          );
+          saveCampaignResults(items);
+          renderCampaignResultsReview();
+          renderCampaignAnalytics();
+          updateNavigationBadges();
+          showToast("Campaign result review saved.");
           return;
         }
 
@@ -10923,6 +11167,7 @@
         renderComparisonResults();
         renderNotificationCenter();
         renderCampaignAnalytics();
+        renderCampaignResultsReview();
         renderDistributorTodayDashboard();
         updateNavigationBadges();
       }
@@ -10993,7 +11238,19 @@
             body: `Check activation needs for ${distributor.country || region}.`,
             tag: distributor.status,
           }));
-        return [...inbox, ...contributions, ...lowActivity].slice(0, 9);
+        const campaignResults = loadCampaignResults()
+          .map((item) => ({ ...item, region: normalizeRegion(item.distributor, item.region), country: normalizeCountry(item.distributor, item.country) }))
+          .filter((item) => matchesAdminScope(item.distributor, item.region, item.country))
+          .filter((item) => !["Successful", "Archived"].includes(item.adminDecision))
+          .slice(0, 4)
+          .map((item) => ({
+            id: `campaign-result-${item.id}`,
+            type: "Campaign result",
+            title: item.campaign,
+            body: `${item.distributor} reported ${Number(item.reach || 0).toLocaleString()} reach, ${Number(item.engagements || 0).toLocaleString()} engagements and ${Number(item.inquiries || 0) + Number(item.quoteRequests || 0)} commercial signal(s).`,
+            tag: item.adminDecision === "Other" && item.adminCustomOutcome ? item.adminCustomOutcome : item.adminDecision || "Needs review",
+          }));
+        return [...inbox, ...contributions, ...campaignResults, ...lowActivity].slice(0, 9);
       }
 
       function renderNotificationCenter() {
@@ -11246,15 +11503,24 @@
           .map((item) => ({ ...item, region: normalizeRegion(item.distributor, item.region), country: normalizeCountry(item.distributor, item.country) }))
           .filter((item) => matchesAdminScope(item.distributor, item.region, item.country))
           .filter((item) => campaignProductMatches(item, focus));
+        const reportedResults = loadCampaignResults()
+          .map((item) => ({ ...item, region: normalizeRegion(item.distributor, item.region), country: normalizeCountry(item.distributor, item.country) }))
+          .filter((item) => matchesAdminScope(item.distributor, item.region, item.country))
+          .filter((item) => campaignResultMatchesFocus(item, focus));
         const calendarItems = Object.values(calendarData()).filter((item) => campaignProductMatches(item, focus));
         const activeDistributors = new Set(usage.map((item) => item.distributor)).size;
         const downloads = usage.filter((item) => item.action.includes("Download") || item.action.includes("Opened link")).length;
         const assetsOpened = usage.filter((item) => item.action.includes("Opened asset")).length;
+        const reportedReach = reportedResults.reduce((sum, item) => sum + (Number(item.reach) || 0), 0);
+        const reportedLeads = reportedResults.reduce((sum, item) => sum + (Number(item.inquiries) || 0) + (Number(item.quoteRequests) || 0), 0);
         const planned = calendarItems.length;
         const rows = [
           ["Portal actions", usage.length, "All tracked actions for selected campaign focus."],
           ["Active distributors", activeDistributors, "Distributors with at least one tracked action."],
           ["Asset downloads", downloads, "Product images, PDF links and brochure assets."],
+          ["Reported results", reportedResults.length, "Distributor-submitted campaign result forms."],
+          ["Reported reach", reportedReach.toLocaleString(), "Self-reported reach or impressions from campaign activity."],
+          ["Commercial signals", reportedLeads, "Reported inquiries and quote requests after campaign use."],
           ["Planned calendar items", planned, "Weeks reserved in the content calendar."],
         ];
         campaignAnalyticsPanel.innerHTML = `
@@ -11276,6 +11542,91 @@
             </tbody>
           </table>
         `;
+      }
+
+      function campaignResultMatchesFocus(report, focus) {
+        if (!focus || focus === "All campaigns") return true;
+        const text = `${report.product || ""} ${report.campaign || ""} ${report.channel || ""}`.toLowerCase();
+        if (focus.startsWith("YDG")) return text.includes("ydg");
+        if (focus.startsWith("YDP")) return text.includes("ydp");
+        if (focus.startsWith("L-Series")) return text.includes("l-series") || text.includes("lseries") || text.includes("engine");
+        return true;
+      }
+
+      function renderCampaignResultsReview() {
+        if (!adminCampaignResultsList) return;
+        const focus = campaignAnalyticsFilter ? campaignAnalyticsFilter.value : "All campaigns";
+        const reports = loadCampaignResults()
+          .map((item) => ({
+            ...item,
+            region: normalizeRegion(item.distributor, item.region),
+            country: normalizeCountry(item.distributor, item.country),
+          }))
+          .filter((item) => matchesAdminScope(item.distributor, item.region, item.country))
+          .filter((item) => campaignResultMatchesFocus(item, focus));
+        const reach = reports.reduce((sum, item) => sum + (Number(item.reach) || 0), 0);
+        const clicks = reports.reduce((sum, item) => sum + (Number(item.clicks) || 0), 0);
+        const engagements = reports.reduce((sum, item) => sum + (Number(item.engagements) || 0), 0);
+        const leads = reports.reduce((sum, item) => sum + (Number(item.inquiries) || 0) + (Number(item.quoteRequests) || 0), 0);
+        const engagementRate = reach ? ((engagements / reach) * 100).toFixed(1) : "0.0";
+        const openFollowUp = reports.filter((item) => !["Successful", "Archived"].includes(item.adminDecision)).length;
+
+        adminCampaignResultsList.innerHTML = reports.length
+          ? `
+            <div class="analytics-grid">
+              ${[
+                ["Submitted reports", reports.length, "Campaign-result forms submitted by distributors."],
+                ["Reported reach", reach.toLocaleString(), "Self-reported impressions or reach from published activity."],
+                ["Engagement rate", `${engagementRate}%`, "Engagements divided by reported reach."],
+                ["Commercial signals", leads, "Reported inquiries and quote requests."],
+                ["Open follow-up", openFollowUp, "Items not yet marked successful or archived by Yanmar."],
+              ].map(([label, value, note]) => `
+                <article class="fact-card">
+                  <p class="small-red">${escapeHTML(label)}</p>
+                  <p class="fact-value">${escapeHTML(value)}</p>
+                  <p>${escapeHTML(note)}</p>
+                </article>
+              `).join("")}
+            </div>
+            ${reports.map((report) => `
+              <article class="admin-item">
+                <div class="admin-item-head">
+                  <div>
+                    <p class="small-red">${escapeHTML(report.product)} · ${escapeHTML(report.channel || "All channels")}</p>
+                    <h3>${escapeHTML(report.campaign)}</h3>
+                    <p style="margin:4px 0 0; color:#666">${escapeHTML(report.distributor)} · ${escapeHTML(report.country || "-")} · ${escapeHTML(report.region || "-")} · ${escapeHTML(report.date || report.createdAt)}</p>
+                  </div>
+                  <select class="admin-status ${tagStatusClass(report.adminDecision)}" data-campaign-result-decision="${escapeHTML(report.id)}">
+                    ${["Needs review", "Successful", "Use as best-practice example", "Needs follow-up", "Not enough data", "Not successful", "Other", "Archived"].map((status) => `<option ${report.adminDecision === status ? "selected" : ""}>${status}</option>`).join("")}
+                  </select>
+                </div>
+                <div class="analytics-grid compact-analytics">
+                  ${[
+                    ["Reach", Number(report.reach || 0).toLocaleString()],
+                    ["Clicks", Number(report.clicks || 0).toLocaleString()],
+                    ["Engagements", Number(report.engagements || 0).toLocaleString()],
+                    ["Inquiries", Number(report.inquiries || 0).toLocaleString()],
+                    ["Quote requests", Number(report.quoteRequests || 0).toLocaleString()],
+                  ].map(([label, value]) => detail(label, value)).join("")}
+                </div>
+                ${report.link ? `<p style="margin:12px 0 0"><a href="${escapeHTML(report.link)}" target="_blank" rel="noreferrer">Open published post / campaign link</a></p>` : ""}
+                ${report.feedback ? `<div class="detail" style="margin-top: 12px"><div class="detail-label">Distributor notes</div><p>${escapeHTML(report.feedback)}</p></div>` : ""}
+                <div class="field" style="margin-top: 12px">
+                  <label for="campaign-result-note-${escapeHTML(report.id)}">Internal Yanmar note</label>
+                  <textarea id="campaign-result-note-${escapeHTML(report.id)}" data-campaign-result-note="${escapeHTML(report.id)}" placeholder="Example: good LinkedIn reach, follow up with brochure and quote support.">${escapeHTML(report.adminNote || "")}</textarea>
+                </div>
+                <div class="field" style="margin-top: 12px">
+                  <label for="campaign-result-custom-${escapeHTML(report.id)}">Custom review label</label>
+                  <input id="campaign-result-custom-${escapeHTML(report.id)}" data-campaign-result-custom="${escapeHTML(report.id)}" value="${escapeHTML(report.adminCustomOutcome || "")}" placeholder="Optional: add custom status if Other is selected" />
+                </div>
+                <div class="asset-action-row">
+                  <button class="mini-button" type="button" data-campaign-result-save="${escapeHTML(report.id)}">Save review status</button>
+                  <span class="tag ${tagStatusClass(report.adminDecision)}">${escapeHTML(report.adminDecision === "Other" && report.adminCustomOutcome ? report.adminCustomOutcome : report.adminDecision || "Needs review")}</span>
+                </div>
+              </article>
+            `).join("")}
+          `
+          : `<div class="admin-empty">No distributor-reported campaign results yet for the selected scope. Distributors can report results from Campaign Visuals after they use a campaign concept.</div>`;
       }
 
       function renderVersionHistory() {
@@ -11301,6 +11652,7 @@
         renderNotificationCenter();
         renderApprovalWorkflow();
         renderCampaignAnalytics();
+        renderCampaignResultsReview();
         renderVersionHistory();
       }
 
@@ -11503,6 +11855,39 @@
         showToast("Comparison exported.");
       }
 
+      function exportCampaignResultsCSV() {
+        const rows = [["Distributor", "Region", "Country", "Campaign", "Product", "Channel", "Publish date", "Reach", "Clicks", "Engagements", "Inquiries", "Quote requests", "Published link", "Distributor feedback", "Admin decision", "Custom review label", "Internal note", "Submitted", "Reviewed"]];
+        loadCampaignResults()
+          .map((item) => ({ ...item, region: normalizeRegion(item.distributor, item.region), country: normalizeCountry(item.distributor, item.country) }))
+          .filter((item) => matchesAdminScope(item.distributor, item.region, item.country))
+          .forEach((item) => {
+            rows.push([
+              item.distributor,
+              item.region,
+              item.country,
+              item.campaign,
+              item.product,
+              item.channel,
+              item.date,
+              item.reach,
+              item.clicks,
+              item.engagements,
+              item.inquiries,
+              item.quoteRequests,
+              item.link,
+              item.feedback,
+              item.adminDecision,
+              item.adminCustomOutcome || "",
+              item.adminNote,
+              item.createdAt,
+              item.reviewedAt || "",
+            ]);
+          });
+        downloadCSV("yanmar-campaign-result-reports.csv", rows);
+        addUsageEvent("Exported admin CSV", "Campaign result reports", "Admin");
+        showToast("Campaign result reports exported.");
+      }
+
       function exportContentLibraryCSV() {
         const rows = [["Title", "Type", "Product", "Owner", "Status", "Version", "Review date", "Created"]];
         loadAdminContent().forEach((item) => {
@@ -11540,6 +11925,7 @@
         approvals: { label: "Asset approvals", run: exportApprovalCSV },
         inbox: { label: "Requests / feedback", run: exportInboxCSV },
         comparison: { label: "Region / country comparison", run: exportComparisonCSV },
+        campaignResults: { label: "Campaign result reports", run: exportCampaignResultsCSV },
         crm: { label: "CRM follow-up list", run: exportCrmCSV },
         content: { label: "Added content library", run: exportContentLibraryCSV },
         notifications: { label: "Notification log", run: exportNotificationCSV },
@@ -11601,6 +11987,7 @@
         const inbox = loadInbox().filter((item) => matchesExportScope(item.fields.Distributor, item.region || item.fields.Region, item.country || item.fields.Country));
         const contributions = loadContributions().filter((item) => matchesExportScope(item.distributor, item.region, item.country));
         const calendarItems = Object.values(calendarData()).filter((item) => matchesExportScope(item.distributor, item.region, item.country));
+        const campaignResults = loadCampaignResults().filter((item) => matchesExportScope(item.distributor, item.region, item.country));
         exportPreview.innerHTML = `
           <p class="label">Export preview</p>
           <h3>${selected.length ? `${selected.length} dataset${selected.length === 1 ? "" : "s"} selected` : "No datasets selected"}</h3>
@@ -11611,6 +11998,7 @@
             <li>${usage.length} tracked portal actions</li>
             <li>${calendarItems.length} calendar records</li>
             <li>${contributions.length} submitted or approved assets</li>
+            <li>${campaignResults.length} campaign result reports</li>
             <li>${inbox.length} request / feedback records</li>
           </ul>
           <p style="margin-top:10px"><strong>Selected:</strong> ${selected.length ? selected.map((key) => escapeHTML(exportDatasetConfig[key]?.label || key)).join(", ") : "Choose at least one dataset."}</p>
@@ -11648,7 +12036,7 @@
       }
 
       function selectCoreExportPackage() {
-        const core = new Set(["distributors", "usage", "kpis", "calendar", "crm"]);
+        const core = new Set(["distributors", "usage", "kpis", "calendar", "campaignResults", "crm"]);
         document.querySelectorAll("[data-export-dataset]").forEach((input) => {
           input.checked = core.has(input.dataset.exportDataset);
         });
@@ -12585,6 +12973,9 @@
         const scopedUsage = usageItems
           .map((item) => ({ ...item, region: normalizeRegion(item.distributor, item.region), country: normalizeCountry(item.distributor, item.country) }))
           .filter((item) => matchesAdminScope(item.distributor, item.region, item.country));
+        const scopedCampaignResults = loadCampaignResults()
+          .map((item) => ({ ...item, region: normalizeRegion(item.distributor, item.region), country: normalizeCountry(item.distributor, item.country) }))
+          .filter((item) => matchesAdminScope(item.distributor, item.region, item.country));
         const needsFollowUp = visibleDistributors()
           .map((distributor) => distributorHealth(distributor, usageItems, inboxItems))
           .filter((item) => item.status === "Needs follow-up").length;
@@ -12594,6 +12985,8 @@
           .filter((item) => now - Number(item.timestamp || 0) < 1000 * 60 * 60 * 24).length;
         const pendingApprovalCount = scopedContributions
           .filter((item) => !["Approved for sharing", "Archived"].includes(item.status)).length;
+        const campaignResultReviewCount = scopedCampaignResults
+          .filter((item) => !["Successful", "Archived"].includes(item.adminDecision)).length;
         const adminContentReadyCount = adminContentItems.filter((item) => item.status === "Ready for distributor use").length;
         const adminContentReviewCount = adminContentItems.filter((item) => item.status === "Needs approval").length;
 
@@ -12602,7 +12995,8 @@
         setNavBadge("admin-nav-distributor-count", distributorNotifications);
         setNavBadge("admin-nav-status-count", needsFollowUp);
         setNavBadge("admin-nav-usage-count", recentActivityNotifications);
-        setNavBadge("admin-nav-notification-count", scopedInbox.filter((item) => item.status !== "Completed").length + pendingApprovalCount + adminContentReviewCount);
+        setNavBadge("admin-nav-notification-count", scopedInbox.filter((item) => item.status !== "Completed").length + pendingApprovalCount + adminContentReviewCount + campaignResultReviewCount);
+        setNavBadge("admin-nav-results-count", campaignResultReviewCount);
         setNavBadge("admin-nav-approval-count", pendingApprovalCount);
         setNavBadge("admin-nav-contribution-count", pendingApprovalCount);
         setNavBadge("admin-nav-content-count", adminContentReadyCount + adminContentReviewCount);
@@ -13015,6 +13409,7 @@
       if (comparisonCountryOptions) comparisonCountryOptions.addEventListener("change", renderComparisonResults);
       if (adminDistributorSearch) adminDistributorSearch.addEventListener("input", renderDistributorDirectory);
       if (campaignAnalyticsFilter) campaignAnalyticsFilter.addEventListener("change", renderCampaignAnalytics);
+      if (campaignAnalyticsFilter) campaignAnalyticsFilter.addEventListener("change", renderCampaignResultsReview);
       if (runDemoScenarioButton) runDemoScenarioButton.addEventListener("click", () => runTechbudDemoStep("all"));
       if (openDemoAdminRouteButton) openDemoAdminRouteButton.addEventListener("click", () => runTechbudDemoStep("progress"));
       if (exportDistributors) exportDistributors.addEventListener("click", exportDistributorCSV);
@@ -13025,6 +13420,7 @@
       if (exportApprovals) exportApprovals.addEventListener("click", exportApprovalCSV);
       if (exportInbox) exportInbox.addEventListener("click", exportInboxCSV);
       if (exportComparison) exportComparison.addEventListener("click", exportComparisonCSV);
+      if (exportCampaignResults) exportCampaignResults.addEventListener("click", exportCampaignResultsCSV);
       if (exportCrm) exportCrm.addEventListener("click", exportCrmCSV);
       if (exportSelectedPackage) exportSelectedPackage.addEventListener("click", exportSelectedPackageCSV);
       if (exportRefreshPreview) exportRefreshPreview.addEventListener("click", renderExportPreview);
@@ -13104,6 +13500,19 @@
         adminCalendarForm.addEventListener("submit", (event) => {
           event.preventDefault();
           saveAdminCalendarWeek();
+        });
+      }
+
+      if (resultsModalClose) resultsModalClose.addEventListener("click", closeCampaignResultsModal);
+      if (resultsModal) {
+        resultsModal.addEventListener("click", (event) => {
+          if (event.target === resultsModal) closeCampaignResultsModal();
+        });
+      }
+      if (campaignResultsForm) {
+        campaignResultsForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          saveCampaignResultsReport();
         });
       }
 
@@ -13306,6 +13715,7 @@
         saveInbox([]);
         saveAdminContent([]);
         saveUsage([]);
+        saveCampaignResults([]);
         saveContributions([]);
         saveCalendar({});
         saveReadNotifications([]);
