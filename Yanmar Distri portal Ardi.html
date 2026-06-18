@@ -50,9 +50,10 @@
       }
 
       .topbar-inner {
-        display: flex;
+        display: grid;
+        grid-template-columns: minmax(460px, auto) minmax(420px, 1fr);
         align-items: center;
-        justify-content: space-between;
+        gap: 22px;
         max-width: 1280px;
         margin: 0 auto;
         padding: 16px 22px;
@@ -61,7 +62,7 @@
       .brand {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 18px;
         min-width: 0;
         max-width: 100%;
         border: 0;
@@ -71,9 +72,10 @@
       }
 
       .yanmar-logo {
-        width: 220px;
-        max-width: 46vw;
+        width: 310px;
+        max-width: 30vw;
         height: auto;
+        flex: 0 0 auto;
         display: block;
       }
 
@@ -91,7 +93,8 @@
         align-items: center;
         gap: 10px;
         min-width: 0;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        white-space: nowrap;
       }
 
       .brand-title-main {
@@ -113,15 +116,18 @@
       }
 
       .version-badge {
-        border: 1px solid rgba(180, 126, 16, 0.35);
+        border: 1px solid rgba(126, 82, 0, 0.62);
         border-radius: 999px;
-        background: #fff8e1;
-        color: #9a6400;
-        font-size: 11px;
+        background: linear-gradient(135deg, #fff4c2 0%, #e5ad2b 52%, #8a5800 100%);
+        color: #231400;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.72),
+          0 8px 18px rgba(126, 82, 0, 0.2);
+        font-size: 12px;
         font-weight: 950;
         letter-spacing: 0.12em;
         line-height: 1;
-        padding: 6px 9px;
+        padding: 7px 12px;
         text-transform: uppercase;
       }
 
@@ -149,6 +155,19 @@
         justify-content: flex-end;
         gap: 10px;
         flex-wrap: wrap;
+        min-width: 0;
+        flex: 1 1 560px;
+      }
+
+      .distributor-context-control {
+        flex: 1 1 520px;
+        min-width: min(100%, 520px);
+      }
+
+      .distributor-context-control input,
+      .distributor-context-control select {
+        width: 100%;
+        min-width: 0;
       }
 
       body.admin-mode .distributor-context-control {
@@ -1360,6 +1379,46 @@
         gap: 12px;
       }
 
+      .scroll-panel {
+        max-height: 420px;
+        overflow: auto;
+        padding-right: 4px;
+      }
+
+      .compact-scroll {
+        max-height: 260px;
+        margin-top: 12px;
+      }
+
+      .admin-list.scroll-panel {
+        max-height: 520px;
+      }
+
+      #admin-distributor-activity.scroll-panel,
+      #admin-usage-detail.scroll-panel,
+      #admin-activity-feed.scroll-panel {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 10px;
+        background: var(--panel-soft);
+      }
+
+      #admin-distributor-activity .activity-table {
+        min-width: 820px;
+        table-layout: auto;
+      }
+
+      #admin-distributor-activity .activity-table th:first-child,
+      #admin-distributor-activity .activity-table td:first-child {
+        min-width: 240px;
+        overflow-wrap: normal;
+        word-break: normal;
+      }
+
+      .compact-form {
+        padding: 14px 0 0;
+      }
+
       .compact-directory {
         max-height: 520px;
         overflow: auto;
@@ -1755,13 +1814,29 @@
       }
 
       .comparison-selector .checkbox-grid {
-        max-height: 170px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        max-height: 148px;
         overflow: auto;
         padding-right: 4px;
       }
 
       .comparison-chip {
-        padding: 7px 9px;
+        justify-content: flex-start;
+        min-height: 44px;
+        border-radius: 10px;
+        font-size: 12px;
+        line-height: 1.2;
+        padding: 8px 10px;
+      }
+
+      .comparison-chip span {
+        overflow: visible;
+        text-overflow: clip;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        line-height: 1.15;
+        letter-spacing: 0;
       }
 
       .comparison-summary {
@@ -1787,6 +1862,48 @@
         position: sticky;
         top: 0;
         z-index: 1;
+      }
+
+      #admin-version-control,
+      .nav-button[data-admin-target="admin-version-control"] {
+        display: none !important;
+      }
+
+      .notification-item {
+        cursor: pointer;
+      }
+
+      .notification-item:hover {
+        border-color: rgba(230, 0, 18, 0.35);
+        box-shadow: 0 14px 34px rgba(17, 24, 39, 0.08);
+      }
+
+      .target-meter {
+        display: grid;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .target-line {
+        display: grid;
+        grid-template-columns: 130px 1fr auto;
+        gap: 10px;
+        align-items: center;
+        font-size: 0.86rem;
+      }
+
+      .target-bar {
+        height: 8px;
+        border-radius: 999px;
+        background: var(--line);
+        overflow: hidden;
+      }
+
+      .target-bar span {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: var(--red);
       }
 
       .directory-toolbar {
@@ -2671,6 +2788,44 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
+      }
+
+      .template-editor-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 340px;
+        gap: 18px;
+      }
+
+      .template-canvas-wrap {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #f7f8fa;
+        padding: 12px;
+      }
+
+      #template-canvas {
+        display: block;
+        width: 100%;
+        max-height: 72vh;
+        object-fit: contain;
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .template-editor-panel {
+        display: grid;
+        gap: 12px;
+        align-content: start;
+      }
+
+      .template-editor-panel textarea {
+        min-height: 88px;
+      }
+
+      @media (max-width: 980px) {
+        .template-editor-layout {
+          grid-template-columns: 1fr;
+        }
       }
 
       .brochure-list {
@@ -3834,6 +3989,23 @@
       }
 
       @media (max-width: 1080px) {
+        .topbar-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .brand {
+          width: 100%;
+        }
+
+        .yanmar-logo {
+          max-width: 320px;
+        }
+
+        .header-tools {
+          width: 100%;
+          justify-content: flex-start;
+        }
+
         body.admin-mode main,
         body.admin-mode .layout,
         .layout,
@@ -3890,16 +4062,23 @@
 
       @media (max-width: 720px) {
         .topbar-inner {
+          grid-template-columns: 1fr;
           align-items: flex-start;
-          flex-direction: column;
         }
 
         .brand {
           width: 100%;
+          gap: 12px;
+          flex-wrap: wrap;
         }
 
         .yanmar-logo {
-          max-width: 42vw;
+          width: 220px;
+          max-width: 78vw;
+        }
+
+        .brand-label {
+          flex-wrap: wrap;
         }
 
         .brand-title-main,
@@ -4018,9 +4197,9 @@
     </style>
   </head>
   <body>
-    <header class="topbar">
+    <header class="topbar notranslate" translate="no">
       <div class="topbar-inner">
-        <div class="brand" aria-label="Yanmar Distributor Portal Demo">
+        <div class="brand notranslate" translate="no" aria-label="Yanmar Distributor Portal Demo">
           <svg class="yanmar-logo" viewBox="0 0 2048 248" aria-label="YANMAR" role="img">
             <path d="M8 0 L253 101 L498 0 L498 60 L253 162 L8 60 Z" fill="#ef001e"></path>
             <path d="M8 91 L241 185 L241 247 L8 150 Z" fill="#ef001e"></path>
@@ -4030,7 +4209,7 @@
           <div class="brand-label">
             <span class="brand-title-main">Distributor Portal</span>
             <span class="demo-badge">Demo</span>
-            <span class="version-badge">V2.1</span>
+            <span class="version-badge">V2.5</span>
           </div>
         </div>
         <div class="header-tools">
@@ -6096,11 +6275,11 @@
               <div class="form-grid">
                 <div class="field">
                   <label for="new-distributor-name">Distributor name</label>
-                  <input id="new-distributor-name" placeholder="Example: Techbud Sp. z o.o." required />
+                  <input id="new-distributor-name" placeholder="Example: Example Distributor Ltd." required />
                 </div>
                 <div class="field">
                   <label for="new-distributor-contact">Main contact person</label>
-                  <input id="new-distributor-contact" placeholder="Example: Anna Kowalska" />
+                  <input id="new-distributor-contact" placeholder="Example: John Doe" />
                 </div>
                 <div class="field">
                   <label for="new-distributor-role">Contact role</label>
@@ -6320,11 +6499,11 @@
                   </div>
                   <button class="mini-button" type="button" id="export-usage-inline">Export usage CSV</button>
                 </div>
-                <div id="admin-distributor-activity"></div>
+                <div id="admin-distributor-activity" class="scroll-panel"></div>
               </div>
               <div>
                 <h3>Tracked activity detail</h3>
-                <div id="admin-usage-detail"></div>
+                <div id="admin-usage-detail" class="scroll-panel"></div>
               </div>
             </div>
           </article>
@@ -6415,6 +6594,57 @@
             <div class="source-note" style="margin-bottom: 16px">
               <p><strong>New function:</strong> Distributors can report campaign results after using a campaign concept. Yanmar can review the submitted stats, add an internal note and mark whether the activity was successful, needs follow-up or needs more data.</p>
             </div>
+            <details class="admin-item" open>
+              <summary class="admin-item-head">
+                <div>
+                  <p class="small-red">Assign goals</p>
+                  <h3>Set campaign targets for a distributor</h3>
+                  <p style="margin:4px 0 0; color:#666">Targets are platform-specific. Submitted distributor results are compared with these goals automatically.</p>
+                </div>
+                <span class="tag new">New workflow</span>
+              </summary>
+              <form class="request-form compact-form" id="campaign-target-form">
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="target-distributor">Distributor</label>
+                    <select id="target-distributor"></select>
+                  </div>
+                  <div class="field">
+                    <label for="target-campaign">Campaign concept</label>
+                    <select id="target-campaign"></select>
+                  </div>
+                  <div class="field">
+                    <label for="target-platform">Platform</label>
+                    <select id="target-platform">
+                      <option>LinkedIn</option>
+                      <option>Instagram</option>
+                      <option>TikTok</option>
+                      <option>YouTube</option>
+                      <option>Meta / Facebook</option>
+                      <option>Distributor website</option>
+                      <option>Email campaign</option>
+                      <option>All channels</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div class="field"><label for="target-reach">Reach / impressions target</label><input id="target-reach" type="number" min="0" placeholder="Example: 120000" /></div>
+                  <div class="field"><label for="target-views">Video views target</label><input id="target-views" type="number" min="0" placeholder="For YouTube, TikTok or Reels" /></div>
+                  <div class="field"><label for="target-likes">Likes / reactions target</label><input id="target-likes" type="number" min="0" placeholder="Example: 3000" /></div>
+                  <div class="field"><label for="target-comments">Comments target</label><input id="target-comments" type="number" min="0" placeholder="Example: 30" /></div>
+                  <div class="field"><label for="target-shares">Shares / reposts target</label><input id="target-shares" type="number" min="0" placeholder="Example: 4" /></div>
+                  <div class="field"><label for="target-clicks">Clicks target</label><input id="target-clicks" type="number" min="0" placeholder="Example: 250" /></div>
+                  <div class="field"><label for="target-leads">Inquiries / leads target</label><input id="target-leads" type="number" min="0" placeholder="Example: 8" /></div>
+                  <div class="field"><label for="target-quotes">Quote requests target</label><input id="target-quotes" type="number" min="0" placeholder="Example: 2" /></div>
+                  <div class="field"><label for="target-watchtime">Watch time minutes target</label><input id="target-watchtime" type="number" min="0" placeholder="YouTube/TikTok only" /></div>
+                </div>
+                <div class="field">
+                  <label for="target-note">Yanmar target note</label>
+                  <textarea id="target-note" placeholder="Example: Focus on professional rental buyers and use local stock availability as the CTA."></textarea>
+                </div>
+                <button class="mini-button" type="submit">Save campaign target</button>
+              </form>
+              <div class="scroll-panel compact-scroll" id="campaign-target-list"></div>
+            </details>
             <div class="admin-list" id="admin-campaign-results-list"></div>
           </article>
           <article class="section-card" id="admin-export-center">
@@ -6517,7 +6747,7 @@
               <div><p class="label">Activity logbook</p><h2>Latest distributor actions</h2></div>
               <div class="icon-box">LOG</div>
             </div>
-            <div class="admin-list" id="admin-activity-feed"></div>
+            <div class="admin-list scroll-panel" id="admin-activity-feed"></div>
           </article>
           <article class="section-card" id="admin-contribution-review">
             <div class="section-top">
@@ -6725,6 +6955,95 @@
         </div>
       </div>
     </div>
+    <div class="modal" id="template-editor-modal" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="template-editor-title">
+        <div class="modal-head">
+          <div>
+            <p class="label">Template Studio</p>
+            <h2 id="template-editor-title" style="margin: 0">Edit distributor template</h2>
+            <p style="margin: 10px 0 0; color: #666">Use this demo editor for quick local copy, contact details and distributor logo placement. Final publishing still needs local translation and Yanmar claim/brand review.</p>
+          </div>
+          <button class="modal-close" id="template-editor-close" type="button" aria-label="Close">×</button>
+        </div>
+        <div class="template-editor-layout">
+          <div class="template-canvas-wrap">
+            <canvas id="template-canvas" width="1080" height="1080"></canvas>
+          </div>
+          <div class="template-editor-panel">
+            <div class="source-note">
+              <p><strong>Recommended workflow:</strong> Canva is fastest for simple localization. Use Adobe InDesign, Photoshop or Illustrator for heavier production. Add your own local language, distributor details, logo and contact information before sharing.</p>
+            </div>
+            <div class="field">
+              <label for="template-headline">Headline</label>
+              <input id="template-headline" placeholder="Example: Reliable power for your worksite" />
+            </div>
+            <div class="field">
+              <label for="template-body">Body copy</label>
+              <textarea id="template-body" placeholder="Short local message or benefit statement."></textarea>
+            </div>
+            <div class="field">
+              <label for="template-cta">CTA</label>
+              <input id="template-cta" placeholder="Example: Contact your local distributor" />
+            </div>
+            <div class="field">
+              <label for="template-contact">Distributor contact details</label>
+              <input id="template-contact" placeholder="Website, email, phone or branch name" />
+            </div>
+            <div class="field">
+              <label for="template-logo-file">Optional distributor logo</label>
+              <input id="template-logo-file" type="file" accept="image/*" />
+            </div>
+            <div class="form-grid">
+              <div class="field">
+                <label for="template-layout">Layout</label>
+                <select id="template-layout">
+                  <option value="left">Left message panel</option>
+                  <option value="bottom">Bottom information band</option>
+                  <option value="top">Top announcement band</option>
+                  <option value="overlay">Dark image overlay</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="template-image-fit">Image fit</label>
+                <select id="template-image-fit">
+                  <option value="cover">Fill canvas</option>
+                  <option value="contain">Show full image</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="template-text-scale">Text scale</label>
+                <select id="template-text-scale">
+                  <option value="balanced">Balanced</option>
+                  <option value="compact">Compact</option>
+                  <option value="large">Large campaign text</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="template-panel-style">Panel style</label>
+                <select id="template-panel-style">
+                  <option value="white">Yanmar white panel</option>
+                  <option value="red">Yanmar red panel</option>
+                  <option value="dark">Dark panel</option>
+                  <option value="minimal">Minimal no panel</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="template-accent-color">Accent color</label>
+                <input id="template-accent-color" type="color" value="#d71920" />
+              </div>
+              <div class="field">
+                <label for="template-text-color">Text color</label>
+                <input id="template-text-color" type="color" value="#111111" />
+              </div>
+            </div>
+            <div class="asset-action-row">
+              <button class="primary-button" type="button" id="template-download">Download edited PNG</button>
+              <button class="header-action secondary" type="button" id="template-reset">Reset fields</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="modal" id="results-modal" aria-hidden="true">
       <div class="modal-card results-modal-card" role="dialog" aria-modal="true" aria-labelledby="results-modal-title">
         <div class="modal-head">
@@ -6776,8 +7095,28 @@
               <input id="results-clicks" type="number" min="0" placeholder="Example: 45" />
             </div>
             <div class="field">
-              <label for="results-engagements">Likes / comments / shares</label>
-              <input id="results-engagements" type="number" min="0" placeholder="Example: 38" />
+              <label for="results-views">Video views</label>
+              <input id="results-views" type="number" min="0" placeholder="Example: 8200" />
+            </div>
+            <div class="field">
+              <label for="results-likes">Likes / reactions</label>
+              <input id="results-likes" type="number" min="0" placeholder="Example: 300" />
+            </div>
+            <div class="field">
+              <label for="results-comments">Comments</label>
+              <input id="results-comments" type="number" min="0" placeholder="Example: 30" />
+            </div>
+            <div class="field">
+              <label for="results-shares">Shares / reposts</label>
+              <input id="results-shares" type="number" min="0" placeholder="Example: 4" />
+            </div>
+            <div class="field">
+              <label for="results-watchtime">Watch time minutes</label>
+              <input id="results-watchtime" type="number" min="0" placeholder="YouTube/TikTok/Reels only" />
+            </div>
+            <div class="field">
+              <label for="results-engagements">Total engagements</label>
+              <input id="results-engagements" type="number" min="0" placeholder="Auto or manual total" />
             </div>
             <div class="field">
               <label for="results-inquiries">Inquiries / leads</label>
@@ -7990,10 +8329,23 @@
       const resultsModalClose = document.getElementById("results-modal-close");
       const campaignResultsForm = document.getElementById("campaign-results-form");
       const adminCampaignResultsList = document.getElementById("admin-campaign-results-list");
+      const campaignTargetForm = document.getElementById("campaign-target-form");
+      const campaignTargetList = document.getElementById("campaign-target-list");
+      const targetDistributor = document.getElementById("target-distributor");
+      const targetCampaign = document.getElementById("target-campaign");
+      const targetPlatform = document.getElementById("target-platform");
+      const templateEditorModal = document.getElementById("template-editor-modal");
+      const templateEditorClose = document.getElementById("template-editor-close");
+      const templateCanvas = document.getElementById("template-canvas");
+      const templateDownload = document.getElementById("template-download");
+      const templateReset = document.getElementById("template-reset");
+      const templateLogoFile = document.getElementById("template-logo-file");
       const portalToast = document.getElementById("portal-toast");
       let toastTimer = null;
       let currentModalAsset = null;
       let currentResultsAsset = null;
+      let currentTemplateAsset = null;
+      let currentTemplateLogo = null;
       let currentAdminContentEditId = "";
 
       function showToast(message) {
@@ -8443,9 +8795,13 @@
           const reportResultsAction = asset.reportable && !document.body.classList.contains("admin-mode")
             ? `<button class="header-action secondary" type="button" data-modal-action="report-results"><span class="attention-marker" title="New function">!</span> Report campaign results</button>`
             : "";
+          const templateStudioAction = isTemplateAsset && asset.image
+            ? `<button class="header-action secondary" type="button" data-modal-action="template-studio"><span class="attention-marker" title="New function">!</span> Open Template Studio</button>`
+            : "";
           modalActions.innerHTML = `
             ${asset.comingSoon ? "" : `<button class="primary-button" type="button" data-modal-action="used">Mark as used</button>`}
             ${asset.image ? `<a class="primary-button" href="${asset.image}" download target="_blank" rel="noreferrer" data-track-download="${escapeHTML(asset.title)}" data-track-product="${escapeHTML(asset.product)}">Download visual</a>` : ""}
+            ${templateStudioAction}
             ${reportResultsAction}
             <button class="header-action secondary" type="button" data-modal-action="adapt">${asset.comingSoon ? "Request this asset" : "Request adaptation"}</button>
             ${adminEditAction}
@@ -8459,6 +8815,210 @@
       function closeAssetModal() {
         assetModal.classList.remove("show");
         assetModal.setAttribute("aria-hidden", "true");
+      }
+
+      function templateField(id) {
+        return document.getElementById(id);
+      }
+
+      function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight, maxLines = 6) {
+        const words = String(text || "").split(/\s+/).filter(Boolean);
+        let line = "";
+        let lines = 0;
+        words.forEach((word) => {
+          const test = line ? `${line} ${word}` : word;
+          if (ctx.measureText(test).width > maxWidth && line) {
+            if (lines < maxLines) {
+              ctx.fillText(line, x, y);
+              y += lineHeight;
+              lines += 1;
+            }
+            line = word;
+          } else {
+            line = test;
+          }
+        });
+        if (line && lines < maxLines) ctx.fillText(line, x, y);
+        return y + lineHeight;
+      }
+
+      let templateDrawPromise = Promise.resolve();
+
+      function templateSetting(id, fallback = "") {
+        return templateField(id)?.value || fallback;
+      }
+
+      function roundedRect(ctx, x, y, width, height, radius) {
+        const safeRadius = Math.min(radius, width / 2, height / 2);
+        if (ctx.roundRect) {
+          ctx.roundRect(x, y, width, height, safeRadius);
+          return;
+        }
+        ctx.moveTo(x + safeRadius, y);
+        ctx.lineTo(x + width - safeRadius, y);
+        ctx.quadraticCurveTo(x + width, y, x + width, y + safeRadius);
+        ctx.lineTo(x + width, y + height - safeRadius);
+        ctx.quadraticCurveTo(x + width, y + height, x + width - safeRadius, y + height);
+        ctx.lineTo(x + safeRadius, y + height);
+        ctx.quadraticCurveTo(x, y + height, x, y + height - safeRadius);
+        ctx.lineTo(x, y + safeRadius);
+        ctx.quadraticCurveTo(x, y, x + safeRadius, y);
+      }
+
+      function templatePanelRect(layout) {
+        if (layout === "bottom") return { x: 56, y: 690, w: 968, h: 300 };
+        if (layout === "top") return { x: 56, y: 64, w: 968, h: 312 };
+        if (layout === "overlay") return { x: 56, y: 570, w: 968, h: 410 };
+        return { x: 56, y: 120, w: 430, h: 560 };
+      }
+
+      function drawTemplateEditor() {
+        if (!templateCanvas || !currentTemplateAsset) return Promise.resolve();
+        const ctx = templateCanvas.getContext("2d");
+        const canvasSize = 1080;
+        templateCanvas.width = canvasSize;
+        templateCanvas.height = canvasSize;
+        ctx.clearRect(0, 0, canvasSize, canvasSize);
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvasSize, canvasSize);
+        const base = new Image();
+        if (/^https?:/i.test(currentTemplateAsset.image)) base.crossOrigin = "anonymous";
+        templateDrawPromise = new Promise((resolve) => {
+          base.onload = () => {
+            const imageFit = templateSetting("template-image-fit", "cover");
+            const scale = imageFit === "contain" ? Math.min(canvasSize / base.width, canvasSize / base.height) : Math.max(canvasSize / base.width, canvasSize / base.height);
+            const width = base.width * scale;
+            const height = base.height * scale;
+            ctx.drawImage(base, (canvasSize - width) / 2, (canvasSize - height) / 2, width, height);
+
+            const layout = templateSetting("template-layout", "left");
+            const panelStyle = templateSetting("template-panel-style", "white");
+            const accent = templateSetting("template-accent-color", "#d71920");
+            const scaleChoice = templateSetting("template-text-scale", "balanced");
+            const rect = templatePanelRect(layout);
+            const isDarkPanel = panelStyle === "dark" || panelStyle === "red" || layout === "overlay";
+            const headlineSize = scaleChoice === "large" ? 66 : scaleChoice === "compact" ? 44 : 54;
+            const bodySize = scaleChoice === "large" ? 32 : scaleChoice === "compact" ? 24 : 28;
+            const pad = layout === "left" ? 32 : 36;
+            const maxWidth = rect.w - pad * 2;
+
+            if (panelStyle !== "minimal") {
+              ctx.fillStyle = panelStyle === "red" ? "rgba(215,25,32,0.94)" : panelStyle === "dark" || layout === "overlay" ? "rgba(17,17,17,0.82)" : "rgba(255,255,255,0.93)";
+              ctx.strokeStyle = accent;
+              ctx.lineWidth = 3;
+              ctx.beginPath();
+              roundedRect(ctx, rect.x, rect.y, rect.w, rect.h, 20);
+              ctx.fill();
+              ctx.stroke();
+            }
+
+            ctx.fillStyle = isDarkPanel ? "#ffffff" : templateSetting("template-text-color", "#111111");
+            ctx.font = `900 ${headlineSize}px Arial, sans-serif`;
+            let y = wrapCanvasText(ctx, templateSetting("template-headline", "Add local headline"), rect.x + pad, rect.y + pad + headlineSize, maxWidth, headlineSize + 8, layout === "left" ? 4 : 2);
+
+            ctx.font = `400 ${bodySize}px Arial, sans-serif`;
+            ctx.fillStyle = isDarkPanel ? "rgba(255,255,255,0.9)" : "#333333";
+            y = wrapCanvasText(ctx, templateSetting("template-body", "Add a short benefit message in your local language."), rect.x + pad, y + 18, maxWidth, bodySize + 10, layout === "left" ? 5 : 3);
+
+            const ctaText = templateSetting("template-cta", "Contact your distributor");
+            if (ctaText) {
+              const buttonY = Math.min(rect.y + rect.h - 118, y + 18);
+              ctx.fillStyle = panelStyle === "red" ? "#111111" : accent;
+              ctx.beginPath();
+              roundedRect(ctx, rect.x + pad, buttonY, Math.min(360, maxWidth), 60, 12);
+              ctx.fill();
+              ctx.fillStyle = "#ffffff";
+              ctx.font = "900 24px Arial, sans-serif";
+              wrapCanvasText(ctx, ctaText, rect.x + pad + 22, buttonY + 38, Math.min(300, maxWidth - 44), 28, 1);
+            }
+
+            const contactText = templateSetting("template-contact", "Add website, email or phone");
+            ctx.fillStyle = isDarkPanel ? "rgba(255,255,255,0.95)" : "#111111";
+            ctx.font = "700 22px Arial, sans-serif";
+            wrapCanvasText(ctx, contactText, 72, 1010, 930, 30, 2);
+
+            if (currentTemplateLogo) {
+              const logo = new Image();
+              logo.onload = () => {
+                const logoScale = Math.min(220 / logo.width, 92 / logo.height);
+                const logoWidth = logo.width * logoScale;
+                const logoHeight = logo.height * logoScale;
+                ctx.fillStyle = "rgba(255,255,255,0.9)";
+                ctx.fillRect(760, 64, 260, 124);
+                ctx.drawImage(logo, 780, 80, logoWidth, logoHeight);
+                resolve();
+              };
+              logo.onerror = resolve;
+              logo.src = currentTemplateLogo;
+            } else {
+              resolve();
+            }
+          };
+          base.onerror = () => {
+            ctx.fillStyle = "#111111";
+            ctx.font = "900 36px Arial, sans-serif";
+            ctx.fillText("Template image could not be loaded.", 64, 120);
+            resolve();
+          };
+        });
+        base.src = currentTemplateAsset.image;
+        return templateDrawPromise;
+      }
+
+      function openTemplateEditor(asset) {
+        if (!templateEditorModal || !templateCanvas || !asset?.image) return;
+        currentTemplateAsset = asset;
+        closeAssetModal();
+        templateField("template-headline").value = "";
+        templateField("template-body").value = "";
+        templateField("template-cta").value = "";
+        templateField("template-contact").value = "";
+        if (templateField("template-layout")) templateField("template-layout").value = "left";
+        if (templateField("template-image-fit")) templateField("template-image-fit").value = "cover";
+        if (templateField("template-text-scale")) templateField("template-text-scale").value = "balanced";
+        if (templateField("template-panel-style")) templateField("template-panel-style").value = "white";
+        if (templateField("template-accent-color")) templateField("template-accent-color").value = "#d71920";
+        if (templateField("template-text-color")) templateField("template-text-color").value = "#111111";
+        if (templateLogoFile) templateLogoFile.value = "";
+        currentTemplateLogo = null;
+        drawTemplateEditor();
+        templateEditorModal.classList.add("show");
+        templateEditorModal.setAttribute("aria-hidden", "false");
+      }
+
+      function closeTemplateEditor() {
+        if (!templateEditorModal) return;
+        templateEditorModal.classList.remove("show");
+        templateEditorModal.setAttribute("aria-hidden", "true");
+      }
+
+      async function downloadTemplatePNG() {
+        if (!templateCanvas || !currentTemplateAsset) return;
+        await drawTemplateEditor();
+        const fileName = `${currentTemplateAsset.title || "yanmar-template"}-edited.png`.replace(/[^\w.-]+/g, "-");
+        const triggerDownload = (href) => {
+          const link = document.createElement("a");
+          link.download = fileName;
+          link.href = href;
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+        };
+        try {
+          templateCanvas.toBlob((blob) => {
+            if (!blob) {
+              triggerDownload(templateCanvas.toDataURL("image/png"));
+              return;
+            }
+            const url = URL.createObjectURL(blob);
+            triggerDownload(url);
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+          }, "image/png", 0.95);
+          addUsageEvent("Downloaded edited template", currentTemplateAsset.title, currentTemplateAsset.product);
+          showToast("Edited template PNG downloaded.");
+        } catch (error) {
+          showToast("Download could not be created from this image source.");
+        }
       }
 
       function closeCampaignResultsModal() {
@@ -8489,7 +9049,7 @@
         setCampaignResultValue("results-product", asset.product);
         setCampaignResultValue("results-channel", channelForCalendar(asset.format));
         setCampaignResultValue("results-date", new Date().toISOString().slice(0, 10));
-        ["results-reach", "results-clicks", "results-engagements", "results-inquiries", "results-quotes", "results-link", "results-feedback"].forEach((id) => setCampaignResultValue(id, ""));
+        ["results-reach", "results-clicks", "results-views", "results-likes", "results-comments", "results-shares", "results-watchtime", "results-engagements", "results-inquiries", "results-quotes", "results-link", "results-feedback"].forEach((id) => setCampaignResultValue(id, ""));
         const confirmation = document.getElementById("campaign-results-confirmation");
         if (confirmation) confirmation.classList.remove("show");
         resultsModal.classList.add("show");
@@ -8498,6 +9058,9 @@
 
       function saveCampaignResultsReport() {
         const distributor = getValue("results-distributor") || (distributorSelect ? distributorSelect.value : "Yanmar Europe Distributor");
+        const likes = Number(getValue("results-likes")) || 0;
+        const comments = Number(getValue("results-comments")) || 0;
+        const shares = Number(getValue("results-shares")) || 0;
         const report = {
           id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
           createdAt: new Date().toLocaleString(),
@@ -8510,8 +9073,13 @@
           channel: getValue("results-channel") || "All channels",
           date: getValue("results-date"),
           reach: Number(getValue("results-reach")) || 0,
+          views: Number(getValue("results-views")) || 0,
+          likes,
+          comments,
+          shares,
+          watchTime: Number(getValue("results-watchtime")) || 0,
           clicks: Number(getValue("results-clicks")) || 0,
-          engagements: Number(getValue("results-engagements")) || 0,
+          engagements: Number(getValue("results-engagements")) || likes + comments + shares,
           inquiries: Number(getValue("results-inquiries")) || 0,
           quoteRequests: Number(getValue("results-quotes")) || 0,
           link: getValue("results-link"),
@@ -8519,6 +9087,13 @@
           adminDecision: "Needs review",
           adminNote: "",
         };
+        const assignedTarget = findCampaignTarget(report);
+        const evaluation = evaluateCampaignResult(report, assignedTarget);
+        report.targetId = assignedTarget ? assignedTarget.id : "";
+        report.targetScore = evaluation.score;
+        report.targetSummary = evaluation.summary;
+        report.adminDecision = evaluation.decision;
+        report.adminNote = assignedTarget ? `Auto assessment: ${evaluation.summary}` : "";
         const items = loadCampaignResults();
         items.unshift(report);
         saveCampaignResults(items.slice(0, 200));
@@ -8830,6 +9405,7 @@
       const calendarKey = "yanmarDistributorPortalCalendar";
       const usageKey = "yanmarDistributorPortalUsage";
       const campaignResultsKey = "yanmarDistributorPortalCampaignResults";
+      const campaignTargetsKey = "yanmarDistributorPortalCampaignTargets";
       const distributorKey = "yanmarDistributorPortalDistributors";
       const deletedDistributorKey = "yanmarDistributorPortalDeletedDistributors";
       const manualProgressKey = "yanmarDistributorPortalManualProgress";
@@ -8896,7 +9472,7 @@
         "Central Europe": ["Poland", "Czechia", "Slovakia", "Hungary", "Romania", "Slovenia"],
         "South Europe": ["Spain", "Portugal", "Italy", "Greece", "Bulgaria", "Croatia", "North Macedonia", "Cyprus", "Malta"],
         Nordics: ["Sweden", "Norway", "Denmark", "Finland", "Estonia", "Latvia", "Lithuania", "Iceland"],
-        Africa: ["Algeria", "Egypt", "Morocco", "Tunisia", "Mauritania", "South Africa", "Namibia", "Botswana", "Ethiopia", "Kenya", "Tanzania", "Uganda", "Nigeria", "Ghana", "Mali", "Gambia", "Senegal", "Cote d'Ivoire"],
+        Africa: ["Algeria", "Egypt", "Morocco", "Tunisia", "Mauritania", "Mauritius", "South Africa", "Namibia", "Botswana", "Ethiopia", "Kenya", "Tanzania", "Uganda", "Nigeria", "Ghana", "Mali", "Gambia", "Senegal", "Cote d'Ivoire"],
         "Middle East": ["Saudi Arabia", "United Arab Emirates", "Oman", "Qatar", "Kuwait", "Bahrain", "Jordan", "Lebanon"],
         Asia: ["China", "Japan", "South Korea", "India", "Sri Lanka", "Maldives", "Mongolia", "Pakistan", "Bangladesh"],
         "Southeast Asia": ["Indonesia", "Malaysia", "Singapore", "Philippines", "Thailand", "Vietnam", "Cambodia", "Laos", "Brunei"],
@@ -9684,6 +10260,14 @@
         verifiedDealer("Seascape Marine Services (Pty) Ltd.", "Africa", "South Africa", "English / Afrikaans", "Active", compactPowerProducts, "Compact Power Products dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=80&country=za."),
         verifiedDealer("Vert Energy", "Africa", "South Africa", "English / Afrikaans", "Active", compactPowerProducts, "Compact Power Products dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=80&country=za."),
         verifiedDealer("Metropolitan Engineering ( pty ) Ltd", "Africa", "South Africa", "English / Afrikaans", "Onboarding", compactPowerProducts, "Compact Power Products dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=80&country=za."),
+        verifiedDealer("Emcar Ltd.", "Africa", "Mauritius", "English / French", "Active", compactPowerProducts, "Distributor", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=60&country=mu."),
+        verifiedDealer("Maquinaria y Generadores", "Central America", "Mexico", "Spanish / English", "Active", compactPowerProducts, "Compact Equipment dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=80&country=mx."),
+        verifiedDealer("TUTT BRYANT EQUIPMENT (Adelaide Branch)", "Oceania", "Australia", "English", "Active", compactPowerProducts, "Compact Equipment dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=50&country=au."),
+        verifiedDealer("TUTT BRYANT EQUIPMENT (Brisbane branch)", "Oceania", "Australia", "English", "Active", compactPowerProducts, "Compact Equipment dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=50&country=au."),
+        verifiedDealer("TUTT BRYANT EQUIPMENT (Head Office)", "Oceania", "Australia", "English", "Active", compactPowerProducts, "Compact Equipment dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=50&country=au."),
+        verifiedDealer("TUTT BRYANT EQUIPMENT (Melbourne Branch)", "Oceania", "Australia", "English", "Active", compactPowerProducts, "Compact Equipment dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=50&country=au."),
+        verifiedDealer("TUTT BRYANT EQUIPMENT (Perth Branch)", "Oceania", "Australia", "English", "Active", compactPowerProducts, "Compact Equipment dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=50&country=au."),
+        verifiedDealer("TUTT BRYANT EQUIPMENT (Sydney Branch)", "Oceania", "Australia", "English", "Active", compactPowerProducts, "Compact Equipment dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=50&country=au."),
         verifiedDealer("Bodiam Engineering Pacific", "Oceania", "Vanuatu", "English / French / Bislama", "Active", compactPowerProducts, "Compact Power Products dealer", "Country dealer locator record: https://www.yanmar.com/eu/dealerlocator/?cat1=80&country=vu."),
       ];
       const hiddenPrototypeDealerNames = new Set([
@@ -10106,6 +10690,18 @@
 
       function saveCampaignResults(items) {
         localStorage.setItem(campaignResultsKey, JSON.stringify(items));
+      }
+
+      function loadCampaignTargets() {
+        try {
+          return JSON.parse(localStorage.getItem(campaignTargetsKey) || "[]");
+        } catch {
+          return [];
+        }
+      }
+
+      function saveCampaignTargets(items) {
+        localStorage.setItem(campaignTargetsKey, JSON.stringify(items));
       }
 
       function inferRegion(distributor) {
@@ -10856,6 +11452,22 @@
           return;
         }
 
+        const notificationOpen = event.target.closest("[data-notification-open]");
+        if (notificationOpen && !event.target.closest("[data-notification-read]")) {
+          const targetId = notificationOpen.dataset.notificationOpen || "admin-notification-center";
+          const notificationId = notificationOpen.dataset.notificationId || notificationOpen.closest("[data-notification-id]")?.dataset.notificationId;
+          if (notificationId) {
+            const read = new Set(loadReadNotifications());
+            read.add(notificationId);
+            saveReadNotifications([...read]);
+          }
+          if (!document.body.classList.contains("admin-mode")) setMode("admin");
+          scrollToAdminTarget(targetId);
+          renderNotificationCenter();
+          updateNavigationBadges();
+          return;
+        }
+
         const actionToggle = event.target.closest("[data-action-toggle]");
         if (actionToggle) {
           const card = actionToggle.closest("[data-status-card]");
@@ -10878,6 +11490,9 @@
           }
           if (modalAction.dataset.modalAction === "report-results") {
             openCampaignResultsModal(currentModalAsset);
+          }
+          if (modalAction.dataset.modalAction === "template-studio") {
+            openTemplateEditor(currentModalAsset);
           }
           return;
         }
@@ -11215,6 +11830,7 @@
             title: item.fields.Distributor || "Distributor",
             body: `${item.status}: ${item.fields.Product || "General"} - ${item.fields["Request type"] || item.fields.Type || "Needs review"}`,
             tag: item.region,
+            target: "admin-notification-center",
           }));
         const contributions = loadContributions()
           .map((item) => ({ ...item, region: normalizeRegion(item.distributor, item.region), country: normalizeCountry(item.distributor, item.country) }))
@@ -11227,6 +11843,7 @@
             title: item.title,
             body: `${item.distributor} submitted ${item.type} for ${item.product}.`,
             tag: item.status,
+            target: "admin-contribution-review",
           }));
         const lowActivity = visibleDistributors()
           .filter((distributor) => distributor.status === "Needs follow-up" || distributor.status === "Onboarding")
@@ -11237,6 +11854,7 @@
             title: distributor.name,
             body: `Check activation needs for ${distributor.country || region}.`,
             tag: distributor.status,
+            target: "admin-regional-status",
           }));
         const campaignResults = loadCampaignResults()
           .map((item) => ({ ...item, region: normalizeRegion(item.distributor, item.region), country: normalizeCountry(item.distributor, item.country) }))
@@ -11249,6 +11867,7 @@
             title: item.campaign,
             body: `${item.distributor} reported ${Number(item.reach || 0).toLocaleString()} reach, ${Number(item.engagements || 0).toLocaleString()} engagements and ${Number(item.inquiries || 0) + Number(item.quoteRequests || 0)} commercial signal(s).`,
             tag: item.adminDecision === "Other" && item.adminCustomOutcome ? item.adminCustomOutcome : item.adminDecision || "Needs review",
+            target: "admin-campaign-results",
           }));
         return [...inbox, ...contributions, ...campaignResults, ...lowActivity].slice(0, 9);
       }
@@ -11259,14 +11878,17 @@
         const items = notificationItems();
         adminNotificationList.innerHTML = items.length
           ? items.map((item) => `
-              <article class="notification-item ${read.has(item.id) ? "read" : ""}">
+              <article class="notification-item ${read.has(item.id) ? "read" : ""}" data-notification-open="${escapeHTML(item.target || "admin-notification-center")}" data-notification-id="${escapeHTML(item.id)}">
                 <div>
                   <p class="small-red">${escapeHTML(item.type)}</p>
                   <h3>${escapeHTML(item.title)}</h3>
                   <p>${escapeHTML(item.body)}</p>
                   <span class="tag">${escapeHTML(item.tag)}</span>
                 </div>
-                <button class="mini-button" type="button" data-notification-read="${escapeHTML(item.id)}">${read.has(item.id) ? "Read" : "Mark read"}</button>
+                <div class="asset-action-row">
+                  <button class="mini-button" type="button" data-notification-open="${escapeHTML(item.target || "admin-notification-center")}" data-notification-id="${escapeHTML(item.id)}">Open</button>
+                  <button class="mini-button" type="button" data-notification-read="${escapeHTML(item.id)}">${read.has(item.id) ? "Read" : "Mark read"}</button>
+                </div>
               </article>
             `).join("")
           : `<div class="admin-empty">No notifications for ${escapeHTML(currentAdminRegion())}. New requests, pending approvals and account follow-ups will appear here.</div>`;
@@ -11553,8 +12175,185 @@
         return true;
       }
 
+      function campaignMetricNumber(value) {
+        return Number(value) || 0;
+      }
+
+      function campaignMetricsFromForm(prefix) {
+        return {
+          reach: campaignMetricNumber(getValue(`${prefix}-reach`)),
+          views: campaignMetricNumber(getValue(`${prefix}-views`)),
+          likes: campaignMetricNumber(getValue(`${prefix}-likes`)),
+          comments: campaignMetricNumber(getValue(`${prefix}-comments`)),
+          shares: campaignMetricNumber(getValue(`${prefix}-shares`)),
+          clicks: campaignMetricNumber(getValue(`${prefix}-clicks`)),
+          leads: campaignMetricNumber(getValue(`${prefix}-leads`)),
+          quotes: campaignMetricNumber(getValue(`${prefix}-quotes`)),
+          watchTime: campaignMetricNumber(getValue(`${prefix}-watchtime`)),
+        };
+      }
+
+      function campaignReportMetrics(report) {
+        const likes = campaignMetricNumber(report.likes);
+        const comments = campaignMetricNumber(report.comments);
+        const shares = campaignMetricNumber(report.shares);
+        const calculatedEngagements = likes + comments + shares;
+        return {
+          reach: campaignMetricNumber(report.reach),
+          views: campaignMetricNumber(report.views),
+          likes,
+          comments,
+          shares,
+          clicks: campaignMetricNumber(report.clicks),
+          engagements: campaignMetricNumber(report.engagements) || calculatedEngagements,
+          leads: campaignMetricNumber(report.inquiries),
+          quotes: campaignMetricNumber(report.quoteRequests),
+          watchTime: campaignMetricNumber(report.watchTime),
+        };
+      }
+
+      function findCampaignTarget(report) {
+        const reportChannel = report.channel || "All channels";
+        return loadCampaignTargets().find((target) => {
+          const sameDistributor = target.distributor === report.distributor;
+          const sameCampaign = target.campaign === report.campaign;
+          const samePlatform = target.platform === reportChannel || target.platform === "All channels" || reportChannel === "All channels";
+          return sameDistributor && sameCampaign && samePlatform;
+        }) || null;
+      }
+
+      function campaignTargetPairs(report, target = findCampaignTarget(report)) {
+        if (!target || !target.metrics) return [];
+        const actual = campaignReportMetrics(report);
+        const metrics = target.metrics;
+        return [
+          ["Reach", actual.reach, campaignMetricNumber(metrics.reach)],
+          ["Views", actual.views, campaignMetricNumber(metrics.views)],
+          ["Likes", actual.likes, campaignMetricNumber(metrics.likes)],
+          ["Comments", actual.comments, campaignMetricNumber(metrics.comments)],
+          ["Shares", actual.shares, campaignMetricNumber(metrics.shares)],
+          ["Clicks", actual.clicks, campaignMetricNumber(metrics.clicks)],
+          ["Leads", actual.leads, campaignMetricNumber(metrics.leads)],
+          ["Quote requests", actual.quotes, campaignMetricNumber(metrics.quotes)],
+          ["Watch time", actual.watchTime, campaignMetricNumber(metrics.watchTime)],
+        ].filter(([, , goal]) => goal > 0);
+      }
+
+      function evaluateCampaignResult(report, target = findCampaignTarget(report)) {
+        const pairs = campaignTargetPairs(report, target);
+        if (!pairs.length) return { decision: "Needs review", score: null, summary: "No assigned target found yet." };
+        const cappedRatios = pairs.map(([, actual, goal]) => Math.min(actual / goal, 1.25));
+        const score = Math.round((cappedRatios.reduce((sum, value) => sum + value, 0) / cappedRatios.length) * 100);
+        const commercialSignals = campaignMetricNumber(report.inquiries) + campaignMetricNumber(report.quoteRequests);
+        let decision = "Needs follow-up";
+        if (score >= 90 || (score >= 75 && commercialSignals > 0)) decision = "Successful";
+        if (score < 55) decision = "Not successful";
+        return { decision, score, summary: `${score}% average achievement against assigned campaign goals.` };
+      }
+
+      function campaignTargetProgressHTML(report) {
+        const target = findCampaignTarget(report);
+        const evaluation = evaluateCampaignResult(report, target);
+        const pairs = campaignTargetPairs(report, target);
+        if (!target || !pairs.length) {
+          return `<div class="detail" style="margin-top:12px"><div class="detail-label">Assigned target</div><p>No admin target assigned for this exact distributor, campaign and platform yet.</p></div>`;
+        }
+        return `
+          <div class="detail" style="margin-top:12px">
+            <div class="detail-label">Target check</div>
+            <p>${escapeHTML(evaluation.summary)} Target set by ${escapeHTML(target.owner || "Yanmar admin")} for ${escapeHTML(target.platform || "All channels")}.</p>
+            <div class="target-meter">
+              ${pairs.map(([label, actual, goal]) => {
+                const percent = Math.min(Math.round((actual / goal) * 100), 140);
+                return `
+                  <div class="target-line">
+                    <strong>${escapeHTML(label)}</strong>
+                    <div class="target-bar" aria-label="${escapeHTML(label)} target progress"><span style="width:${Math.min(percent, 100)}%"></span></div>
+                    <span>${Number(actual).toLocaleString()} / ${Number(goal).toLocaleString()}</span>
+                  </div>
+                `;
+              }).join("")}
+            </div>
+          </div>
+        `;
+      }
+
+      function populateCampaignTargetForm() {
+        if (targetDistributor) {
+          const current = targetDistributor.value || (distributorSelect ? distributorSelect.value : "");
+          targetDistributor.innerHTML = distributorOptionHTML(current || "Yanmar Europe Distributor");
+          if (current) targetDistributor.value = current;
+        }
+        if (targetCampaign) {
+          const titles = [...new Set(campaigns.map((item) => item[0]))];
+          const current = targetCampaign.value || titles[0] || "";
+          targetCampaign.innerHTML = titles.map((title) => `<option ${title === current ? "selected" : ""}>${escapeHTML(title)}</option>`).join("");
+        }
+      }
+
+      function renderCampaignTargetsList() {
+        if (!campaignTargetList) return;
+        const targets = loadCampaignTargets()
+          .map((item) => ({ ...item, region: normalizeRegion(item.distributor, item.region), country: normalizeCountry(item.distributor, item.country) }))
+          .filter((item) => matchesAdminScope(item.distributor, item.region, item.country));
+        campaignTargetList.innerHTML = targets.length
+          ? `<div class="admin-list compact-scroll scroll-panel">
+              ${targets.slice(0, 12).map((target) => {
+                const metricLabels = Object.entries(target.metrics || {})
+                  .filter(([, value]) => campaignMetricNumber(value) > 0)
+                  .map(([key, value]) => `${key}: ${Number(value).toLocaleString()}`)
+                  .join(" · ");
+                return `
+                  <article class="admin-item">
+                    <div class="admin-item-head">
+                      <div>
+                        <p class="small-red">${escapeHTML(target.platform || "All channels")}</p>
+                        <h3>${escapeHTML(target.campaign || "Campaign target")}</h3>
+                        <p style="margin:4px 0 0; color:#666">${escapeHTML(target.distributor)} · ${escapeHTML(target.country || "-")} · ${escapeHTML(target.region || "-")}</p>
+                      </div>
+                      <span class="tag">Assigned</span>
+                    </div>
+                    <p>${escapeHTML(metricLabels || "No numeric target set yet.")}</p>
+                    ${target.note ? `<p style="color:#666">${escapeHTML(target.note)}</p>` : ""}
+                  </article>
+                `;
+              }).join("")}
+            </div>`
+          : `<div class="admin-empty compact-scroll">No campaign goals assigned in the selected admin scope yet.</div>`;
+      }
+
+      function saveCampaignTarget(event) {
+        event.preventDefault();
+        if (!campaignTargetForm) return;
+        const distributor = getValue("target-distributor") || "Yanmar Europe Distributor";
+        const campaign = getValue("target-campaign") || "Campaign concept";
+        const platform = getValue("target-platform") || "All channels";
+        const target = {
+          id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+          createdAt: new Date().toLocaleString(),
+          owner: "Yanmar admin",
+          distributor,
+          region: normalizeRegion(distributor),
+          country: normalizeCountry(distributor),
+          campaign,
+          platform,
+          metrics: campaignMetricsFromForm("target"),
+          note: getValue("target-note"),
+        };
+        const filtered = loadCampaignTargets().filter((item) => !(item.distributor === distributor && item.campaign === campaign && item.platform === platform));
+        saveCampaignTargets([target, ...filtered].slice(0, 200));
+        campaignTargetForm.reset();
+        populateCampaignTargetForm();
+        renderCampaignTargetsList();
+        renderCampaignResultsReview();
+        updateNavigationBadges();
+        showToast("Campaign goal assigned.");
+      }
+
       function renderCampaignResultsReview() {
         if (!adminCampaignResultsList) return;
+        populateCampaignTargetForm();
+        renderCampaignTargetsList();
         const focus = campaignAnalyticsFilter ? campaignAnalyticsFilter.value : "All campaigns";
         const reports = loadCampaignResults()
           .map((item) => ({
@@ -11603,12 +12402,18 @@
                 <div class="analytics-grid compact-analytics">
                   ${[
                     ["Reach", Number(report.reach || 0).toLocaleString()],
+                    ["Views", Number(report.views || 0).toLocaleString()],
+                    ["Likes", Number(report.likes || 0).toLocaleString()],
+                    ["Comments", Number(report.comments || 0).toLocaleString()],
+                    ["Shares", Number(report.shares || 0).toLocaleString()],
                     ["Clicks", Number(report.clicks || 0).toLocaleString()],
                     ["Engagements", Number(report.engagements || 0).toLocaleString()],
                     ["Inquiries", Number(report.inquiries || 0).toLocaleString()],
                     ["Quote requests", Number(report.quoteRequests || 0).toLocaleString()],
+                    ["Target score", report.targetScore === null || report.targetScore === undefined ? "No target" : `${report.targetScore}%`],
                   ].map(([label, value]) => detail(label, value)).join("")}
                 </div>
+                ${campaignTargetProgressHTML(report)}
                 ${report.link ? `<p style="margin:12px 0 0"><a href="${escapeHTML(report.link)}" target="_blank" rel="noreferrer">Open published post / campaign link</a></p>` : ""}
                 ${report.feedback ? `<div class="detail" style="margin-top: 12px"><div class="detail-label">Distributor notes</div><p>${escapeHTML(report.feedback)}</p></div>` : ""}
                 <div class="field" style="margin-top: 12px">
@@ -11856,7 +12661,7 @@
       }
 
       function exportCampaignResultsCSV() {
-        const rows = [["Distributor", "Region", "Country", "Campaign", "Product", "Channel", "Publish date", "Reach", "Clicks", "Engagements", "Inquiries", "Quote requests", "Published link", "Distributor feedback", "Admin decision", "Custom review label", "Internal note", "Submitted", "Reviewed"]];
+        const rows = [["Distributor", "Region", "Country", "Campaign", "Product", "Channel", "Publish date", "Reach", "Views", "Likes", "Comments", "Shares", "Clicks", "Engagements", "Inquiries", "Quote requests", "Watch time minutes", "Target score", "Published link", "Distributor feedback", "Admin decision", "Custom review label", "Internal note", "Submitted", "Reviewed"]];
         loadCampaignResults()
           .map((item) => ({ ...item, region: normalizeRegion(item.distributor, item.region), country: normalizeCountry(item.distributor, item.country) }))
           .filter((item) => matchesAdminScope(item.distributor, item.region, item.country))
@@ -11870,10 +12675,16 @@
               item.channel,
               item.date,
               item.reach,
+              item.views || 0,
+              item.likes || 0,
+              item.comments || 0,
+              item.shares || 0,
               item.clicks,
               item.engagements,
               item.inquiries,
               item.quoteRequests,
+              item.watchTime || 0,
+              item.targetScore === null || item.targetScore === undefined ? "" : item.targetScore,
               item.link,
               item.feedback,
               item.adminDecision,
@@ -13268,12 +14079,19 @@
 
         const savedLanguage = localStorage.getItem(languageKey);
         if (savedLanguage && savedLanguage !== "en") {
+          setTranslateCookie(savedLanguage);
           setTimeout(() => triggerGoogleTranslate(savedLanguage), 800);
         }
       };
 
       function setTranslateCookie(languageCode) {
-        document.cookie = `googtrans=/en/${languageCode}; path=/`;
+        const host = window.location.hostname;
+        const cookieValue = `googtrans=/en/${languageCode}`;
+        document.cookie = `${cookieValue}; path=/`;
+        if (host && host !== "localhost" && !/^\d+\.\d+\.\d+\.\d+$/.test(host)) {
+          document.cookie = `${cookieValue}; path=/; domain=${host}`;
+          document.cookie = `${cookieValue}; path=/; domain=.${host}`;
+        }
       }
 
       function clearTranslateCookies() {
@@ -13286,6 +14104,15 @@
       }
 
       let languageRestoreInterval;
+      const translateReloadGuardKey = `${languageKey}ReloadGuard`;
+
+      function ensureGoogleTranslateScript() {
+        if (window.google?.translate || document.querySelector('script[src*="translate_a/element.js"]')) return;
+        const script = document.createElement("script");
+        script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+        script.async = true;
+        document.body.appendChild(script);
+      }
 
       function restoreLanguageSelectorLabels() {
         if (!languageSelect) return;
@@ -13327,23 +14154,34 @@
       }
 
       function triggerGoogleTranslate(languageCode, attempt = 0) {
+        ensureGoogleTranslateScript();
         const combo = document.querySelector(".goog-te-combo");
         if (combo) {
           combo.value = languageCode;
           combo.dispatchEvent(new Event("change"));
+          sessionStorage.removeItem(translateReloadGuardKey);
           scheduleLanguageSelectorRestore();
           return;
         }
-        if (attempt < 12) {
-          setTimeout(() => triggerGoogleTranslate(languageCode, attempt + 1), 350);
+        if (attempt < 24) {
+          setTimeout(() => triggerGoogleTranslate(languageCode, attempt + 1), 300);
+          return;
+        }
+        if (languageCode !== "en" && sessionStorage.getItem(translateReloadGuardKey) !== languageCode) {
+          sessionStorage.setItem(translateReloadGuardKey, languageCode);
+          setTranslateCookie(languageCode);
+          window.location.reload();
         }
       }
 
       function applyLanguageTranslation(languageCode) {
         localStorage.setItem(languageKey, languageCode);
+        document.documentElement.lang = languageCode === "zh-CN" ? "zh" : languageCode;
+        if (languageSelect) languageSelect.value = languageCode;
         if (translationStatus) translationStatus.classList.add("show");
         if (languageCode === "en") {
           clearTranslateCookies();
+          sessionStorage.removeItem(translateReloadGuardKey);
           const combo = document.querySelector(".goog-te-combo");
           if (combo) {
             combo.value = "en";
@@ -13513,6 +14351,56 @@
         campaignResultsForm.addEventListener("submit", (event) => {
           event.preventDefault();
           saveCampaignResultsReport();
+        });
+      }
+
+      if (campaignTargetForm) {
+        campaignTargetForm.addEventListener("submit", saveCampaignTarget);
+      }
+
+      if (templateEditorClose) templateEditorClose.addEventListener("click", closeTemplateEditor);
+      if (templateEditorModal) {
+        templateEditorModal.addEventListener("click", (event) => {
+          if (event.target === templateEditorModal) closeTemplateEditor();
+        });
+      }
+      ["template-headline", "template-body", "template-cta", "template-contact", "template-layout", "template-image-fit", "template-text-scale", "template-panel-style", "template-accent-color", "template-text-color"].forEach((id) => {
+        const field = document.getElementById(id);
+        if (field) field.addEventListener("input", drawTemplateEditor);
+        if (field) field.addEventListener("change", drawTemplateEditor);
+      });
+      if (templateLogoFile) {
+        templateLogoFile.addEventListener("change", () => {
+          const file = templateLogoFile.files && templateLogoFile.files[0];
+          if (!file) {
+            currentTemplateLogo = null;
+            drawTemplateEditor();
+            return;
+          }
+          const reader = new FileReader();
+          reader.onload = () => {
+            currentTemplateLogo = reader.result;
+            drawTemplateEditor();
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+      if (templateDownload) templateDownload.addEventListener("click", downloadTemplatePNG);
+      if (templateReset) {
+        templateReset.addEventListener("click", () => {
+          ["template-headline", "template-body", "template-cta", "template-contact"].forEach((id) => {
+            const field = document.getElementById(id);
+            if (field) field.value = "";
+          });
+          if (templateField("template-layout")) templateField("template-layout").value = "left";
+          if (templateField("template-image-fit")) templateField("template-image-fit").value = "cover";
+          if (templateField("template-text-scale")) templateField("template-text-scale").value = "balanced";
+          if (templateField("template-panel-style")) templateField("template-panel-style").value = "white";
+          if (templateField("template-accent-color")) templateField("template-accent-color").value = "#d71920";
+          if (templateField("template-text-color")) templateField("template-text-color").value = "#111111";
+          if (templateLogoFile) templateLogoFile.value = "";
+          currentTemplateLogo = null;
+          drawTemplateEditor();
         });
       }
 
