@@ -51,10 +51,10 @@
 
       .topbar-inner {
         display: grid;
-        grid-template-columns: minmax(460px, auto) minmax(420px, 1fr);
+        grid-template-columns: minmax(500px, auto) minmax(640px, 1fr);
         align-items: center;
-        gap: 22px;
-        max-width: 1280px;
+        gap: 18px;
+        max-width: 1720px;
         margin: 0 auto;
         padding: 16px 22px;
       }
@@ -62,7 +62,7 @@
       .brand {
         display: flex;
         align-items: center;
-        gap: 18px;
+        gap: 14px;
         min-width: 0;
         max-width: 100%;
         border: 0;
@@ -72,8 +72,8 @@
       }
 
       .yanmar-logo {
-        width: 310px;
-        max-width: 30vw;
+        width: 285px;
+        max-width: 28vw;
         height: auto;
         flex: 0 0 auto;
         display: block;
@@ -89,6 +89,13 @@
       }
 
       .brand-label {
+        display: grid;
+        gap: 4px;
+        min-width: 0;
+        white-space: nowrap;
+      }
+
+      .brand-line {
         display: flex;
         align-items: center;
         gap: 10px;
@@ -115,19 +122,20 @@
         text-transform: uppercase;
       }
 
-      .version-badge {
-        border: 1px solid rgba(126, 82, 0, 0.62);
+      .creator-badge {
+        width: fit-content;
+        border: 1px solid rgba(126, 82, 0, 0.46);
         border-radius: 999px;
         background: linear-gradient(135deg, #fff4c2 0%, #e5ad2b 52%, #8a5800 100%);
         color: #231400;
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.72),
-          0 8px 18px rgba(126, 82, 0, 0.2);
-        font-size: 12px;
+          0 5px 12px rgba(126, 82, 0, 0.11);
+        font-size: 7px;
         font-weight: 950;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.09em;
         line-height: 1;
-        padding: 7px 12px;
+        padding: 4px 7px;
         text-transform: uppercase;
       }
 
@@ -996,6 +1004,14 @@
         font-size: 10px;
       }
 
+      .admin-item > .attention-ribbon,
+      .admin-content-card > .attention-ribbon {
+        position: static;
+        width: fit-content;
+        margin: 0 0 10px auto;
+        z-index: auto;
+      }
+
       .week-card.has-alert,
       .visual-card.has-alert,
       .card.has-alert,
@@ -1815,27 +1831,36 @@
 
       .comparison-selector .checkbox-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        max-height: 148px;
+        grid-template-columns: 1fr;
+        max-height: 180px;
+        gap: 7px;
         overflow: auto;
         padding-right: 4px;
       }
 
       .comparison-chip {
+        display: grid;
+        grid-template-columns: 20px minmax(0, 1fr);
+        align-items: center;
         justify-content: flex-start;
-        min-height: 44px;
+        width: 100%;
+        min-height: 38px;
         border-radius: 10px;
         font-size: 12px;
         line-height: 1.2;
-        padding: 8px 10px;
+        padding: 7px 10px;
+        text-align: left;
       }
 
       .comparison-chip span {
-        overflow: visible;
-        text-overflow: clip;
+        display: block;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
         white-space: normal;
-        overflow-wrap: anywhere;
-        line-height: 1.15;
+        overflow-wrap: normal;
+        word-break: normal;
+        line-height: 1.2;
         letter-spacing: 0;
       }
 
@@ -1958,6 +1983,31 @@
 
       .checkbox-pill input {
         accent-color: var(--red);
+      }
+
+      .checkbox-pill.comparison-chip {
+        display: grid;
+        grid-template-columns: 18px minmax(0, 1fr);
+        align-items: center;
+        justify-content: stretch;
+        gap: 9px;
+        width: 100%;
+        min-height: 38px;
+        border-radius: 12px;
+        padding: 7px 10px;
+        text-align: left;
+      }
+
+      .checkbox-pill.comparison-chip span {
+        display: block;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-break: normal;
+        overflow-wrap: normal;
+        line-height: 1.2;
+        letter-spacing: 0;
       }
 
       .status-card-list {
@@ -4207,9 +4257,11 @@
             <text x="594" y="217" fill="#ef001e" font-family="Arial Black, Impact, Arial, sans-serif" font-size="268" font-weight="900" font-style="italic" letter-spacing="-6">YANMAR</text>
           </svg>
           <div class="brand-label">
-            <span class="brand-title-main">Distributor Portal</span>
-            <span class="demo-badge">Demo</span>
-            <span class="version-badge">V2.5</span>
+            <div class="brand-line">
+              <span class="brand-title-main">Distributor Portal</span>
+              <span class="demo-badge">Demo</span>
+            </div>
+            <span class="creator-badge">Created by Ardi Delawi</span>
           </div>
         </div>
         <div class="header-tools">
@@ -5308,7 +5360,7 @@
                   <h3>YDG Series Arabic brochure PDF</h3>
                   <p>Arabic YDG brochure for distributor communication in Arabic-speaking markets. Use as localized support material and verify final claims before publishing.</p>
                 </div>
-                <a href="assets/YDG-Series_Arabic_Brochure_V5.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+                <a href="assets/YDG-Series_Arabic_Brochure_V6.pdf" target="_blank" rel="noreferrer">Open PDF</a>
               </div>
               <div class="brochure-item">
                 <div>
