@@ -44,19 +44,21 @@
         position: sticky;
         top: 0;
         z-index: 20;
-        border-bottom: 1px solid rgba(229, 231, 235, 0.9);
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(229, 231, 235, 0.72);
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(18px);
+        transition: box-shadow 180ms ease, background 180ms ease;
       }
 
       .topbar-inner {
         display: grid;
-        grid-template-columns: minmax(500px, auto) minmax(640px, 1fr);
+        grid-template-columns: minmax(310px, max-content) minmax(0, 1fr);
         align-items: center;
-        gap: 18px;
-        max-width: 1720px;
+        gap: clamp(18px, 2.6vw, 46px);
+        max-width: 1840px;
         margin: 0 auto;
-        padding: 16px 22px;
+        padding: 8px 26px;
+        transition: padding 180ms ease;
       }
 
       .brand {
@@ -72,11 +74,12 @@
       }
 
       .yanmar-logo {
-        width: 285px;
-        max-width: 28vw;
+        width: clamp(200px, 13vw, 258px);
+        max-width: 100%;
         height: auto;
         flex: 0 0 auto;
         display: block;
+        transition: width 180ms ease;
       }
 
       .brand-small {
@@ -106,20 +109,22 @@
 
       .brand-title-main {
         color: var(--black);
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 950;
-        letter-spacing: 0.16em;
+        letter-spacing: 0.15em;
         line-height: 1;
         text-transform: uppercase;
+        transition: font-size 180ms ease;
       }
 
       .demo-badge {
         color: var(--red);
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 950;
-        letter-spacing: 0.16em;
+        letter-spacing: 0.15em;
         line-height: 1;
         text-transform: uppercase;
+        transition: font-size 180ms ease;
       }
 
       .creator-badge {
@@ -131,12 +136,59 @@
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.72),
           0 5px 12px rgba(126, 82, 0, 0.11);
-        font-size: 7px;
+        font-size: 6px;
         font-weight: 950;
-        letter-spacing: 0.09em;
+        letter-spacing: 0.08em;
         line-height: 1;
-        padding: 4px 7px;
+        padding: 3px 6px;
         text-transform: uppercase;
+      }
+
+      body.topbar-compact .topbar {
+        box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      }
+
+      body.topbar-compact .topbar-inner {
+        grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      body.topbar-compact .brand-label {
+        gap: 0;
+      }
+
+      body.topbar-compact .creator-badge,
+      body.topbar-compact .header-tools .control-group > span {
+        display: none;
+      }
+
+      body.topbar-compact .header-tools .control-group {
+        gap: 0;
+        font-size: 0;
+        letter-spacing: 0;
+      }
+
+      body.topbar-compact .header-tools .distributor-context-control {
+        flex: 1 1 520px;
+        grid-template-columns: minmax(250px, 1fr) minmax(220px, 0.82fr);
+        gap: 6px;
+        max-width: 620px;
+        min-width: min(100%, 440px);
+      }
+
+      body.topbar-compact .header-tools .control-group input,
+      body.topbar-compact .header-tools .control-group select {
+        font-size: 14px;
+      }
+
+      body.topbar-compact .yanmar-logo {
+        width: clamp(190px, 12vw, 235px);
+      }
+
+      body.topbar-compact .brand-title-main,
+      body.topbar-compact .demo-badge {
+        font-size: 12px;
       }
 
       .brand-title {
@@ -159,17 +211,33 @@
 
       .header-tools {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         justify-content: flex-end;
-        gap: 10px;
-        flex-wrap: wrap;
+        gap: 8px;
         min-width: 0;
-        flex: 1 1 560px;
+        flex-wrap: wrap;
+      }
+
+      .header-tools > .control-group:first-child {
+        flex: 0 0 clamp(170px, 13vw, 220px);
       }
 
       .distributor-context-control {
-        flex: 1 1 520px;
-        min-width: min(100%, 520px);
+        display: grid;
+        flex: 1 1 420px;
+        grid-template-columns: minmax(220px, 1fr) minmax(200px, 0.82fr);
+        align-items: end;
+        column-gap: 6px;
+        max-width: 560px;
+        min-width: 0;
+      }
+
+      .distributor-context-control > span {
+        grid-column: 1 / -1;
+      }
+
+      .distributor-context-control datalist {
+        display: none;
       }
 
       .distributor-context-control input,
@@ -195,15 +263,15 @@
       .control-group select,
       .control-group input,
       .control-group textarea {
-        min-height: 38px;
+        min-height: 34px;
         border: 1px solid var(--line);
         border-radius: 8px;
         background: var(--white);
         color: var(--black);
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 650;
         letter-spacing: 0;
-        padding: 8px 10px;
+        padding: 7px 10px;
         text-transform: none;
       }
 
@@ -1356,25 +1424,31 @@
 
       .header-action {
         align-self: end;
-        min-height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 34px;
         border: 0;
-        border-radius: 8px;
+        border-radius: 999px;
         background: var(--black);
         color: var(--white);
         cursor: pointer;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 850;
-        padding: 9px 13px;
+        line-height: 1;
+        padding: 8px 14px;
+        white-space: nowrap;
         transition: 0.18s ease;
       }
 
       .header-action:hover {
         background: var(--red);
+        transform: translateY(-1px);
       }
 
       .header-action.secondary {
         border: 1px solid var(--line);
-        background: var(--white);
+        background: rgba(255, 255, 255, 0.82);
         color: var(--black);
       }
 
@@ -4038,13 +4112,58 @@
         line-height: 1.6;
       }
 
-      @media (max-width: 1080px) {
+      @media (max-width: 1420px) {
         .topbar-inner {
-          grid-template-columns: 1fr;
+          grid-template-columns: minmax(300px, max-content) minmax(0, 1fr);
+          gap: 18px;
+          padding: 7px 20px;
         }
 
         .brand {
           width: 100%;
+        }
+
+        .yanmar-logo {
+          width: clamp(210px, 22vw, 260px);
+        }
+
+        .brand-label {
+          gap: 2px;
+        }
+
+        .creator-badge {
+          font-size: 5.5px;
+          padding: 3px 6px;
+        }
+
+        .header-tools {
+          width: 100%;
+          justify-content: flex-end;
+        }
+
+        .header-tools .control-group > span {
+          display: none;
+        }
+
+        .header-tools .control-group {
+          gap: 0;
+          font-size: 0;
+          letter-spacing: 0;
+        }
+
+        .header-tools .distributor-context-control {
+          gap: 6px;
+        }
+
+        .header-tools .control-group input,
+        .header-tools .control-group select {
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 1080px) {
+        .topbar-inner {
+          grid-template-columns: 1fr;
         }
 
         .yanmar-logo {
@@ -4054,6 +4173,10 @@
         .header-tools {
           width: 100%;
           justify-content: flex-start;
+        }
+
+        .header-action {
+          width: auto;
         }
 
         body.admin-mode main,
@@ -4131,6 +4254,11 @@
           flex-wrap: wrap;
         }
 
+        .brand-line {
+          flex-wrap: wrap;
+          row-gap: 4px;
+        }
+
         .brand-title-main,
         .demo-badge {
           font-size: 12px;
@@ -4139,7 +4267,30 @@
 
         .header-tools {
           width: 100%;
-          justify-content: flex-start;
+          align-items: stretch;
+          justify-content: stretch;
+        }
+
+        .header-tools > .control-group:first-child,
+        .distributor-context-control {
+          flex: 1 1 100%;
+          max-width: none;
+        }
+
+        .distributor-context-control {
+          grid-template-columns: 1fr;
+        }
+
+        body.topbar-compact .header-tools .distributor-context-control {
+          flex-basis: 100%;
+          grid-template-columns: 1fr;
+          max-width: none;
+          min-width: 0;
+        }
+
+        .header-action {
+          flex: 1 1 calc(50% - 4px);
+          min-width: 0;
         }
 
         .layout {
@@ -4307,7 +4458,7 @@
             </select>
           </label>
           <label class="control-group distributor-context-control">
-            Distributor
+            <span>Distributor</span>
             <input id="distributor-search" list="distributor-search-list" placeholder="Type dealer name..." autocomplete="off" />
             <datalist id="distributor-search-list"></datalist>
             <select id="distributor-select">
@@ -8353,7 +8504,13 @@
         return active || fallback;
       }
 
+      function updateTopbarDensity() {
+        document.body.classList.remove("topbar-compact");
+      }
+
+      window.setInterval(updateTopbarDensity, 350);
       window.addEventListener("scroll", () => {
+        updateTopbarDensity();
         if (scrollTicking) return;
         scrollTicking = true;
         window.requestAnimationFrame(() => {
@@ -8361,7 +8518,11 @@
           scrollTicking = false;
         });
       });
-      window.addEventListener("resize", updateActiveNavFromScroll);
+      window.addEventListener("resize", () => {
+        updateActiveNavFromScroll();
+        updateTopbarDensity();
+      });
+      updateTopbarDensity();
       updateActiveNavFromScroll();
 
       const assetModal = document.getElementById("asset-modal");
