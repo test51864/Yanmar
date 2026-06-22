@@ -4395,6 +4395,660 @@
           height: 52px;
         }
       }
+
+      .intelligence-page {
+        --ci-red: #d71920;
+        --ci-ink: #171717;
+        --ci-soft: #f7f7f8;
+        --ci-green: #16794b;
+      }
+
+      .intelligence-steps {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--line);
+      }
+
+      .intelligence-step {
+        min-width: 0;
+        padding: 14px 16px;
+        background: var(--white);
+      }
+
+      .intelligence-step strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 13px;
+      }
+
+      .intelligence-step span {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .ci-source-layout,
+      .ci-config-layout,
+      .website-copy-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.75fr);
+        gap: 22px;
+        align-items: start;
+      }
+
+      .ci-form-grid,
+      .website-copy-controls {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .ci-form-grid .span-all,
+      .website-copy-controls .span-all {
+        grid-column: 1 / -1;
+      }
+
+      .ci-source-status,
+      .ci-region-brief {
+        border-left: 3px solid var(--ci-red);
+        background: var(--ci-soft);
+        padding: 16px 18px;
+      }
+
+      .ci-source-status[data-state="success"] {
+        border-left-color: var(--ci-green);
+      }
+
+      .ci-source-status[data-state="warning"] {
+        border-left-color: #b7791f;
+      }
+
+      .ci-source-status h3,
+      .ci-region-brief h3 {
+        margin: 2px 0 8px;
+        font-size: 17px;
+      }
+
+      .ci-source-status p,
+      .ci-region-brief p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .ci-source-status a {
+        display: inline-flex;
+        margin-top: 12px;
+        color: var(--ci-red);
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .ci-source-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+
+      .ci-source-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 34px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--white);
+        padding: 6px 11px;
+        color: var(--black);
+        font-size: 12px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .ci-source-chip.active {
+        border-color: var(--ci-red);
+        background: rgba(215, 25, 32, 0.06);
+        color: var(--ci-red);
+      }
+
+      .ci-source-chip .remove-source {
+        width: 20px;
+        height: 20px;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(23, 23, 23, 0.08);
+        color: inherit;
+        padding: 0;
+        line-height: 20px;
+        cursor: pointer;
+      }
+
+      .ci-review-toolbar,
+      .ci-output-toolbar,
+      .website-copy-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .ci-field-list {
+        border-top: 1px solid var(--line);
+      }
+
+      .ci-field-row {
+        display: grid;
+        grid-template-columns: 28px minmax(150px, 0.65fr) minmax(220px, 1.35fr) 110px;
+        gap: 12px;
+        align-items: center;
+        padding: 11px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .ci-field-row input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--ci-red);
+      }
+
+      .ci-field-label strong,
+      .ci-field-label small {
+        display: block;
+      }
+
+      .ci-field-label small {
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .ci-field-row input[type="text"],
+      .ci-field-row select {
+        width: 100%;
+        min-width: 0;
+        min-height: 38px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--white);
+        color: var(--black);
+        padding: 8px 10px;
+      }
+
+      .ci-custom-field {
+        display: grid;
+        grid-template-columns: minmax(160px, 0.7fr) minmax(220px, 1.3fr) auto;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .ci-config-panel {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .ci-config-panel .span-all {
+        grid-column: 1 / -1;
+      }
+
+      .ci-priority-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 12px;
+      }
+
+      .ci-priority-list span {
+        border: 1px solid rgba(215, 25, 32, 0.25);
+        border-radius: 999px;
+        background: var(--white);
+        padding: 6px 9px;
+        color: var(--ci-red);
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .ci-tco-grid {
+        display: grid;
+        grid-template-columns: minmax(160px, 0.8fr) repeat(2, minmax(0, 1fr));
+        gap: 1px;
+        overflow: hidden;
+        margin-top: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--line);
+      }
+
+      .ci-tco-cell {
+        min-width: 0;
+        background: var(--white);
+        padding: 10px;
+      }
+
+      .ci-tco-cell.head {
+        background: var(--ci-soft);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .ci-tco-cell input {
+        width: 100%;
+        min-width: 0;
+        min-height: 36px;
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        padding: 7px 9px;
+      }
+
+      .comparison-sheet {
+        overflow: hidden;
+        border: 1px solid #d8dade;
+        border-radius: 8px;
+        background: #fff;
+        color: #171717;
+      }
+
+      .comparison-sheet-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 20px;
+        align-items: end;
+        border-top: 8px solid var(--ci-red);
+        padding: 26px 28px 20px;
+      }
+
+      .comparison-sheet-head h2 {
+        margin: 4px 0 6px;
+        font-size: clamp(28px, 4vw, 54px);
+        line-height: 0.96;
+        text-transform: uppercase;
+        letter-spacing: 0;
+      }
+
+      .comparison-sheet-head p {
+        margin: 0;
+        color: #5a5a5a;
+      }
+
+      .comparison-sheet-mark {
+        color: var(--ci-red);
+        font-size: 18px;
+        font-weight: 950;
+        white-space: nowrap;
+      }
+
+      .comparison-product-grid {
+        display: grid;
+        grid-template-columns: repeat(var(--comparison-columns, 2), minmax(0, 1fr));
+        gap: 12px;
+        padding: 0 28px 22px;
+      }
+
+      .comparison-product {
+        display: grid;
+        grid-template-rows: 180px auto;
+        min-width: 0;
+        border: 1px solid #d9dadd;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .comparison-product.yanmar {
+        border-color: var(--ci-red);
+        box-shadow: inset 0 4px 0 var(--ci-red);
+      }
+
+      .comparison-product-media {
+        display: grid;
+        place-items: center;
+        min-width: 0;
+        background: #f6f6f6;
+      }
+
+      .comparison-product-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .comparison-product-placeholder {
+        color: #8a8a8a;
+        font-size: 44px;
+        font-weight: 950;
+      }
+
+      .comparison-product-copy {
+        padding: 15px 16px 17px;
+      }
+
+      .comparison-product-copy strong {
+        display: block;
+        font-size: 18px;
+        line-height: 1.2;
+      }
+
+      .comparison-product-copy span {
+        display: block;
+        margin-top: 5px;
+        color: #686868;
+        font-size: 11px;
+      }
+
+      .comparison-table-wrap {
+        overflow-x: auto;
+        padding: 0 28px 22px;
+      }
+
+      .comparison-table {
+        width: 100%;
+        min-width: 720px;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        border: 1px solid #d9dadd;
+        padding: 12px 13px;
+        text-align: left;
+        vertical-align: middle;
+        overflow-wrap: anywhere;
+      }
+
+      .comparison-table th {
+        background: #f5f5f5;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .comparison-table th:first-child,
+      .comparison-table td:first-child {
+        width: 190px;
+        font-weight: 850;
+      }
+
+      .comparison-table .yanmar-value {
+        background: rgba(215, 25, 32, 0.045);
+        color: var(--ci-red);
+        font-weight: 800;
+      }
+
+      .comparison-value-band {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(230px, 0.6fr);
+        gap: 20px;
+        align-items: center;
+        margin: 0 28px 26px;
+        border-left: 4px solid var(--ci-red);
+        background: #f6f6f6;
+        padding: 18px 20px;
+      }
+
+      .comparison-value-band h3 {
+        margin: 0 0 6px;
+        font-size: 18px;
+      }
+
+      .comparison-value-band p {
+        margin: 0;
+        color: #555;
+        line-height: 1.5;
+      }
+
+      .comparison-cta {
+        border-radius: 6px;
+        background: #171717;
+        padding: 12px 14px;
+        color: #fff;
+        text-align: center;
+        font-weight: 850;
+      }
+
+      .ci-evidence-note {
+        margin: 0 28px 24px;
+        color: #6b6b6b;
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .ci-empty-state {
+        border: 1px dashed #c9cbd0;
+        border-radius: 8px;
+        padding: 28px;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      .saved-comparison-list {
+        display: grid;
+        gap: 8px;
+      }
+
+      .saved-comparison-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        gap: 10px;
+        align-items: center;
+        border-bottom: 1px solid var(--line);
+        padding: 10px 0;
+      }
+
+      .saved-comparison-row strong,
+      .saved-comparison-row span {
+        display: block;
+      }
+
+      .saved-comparison-row span {
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .website-copy-output {
+        display: grid;
+        gap: 1px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--line);
+      }
+
+      .website-copy-block {
+        background: var(--white);
+        padding: 16px 18px;
+      }
+
+      .website-copy-block label {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--ci-red);
+        font-size: 11px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .website-copy-block textarea,
+      .website-copy-block input {
+        width: 100%;
+        min-height: 42px;
+        border: 0;
+        background: transparent;
+        color: var(--black);
+        font: inherit;
+        line-height: 1.55;
+        resize: vertical;
+      }
+
+      .website-copy-block textarea:focus,
+      .website-copy-block input:focus {
+        outline: 2px solid rgba(215, 25, 32, 0.22);
+        outline-offset: 4px;
+      }
+
+      .website-copy-preview {
+        position: sticky;
+        top: 118px;
+        border-top: 5px solid var(--ci-red);
+        background: #171717;
+        color: #fff;
+        padding: 24px;
+      }
+
+      .website-copy-preview h2 {
+        margin: 8px 0 10px;
+        font-size: 26px;
+        line-height: 1.08;
+      }
+
+      .website-copy-preview p {
+        margin: 0 0 16px;
+        color: #d6d6d6;
+        line-height: 1.55;
+      }
+
+      .website-copy-preview .preview-cta {
+        display: inline-flex;
+        min-height: 38px;
+        align-items: center;
+        border-radius: 6px;
+        background: var(--ci-red);
+        padding: 9px 13px;
+        color: #fff;
+        font-weight: 850;
+      }
+
+      body.dark .intelligence-step,
+      body.dark .ci-source-chip,
+      body.dark .ci-field-row input[type="text"],
+      body.dark .ci-field-row select,
+      body.dark .ci-tco-cell,
+      body.dark .ci-tco-cell input,
+      body.dark .website-copy-block {
+        background: #232323;
+        color: #f5f5f5;
+      }
+
+      body.dark .ci-source-status,
+      body.dark .ci-region-brief,
+      body.dark .ci-tco-cell.head {
+        background: #1f1f1f;
+      }
+
+      @media (max-width: 1080px) {
+        .intelligence-steps {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .ci-source-layout,
+        .ci-config-layout,
+        .website-copy-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .website-copy-preview {
+          position: static;
+        }
+
+        .ci-field-row {
+          grid-template-columns: 28px minmax(130px, 0.7fr) minmax(180px, 1.3fr);
+        }
+
+        .ci-field-row select {
+          grid-column: 3;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .intelligence-steps,
+        .ci-form-grid,
+        .website-copy-controls,
+        .ci-config-panel,
+        .comparison-value-band {
+          grid-template-columns: 1fr;
+        }
+
+        .ci-field-row {
+          grid-template-columns: 24px minmax(0, 1fr);
+          gap: 8px;
+        }
+
+        .ci-field-row input[type="text"],
+        .ci-field-row select {
+          grid-column: 2;
+        }
+
+        .ci-custom-field,
+        .saved-comparison-row {
+          grid-template-columns: 1fr;
+        }
+
+        .ci-tco-grid {
+          grid-template-columns: minmax(120px, 0.8fr) repeat(2, minmax(110px, 1fr));
+          overflow-x: auto;
+        }
+
+        .comparison-sheet-head {
+          grid-template-columns: 1fr;
+          padding: 20px 18px 16px;
+        }
+
+        .comparison-product-grid {
+          grid-template-columns: 1fr;
+          padding: 0 18px 18px;
+        }
+
+        .comparison-product {
+          grid-template-rows: 150px auto;
+        }
+
+        .comparison-table-wrap {
+          padding: 0 18px 18px;
+        }
+
+        .comparison-value-band {
+          margin: 0 18px 20px;
+        }
+
+        .ci-evidence-note {
+          margin: 0 18px 20px;
+        }
+      }
+
+      @media print {
+        body.printing-comparison > *:not(.layout),
+        body.printing-comparison .sidebar,
+        body.printing-comparison main > *:not(#competitive-intelligence),
+        body.printing-comparison #competitive-intelligence > *:not(#ci-output-section),
+        body.printing-comparison #ci-output-section > *:not(#ci-comparison-preview),
+        body.printing-comparison .ci-output-toolbar {
+          display: none !important;
+        }
+
+        body.printing-comparison,
+        body.printing-comparison .layout,
+        body.printing-comparison main,
+        body.printing-comparison #competitive-intelligence,
+        body.printing-comparison #ci-output-section {
+          display: block !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          background: #fff !important;
+          box-shadow: none !important;
+        }
+
+        body.printing-comparison .comparison-sheet {
+          border: 0;
+          border-radius: 0;
+        }
+      }
     </style>
   </head>
   <body>
@@ -4491,6 +5145,8 @@
             <option>YDG Diesel Generators</option>
             <option>L-Series Diesel Engines</option>
             <option>Campaign visuals</option>
+            <option>Competitor comparison</option>
+            <option>Website copy</option>
             <option>Content calendar</option>
             <option>KPIs and follow-up</option>
           </select>
@@ -4544,6 +5200,12 @@
         </button>
         <button class="nav-button sub" data-page="visual-workspace">
           <span class="nav-text">Visual asset workspace</span><span>›</span>
+        </button>
+        <button class="nav-button" data-page="competitive-intelligence">
+          <span class="nav-icon">CMP</span><span class="nav-text">Comparison Builder</span><span>›</span>
+        </button>
+        <button class="nav-button" data-page="website-copy">
+          <span class="nav-icon">WEB</span><span class="nav-text">Website Copy Studio</span><span>›</span>
         </button>
         <button class="nav-button" data-page="activation">
           <span class="nav-icon">ST</span><span class="nav-text">Starter Playbook</span><span>›</span>
@@ -5621,6 +6283,285 @@
             <div class="visual-library" id="visual-library"></div>
           </article>
           <div class="asset-grid" id="asset-grid"></div>
+        </section>
+
+        <section class="page stack intelligence-page" id="competitive-intelligence">
+          <div class="page-header">
+            <p class="label">Buyer enablement tool</p>
+            <h1>Competitive intelligence & comparison builder</h1>
+            <p class="intro">Collect product evidence from a competitor page or specification text, choose only the facts you need and generate a market-ready Yanmar comparison sheet.</p>
+            <div class="intelligence-steps" style="margin-top: 20px">
+              <div class="intelligence-step"><strong>1. Add a source</strong><span>Use an official URL, product name or pasted specification text.</span></div>
+              <div class="intelligence-step"><strong>2. Verify evidence</strong><span>Edit extracted values, confidence and selected comparison fields.</span></div>
+              <div class="intelligence-step"><strong>3. Localize value</strong><span>Choose region, use-case, Yanmar model and optional TCO inputs.</span></div>
+              <div class="intelligence-step"><strong>4. Generate</strong><span>Create a printable table, HTML sheet and CSV evidence export.</span></div>
+            </div>
+          </div>
+
+          <article class="section-card">
+            <div class="section-top">
+              <div><p class="label">Source crawler</p><h2>Add competitor product evidence</h2></div>
+              <div class="icon-box">SRC</div>
+            </div>
+            <div class="ci-source-layout">
+              <form id="ci-source-form">
+                <div class="ci-form-grid">
+                  <div class="field">
+                    <label for="ci-category">Product category</label>
+                    <select id="ci-category">
+                      <option value="generator">Diesel generator</option>
+                      <option value="pump">Diesel water pump</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="ci-source-input">Official URL or product name</label>
+                    <input id="ci-source-input" placeholder="https://manufacturer.com/model or Brand Model" autocomplete="off" />
+                  </div>
+                  <div class="field span-all">
+                    <label for="ci-source-text">Specification text (optional fallback)</label>
+                    <textarea id="ci-source-text" placeholder="Paste a specification table, brochure text or product-page copy when the website blocks browser access."></textarea>
+                  </div>
+                  <div class="field">
+                    <label for="ci-image-url">Product image URL (optional)</label>
+                    <input id="ci-image-url" type="url" placeholder="https://manufacturer.com/product-image.jpg" />
+                  </div>
+                  <div class="field">
+                    <label for="ci-source-market">Source market</label>
+                    <select id="ci-source-market">
+                      <option>Global / unknown</option>
+                      <option>Europe</option>
+                      <option>Middle East</option>
+                      <option>Africa</option>
+                      <option>Asia Pacific</option>
+                    </select>
+                  </div>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:14px">
+                  <button class="primary-button" type="submit" id="ci-analyze-source">Analyze & add product</button>
+                  <button class="header-action secondary" type="button" id="ci-load-example">Load example source</button>
+                </div>
+              </form>
+              <aside class="ci-source-status" id="ci-source-status" data-state="idle" aria-live="polite">
+                <p class="small-red">Evidence status</p>
+                <h3>Ready for a source</h3>
+                <p>The crawler first tries structured product data, specification tables and page metadata. Every extracted value remains editable and must be verified before publishing.</p>
+                <a id="ci-search-link" href="https://www.google.com" target="_blank" rel="noreferrer" hidden>Open product search</a>
+              </aside>
+            </div>
+          </article>
+
+          <article class="section-card" id="ci-field-review">
+            <div class="section-top">
+              <div><p class="label">Evidence review</p><h2>Select and verify comparison fields</h2></div>
+              <div class="icon-box">CHK</div>
+            </div>
+            <div class="ci-source-tabs" id="ci-source-tabs"></div>
+            <div class="ci-review-toolbar">
+              <p class="source-note" id="ci-review-summary">Add a competitor source to start building the evidence set.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <button class="header-action secondary" type="button" id="ci-select-recommended">Select recommended</button>
+                <button class="header-action secondary" type="button" id="ci-select-all">Select all</button>
+              </div>
+            </div>
+            <div class="ci-field-list" id="ci-field-list">
+              <div class="ci-empty-state">No extracted competitor fields yet.</div>
+            </div>
+            <div class="ci-custom-field">
+              <input id="ci-custom-label" placeholder="Custom field label" />
+              <input id="ci-custom-value" placeholder="Competitor value" />
+              <button class="header-action secondary" type="button" id="ci-add-custom-field">Add field</button>
+            </div>
+          </article>
+
+          <article class="section-card">
+            <div class="section-top">
+              <div><p class="label">Market configuration</p><h2>Turn specifications into local customer value</h2></div>
+              <div class="icon-box">VAL</div>
+            </div>
+            <div class="ci-config-layout">
+              <div class="ci-config-panel">
+                <div class="field span-all">
+                  <label for="ci-comparison-title">Comparison title</label>
+                  <input id="ci-comparison-title" value="Professional portable diesel equipment comparison" />
+                </div>
+                <div class="field">
+                  <label for="ci-yanmar-model">Yanmar reference model</label>
+                  <select id="ci-yanmar-model">
+                    <optgroup label="YDG generators">
+                      <option value="ydg:YDG3700N">YDG3700N</option>
+                      <option value="ydg:YDG3700V">YDG3700V Stage V</option>
+                      <option value="ydg:YDG5500N">YDG5500N</option>
+                      <option value="ydg:YDG5500V" selected>YDG5500V Stage V</option>
+                    </optgroup>
+                    <optgroup label="YDP pumps">
+                      <option value="ydp:YDP20N">YDP20N fresh water pump</option>
+                      <option value="ydp:YDP30N">YDP30N fresh water pump</option>
+                      <option value="ydp:YDP40N">YDP40N fresh water pump</option>
+                      <option value="ydp:YDP30STN">YDP30STN semi-trash pump</option>
+                      <option value="ydp:YDP30TN">YDP30TN trash pump</option>
+                      <option value="ydp:YDP40TN-E">YDP40TN-E trash pump</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="ci-region">Country / regional sales context</label>
+                  <select id="ci-region">
+                    <option value="europe-core">Europe - core markets</option>
+                    <option value="southern-europe">Southern Europe - water & irrigation</option>
+                    <option value="central-eastern-europe">Central / Eastern Europe</option>
+                    <option value="nordics">Nordics</option>
+                    <option value="middle-east">Middle East</option>
+                    <option value="africa">Africa</option>
+                    <option value="global">Global / export</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="ci-use-case">Primary use-case</label>
+                  <select id="ci-use-case">
+                    <option>Construction and civil works</option>
+                    <option>Rental fleet</option>
+                    <option>Agriculture and irrigation</option>
+                    <option>Drainage and flood response</option>
+                    <option>Backup and emergency power</option>
+                    <option>Professional dealer / hardware</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="ci-currency">TCO currency</label>
+                  <select id="ci-currency"><option>EUR</option><option>USD</option><option>SAR</option><option>AED</option><option>PLN</option><option>SEK</option></select>
+                </div>
+              </div>
+              <aside class="ci-region-brief" id="ci-region-brief">
+                <p class="small-red">Regional messaging brief</p>
+                <h3>Lifecycle value for professional European use</h3>
+                <p>Lead with fuel efficiency, verified Stage V applicability, uptime and service support rather than a long feature list.</p>
+                <div class="ci-priority-list" id="ci-priority-list"></div>
+              </aside>
+            </div>
+
+            <details class="briefing-details" style="margin-top:16px">
+              <summary>Optional Total Cost of Ownership inputs</summary>
+              <div class="briefing-details-body">
+                <p class="source-note">Use verified local prices and duty-cycle assumptions. Empty values are excluded from the generated sheet.</p>
+                <div class="ci-tco-grid" id="ci-tco-grid">
+                  <div class="ci-tco-cell head">TCO input</div><div class="ci-tco-cell head">Yanmar</div><div class="ci-tco-cell head">Competitor</div>
+                  <div class="ci-tco-cell">Purchase price</div><div class="ci-tco-cell"><input id="ci-tco-yanmar-price" type="number" min="0" step="0.01" placeholder="0.00" /></div><div class="ci-tco-cell"><input id="ci-tco-competitor-price" type="number" min="0" step="0.01" placeholder="0.00" /></div>
+                  <div class="ci-tco-cell">Fuel use (L/hour)</div><div class="ci-tco-cell"><input id="ci-tco-yanmar-fuel" type="number" min="0" step="0.01" placeholder="0.00" /></div><div class="ci-tco-cell"><input id="ci-tco-competitor-fuel" type="number" min="0" step="0.01" placeholder="0.00" /></div>
+                  <div class="ci-tco-cell">Annual service cost</div><div class="ci-tco-cell"><input id="ci-tco-yanmar-service" type="number" min="0" step="0.01" placeholder="0.00" /></div><div class="ci-tco-cell"><input id="ci-tco-competitor-service" type="number" min="0" step="0.01" placeholder="0.00" /></div>
+                  <div class="ci-tco-cell">Hours per year</div><div class="ci-tco-cell"><input id="ci-tco-hours" type="number" min="0" step="1" value="750" /></div><div class="ci-tco-cell">Shared duty cycle</div>
+                  <div class="ci-tco-cell">Fuel price / litre</div><div class="ci-tco-cell"><input id="ci-tco-fuel-price" type="number" min="0" step="0.01" value="1.75" /></div><div class="ci-tco-cell">Shared assumption</div>
+                  <div class="ci-tco-cell">Ownership period</div><div class="ci-tco-cell"><input id="ci-tco-years" type="number" min="1" step="1" value="5" /></div><div class="ci-tco-cell">Years</div>
+                </div>
+              </div>
+            </details>
+          </article>
+
+          <article class="section-card" id="ci-output-section">
+            <div class="ci-output-toolbar">
+              <div><p class="label">Generated comparison sheet</p><h2 style="margin:3px 0 0">Evidence-led output</h2></div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <button class="primary-button" type="button" id="ci-generate">Generate comparison</button>
+                <button class="header-action secondary" type="button" id="ci-save">Save draft</button>
+                <button class="header-action secondary" type="button" id="ci-download-html">Download HTML</button>
+                <button class="header-action secondary" type="button" id="ci-download-csv">Download CSV</button>
+                <button class="header-action secondary" type="button" id="ci-print">Print / PDF</button>
+              </div>
+            </div>
+            <div id="ci-comparison-preview">
+              <div class="ci-empty-state">Add competitor evidence and generate a comparison sheet.</div>
+            </div>
+          </article>
+
+          <article class="section-card">
+            <div class="section-top">
+              <div><p class="label">Saved evidence sets</p><h2>Comparison drafts</h2></div>
+              <div class="icon-box">SAV</div>
+            </div>
+            <div class="saved-comparison-list" id="ci-saved-list">
+              <div class="ci-empty-state">No saved comparison drafts yet.</div>
+            </div>
+          </article>
+        </section>
+
+        <section class="page stack intelligence-page" id="website-copy">
+          <div class="page-header">
+            <p class="label">Ready-to-use local content</p>
+            <h1>Website Copy Studio</h1>
+            <p class="intro">Generate structured distributor website text from Yanmar product value, professional applications and the priorities of each country or region.</p>
+          </div>
+
+          <article class="section-card">
+            <div class="section-top">
+              <div><p class="label">Regional website text</p><h2>Build an approved master draft</h2></div>
+              <div class="icon-box">WEB</div>
+            </div>
+            <div class="website-copy-layout">
+              <div>
+                <div class="website-copy-controls">
+                  <div class="field">
+                    <label for="webcopy-product">Product line</label>
+                    <select id="webcopy-product"><option value="ydg">YDG diesel generators</option><option value="ydp">YDP diesel pumps</option></select>
+                  </div>
+                  <div class="field">
+                    <label for="webcopy-region">Country / regional context</label>
+                    <select id="webcopy-region">
+                      <option value="europe-core">Europe - core markets</option>
+                      <option value="southern-europe">Southern Europe - water & irrigation</option>
+                      <option value="central-eastern-europe">Central / Eastern Europe</option>
+                      <option value="nordics">Nordics</option>
+                      <option value="middle-east">Middle East</option>
+                      <option value="africa">Africa</option>
+                      <option value="global">Global / export</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="webcopy-segment">Customer segment</label>
+                    <select id="webcopy-segment"><option>Construction and civil works</option><option>Rental fleet</option><option>Agriculture and irrigation</option><option>Drainage and flood response</option><option>Backup and emergency power</option><option>Professional dealer / hardware</option></select>
+                  </div>
+                  <div class="field">
+                    <label for="webcopy-goal">Page type</label>
+                    <select id="webcopy-goal"><option>Distributor product page</option><option>Campaign landing page</option><option>SEO category page</option><option>Dealer news article</option></select>
+                  </div>
+                  <div class="field">
+                    <label for="webcopy-language">Draft language</label>
+                    <select id="webcopy-language"><option value="en">English master</option><option value="de">German</option><option value="es">Spanish</option><option value="pl">Polish</option><option value="ar">Arabic</option></select>
+                  </div>
+                  <div class="field">
+                    <label for="webcopy-distributor">Local distributor name</label>
+                    <input id="webcopy-distributor" value="Yanmar Europe Distributor" />
+                  </div>
+                </div>
+                <div class="website-copy-toolbar" style="margin-top:14px">
+                  <p class="source-note">All technical claims remain subject to model, market and legal approval.</p>
+                  <div style="display:flex;flex-wrap:wrap;gap:8px">
+                    <button class="primary-button" type="button" id="webcopy-generate">Generate website copy</button>
+                    <button class="header-action secondary" type="button" id="webcopy-copy-all">Copy all</button>
+                    <button class="header-action secondary" type="button" id="webcopy-download">Download text</button>
+                  </div>
+                </div>
+                <div class="website-copy-output" id="webcopy-output"></div>
+              </div>
+              <aside class="website-copy-preview" id="webcopy-preview">
+                <p class="small-red">Live page preview</p>
+                <h2>Professional portable power, ready for the work ahead.</h2>
+                <p>Generate a regional draft to preview the headline, supporting value and local call to action.</p>
+                <span class="preview-cta">Request product advice</span>
+              </aside>
+            </div>
+          </article>
+
+          <article class="section-card">
+            <div class="section-top">
+              <div><p class="label">Governance checklist</p><h2>Before publishing local website text</h2></div>
+              <div class="icon-box">OK</div>
+            </div>
+            <div class="four-grid">
+              <div class="detail"><div class="detail-label">Product proof</div><p>Match power, flow, head, Stage V, start system and other claims to the current local model datasheet.</p></div>
+              <div class="detail"><div class="detail-label">Local value</div><p>Keep the central Yanmar reliability story, but prioritize fuel, TCO, runtime, service or water-management value by market.</p></div>
+              <div class="detail"><div class="detail-label">Distributor action</div><p>Use one clear local CTA with an accountable contact, availability route or application review.</p></div>
+              <div class="detail"><div class="detail-label">Language review</div><p>Treat generated translations as working drafts and require native-language review before publishing.</p></div>
+            </div>
+          </article>
         </section>
 
         <section class="page stack" id="activation">
@@ -7359,6 +8300,8 @@
         assets: "Content Assets",
         "brochure-library": "Brochure Library",
         "visual-workspace": "Visual Asset Workspace",
+        "competitive-intelligence": "Comparison Builder",
+        "website-copy": "Website Copy Studio",
         activation: "Starter Playbook",
         "channel-playbook": "Channel Playbook",
         calendar: "Content Calendar",
@@ -14855,6 +15798,827 @@
       renderExportControls();
       updateAssistantDockMode(false);
       updateNavigationBadges();
+    </script>
+    <script>
+      (function initializeCompetitiveTools() {
+        "use strict";
+
+        const sourceForm = document.getElementById("ci-source-form");
+        if (!sourceForm) return;
+
+        const byId = (id) => document.getElementById(id);
+        const escapeText = (value) => String(value == null ? "" : value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+        const slugify = (value) => String(value || "field")
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-|-$/g, "") || "field";
+
+        const fieldDefinitions = {
+          modelName: { label: "Model", aliases: ["model name", "model", "product name", "sku"] },
+          powerClass: { label: "Power class", aliases: ["prime power", "rated power", "rated output", "continuous output", "power output", "maximum output", "max output", "kva", "kw"] },
+          frequency: { label: "Frequency", aliases: ["frequency", "hz"] },
+          voltage: { label: "Voltage", aliases: ["rated voltage", "voltage", "volt"] },
+          engine: { label: "Engine confidence", aliases: ["engine model", "engine type", "engine", "motor"] },
+          fuelType: { label: "Fuel type", aliases: ["fuel type", "fuel"] },
+          fuelTank: { label: "Fuel tank", aliases: ["fuel tank capacity", "tank capacity", "fuel tank", "tank volume"] },
+          fuelConsumption: { label: "Fuel consumption", aliases: ["fuel consumption", "fuel use", "consumption"] },
+          runtime: { label: "Operating time", aliases: ["running time", "run time", "runtime", "operating time", "continuous operation"] },
+          startOptions: { label: "Start options", aliases: ["starting system", "start system", "starting method", "start options", "starter"] },
+          noise: { label: "Sound level", aliases: ["sound pressure", "sound level", "noise level", "noise", "db(a)", "dba"] },
+          weight: { label: "Weight", aliases: ["dry weight", "net weight", "operating weight", "weight"] },
+          dimensions: { label: "Dimensions", aliases: ["overall dimensions", "dimensions", "dimension", "l x w x h"] },
+          emissions: { label: "Compliance / emissions", aliases: ["emission regulation", "emissions", "emission", "stage v", "compliance", "certification", "ce"] },
+          application: { label: "Typical application", aliases: ["applications", "application", "recommended use", "use case", "uses"] },
+          bestFit: { label: "Best fit", aliases: ["best fit", "ideal for", "suitable for", "recommended for"] },
+          warranty: { label: "Warranty", aliases: ["warranty", "guarantee"] },
+          serviceSupport: { label: "Service and support", aliases: ["service support", "service network", "after sales", "aftersales", "parts support", "support"] },
+          priceValue: { label: "Price / value", aliases: ["list price", "price", "cost", "value"] },
+          pumpType: { label: "Pump type", aliases: ["pump type", "water type", "pump category"] },
+          portSize: { label: "Port size", aliases: ["port size", "connection size", "suction diameter", "discharge diameter", "inlet", "outlet"] },
+          maxHead: { label: "Maximum total head", aliases: ["maximum total head", "max total head", "maximum head", "max head", "head"] },
+          maxCapacity: { label: "Maximum capacity / flow", aliases: ["maximum capacity", "max capacity", "maximum flow", "max flow", "flow rate", "capacity"] },
+          solidsSize: { label: "Solids handling", aliases: ["maximum solids", "max solids", "solid passage", "solids handling", "particle size"] },
+          priming: { label: "Priming", aliases: ["self priming", "self-priming", "priming time", "priming"] },
+          description: { label: "Product description", aliases: ["description", "overview", "product overview"] },
+        };
+
+        const recommendedFields = {
+          generator: ["powerClass", "engine", "fuelTank", "fuelConsumption", "runtime", "startOptions", "emissions", "application", "warranty", "serviceSupport", "priceValue"],
+          pump: ["pumpType", "portSize", "maxHead", "maxCapacity", "engine", "fuelTank", "startOptions", "emissions", "application", "warranty", "serviceSupport", "priceValue"],
+        };
+
+        const regionalStrategies = {
+          "europe-core": {
+            title: "Lifecycle value for professional European use",
+            body: "Lead with fuel efficiency, verified Stage V applicability, uptime and service support. Make purchase price part of a broader lifecycle-value story.",
+            priorities: ["Fuel efficiency", "Stage V proof", "Uptime", "Service network", "Lifecycle cost"],
+            value: "Yanmar combines professional diesel performance, efficient operation and local support to protect uptime across demanding European applications.",
+            cta: "Compare verified specifications and request a lifecycle-cost review.",
+          },
+          "southern-europe": {
+            title: "Efficient seasonal performance where water and energy matter",
+            body: "Prioritize irrigation, drainage, water transfer, fuel efficiency and seasonal readiness. Connect every claim to a field, construction or water-management use-case.",
+            priorities: ["Water management", "Fuel efficiency", "Seasonal readiness", "Easy selection", "Local availability"],
+            value: "Yanmar supports seasonal and intensive work with dependable diesel equipment designed for practical water-management and site-power needs.",
+            cta: "Plan your next irrigation, dewatering or site-power requirement with a local application review.",
+          },
+          "central-eastern-europe": {
+            title: "Reliable output and service confidence for growing professional markets",
+            body: "Emphasize robust jobsite performance, straightforward service, parts confidence and value over time for construction, infrastructure and rental customers.",
+            priorities: ["Jobsite reliability", "Serviceability", "Parts support", "TCO", "Construction fit"],
+            value: "Yanmar gives professional users a dependable equipment platform backed by proven diesel engineering and distributor support.",
+            cta: "Ask your distributor to compare application fit, service support and total value.",
+          },
+          nordics: {
+            title: "Efficient, dependable equipment with accountable support",
+            body: "Lead with reliability, efficient operation, clear documentation and service support. Avoid unverified environmental or climate claims.",
+            priorities: ["Reliability", "Efficient operation", "Documentation", "Service support", "Verified compliance"],
+            value: "Yanmar combines dependable professional performance with clear product proof and distributor support for planned, accountable operation.",
+            cta: "Review the verified model specification and local support package.",
+          },
+          "middle-east": {
+            title: "Long-duration value for demanding operating conditions",
+            body: "Lead with runtime, durability, engine reliability and TCO. Support the sales conversation with Arabic-ready materials and duty-cycle evidence.",
+            priorities: ["Long-duration work", "Durability", "TCO", "Engine reliability", "Arabic-ready support"],
+            value: "Yanmar diesel equipment is positioned for dependable long-duration work, helping professional users protect uptime and lifetime value under demanding duty cycles.",
+            cta: "Request an Arabic-ready duty-cycle and TCO review from your local distributor.",
+          },
+          africa: {
+            title: "Robust professional value with practical service support",
+            body: "Prioritize uptime, serviceability, fuel availability, parts support and application fit. Keep the comparison practical and locally verifiable.",
+            priorities: ["Uptime", "Serviceability", "Fuel availability", "Parts support", "Application fit"],
+            value: "Yanmar supports professional work with robust diesel engineering, practical operation and distributor-backed service confidence.",
+            cta: "Discuss operating conditions, parts support and the right model for the job.",
+          },
+          global: {
+            title: "Japanese engineering translated into professional value",
+            body: "Use reliability, build quality, application fit and service as the global core. Localize proof points and calls to action by distributor market.",
+            priorities: ["Japanese engineering", "Reliability", "Build quality", "Application fit", "Distributor support"],
+            value: "Yanmar translates Japanese diesel engineering into dependable professional equipment for power and water-management applications.",
+            cta: "Contact your Yanmar distributor for verified specifications and application advice.",
+          },
+        };
+
+        const state = {
+          products: [],
+          activeId: null,
+          generated: null,
+        };
+
+        function notify(message) {
+          const toast = byId("portal-toast");
+          if (!toast) return;
+          toast.textContent = message;
+          toast.classList.add("show");
+          window.setTimeout(() => toast.classList.remove("show"), 2400);
+        }
+
+        function setSourceStatus(kind, title, body, searchQuery) {
+          const status = byId("ci-source-status");
+          const link = byId("ci-search-link");
+          status.dataset.state = kind;
+          status.querySelector("h3").textContent = title;
+          status.querySelector("p:last-of-type").textContent = body;
+          if (searchQuery) {
+            link.href = `https://www.google.com/search?q=${encodeURIComponent(searchQuery + " official product specifications")}`;
+            link.hidden = false;
+          } else {
+            link.hidden = true;
+          }
+        }
+
+        function canonicalKey(label) {
+          const normalized = String(label || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+          if (!normalized) return null;
+          const entries = Object.entries(fieldDefinitions);
+          for (const [key, definition] of entries) {
+            if (definition.aliases.some((alias) => normalized === alias || normalized.includes(alias))) return key;
+          }
+          return `custom-${slugify(normalized).slice(0, 42)}`;
+        }
+
+        function labelForKey(key, fallback) {
+          return fieldDefinitions[key]?.label || fallback || String(key).replace(/^custom-/, "").replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
+        }
+
+        function addField(map, label, value, source, confidence = "medium") {
+          const cleanLabel = String(label || "").replace(/\s+/g, " ").trim();
+          const cleanValue = String(value || "").replace(/\s+/g, " ").trim();
+          if (!cleanLabel || !cleanValue || cleanValue.length > 500) return;
+          const key = canonicalKey(cleanLabel);
+          if (!key || cleanValue.toLowerCase() === cleanLabel.toLowerCase()) return;
+          const preferred = recommendedFields.generator.includes(key) || recommendedFields.pump.includes(key);
+          const existing = map.get(key);
+          if (!existing || cleanValue.length > existing.value.length) {
+            map.set(key, {
+              key,
+              label: labelForKey(key, cleanLabel),
+              value: cleanValue,
+              selected: preferred,
+              confidence,
+              source: source || "Source text",
+            });
+          }
+        }
+
+        function parseSpecificationText(rawText, category, sourceLabel) {
+          const map = new Map();
+          const text = String(rawText || "").replace(/\u00a0/g, " ").slice(0, 240000);
+          const lines = text.split(/\r?\n|\s*[;•]\s*/).map((line) => line.replace(/\s+/g, " ").trim()).filter(Boolean);
+          lines.forEach((line) => {
+            const pair = line.match(/^(.{2,75}?)(?:\s*[:|]\s*|\s{2,})(.{1,320})$/);
+            if (pair) addField(map, pair[1], pair[2], sourceLabel, "high");
+          });
+
+          const patterns = [
+            ["Power class", /(?:prime power|rated power|rated output|continuous output|power output)\s*[:\-]?\s*([0-9.,]+\s*(?:kVA|kW|W))/i],
+            ["Frequency", /(?:frequency)\s*[:\-]?\s*([0-9/.,\s]+Hz)/i],
+            ["Voltage", /(?:rated voltage|voltage)\s*[:\-]?\s*([0-9/.,\s]+V)/i],
+            ["Fuel tank", /(?:fuel tank capacity|tank capacity|fuel tank)\s*[:\-]?\s*([0-9.,]+\s*(?:L|litres?|liters?|gal))/i],
+            ["Fuel consumption", /(?:fuel consumption|fuel use|consumption)\s*[:\-]?\s*([0-9.,]+\s*(?:L\/h|lph|litres? per hour|liters? per hour))/i],
+            ["Operating time", /(?:running time|run time|runtime|operating time)\s*[:\-]?\s*([0-9.,]+\s*(?:h|hours?))/i],
+            ["Sound level", /(?:sound pressure|sound level|noise level|noise)\s*[:\-]?\s*([0-9.,]+\s*dB(?:\(A\)|A)?)/i],
+            ["Weight", /(?:dry weight|net weight|operating weight|weight)\s*[:\-]?\s*([0-9.,]+\s*(?:kg|lb|lbs))/i],
+            ["Maximum total head", /(?:maximum total head|max total head|maximum head|max head)\s*[:\-]?\s*([0-9.,]+\s*(?:m|ft))/i],
+            ["Maximum capacity", /(?:maximum capacity|max capacity|maximum flow|max flow|flow rate)\s*[:\-]?\s*([0-9.,]+\s*(?:L\/min|m3\/h|m³\/h|gpm))/i],
+            ["Port size", /(?:port size|connection size|suction diameter|discharge diameter)\s*[:\-]?\s*([^\n;]{1,55})/i],
+            ["Start options", /(?:starting system|start system|starting method|starter)\s*[:\-]?\s*([^\n;]{1,80})/i],
+            ["Engine", /(?:engine model|engine type|engine)\s*[:\-]?\s*([^\n;]{1,100})/i],
+          ];
+          patterns.forEach(([label, pattern]) => {
+            const match = text.match(pattern);
+            if (match) addField(map, label, match[1], sourceLabel, "medium");
+          });
+
+          const keys = category === "pump" ? recommendedFields.pump : recommendedFields.generator;
+          return Array.from(map.values()).sort((a, b) => {
+            const ai = keys.indexOf(a.key);
+            const bi = keys.indexOf(b.key);
+            if (ai >= 0 && bi >= 0) return ai - bi;
+            if (ai >= 0) return -1;
+            if (bi >= 0) return 1;
+            return a.label.localeCompare(b.label);
+          });
+        }
+
+        function findProductJson(value) {
+          if (!value) return null;
+          if (Array.isArray(value)) {
+            for (const item of value) {
+              const found = findProductJson(item);
+              if (found) return found;
+            }
+            return null;
+          }
+          if (typeof value !== "object") return null;
+          const type = value["@type"];
+          if (type === "Product" || (Array.isArray(type) && type.includes("Product"))) return value;
+          for (const child of Object.values(value)) {
+            const found = findProductJson(child);
+            if (found) return found;
+          }
+          return null;
+        }
+
+        function extractDocumentEvidence(doc, url, category) {
+          const map = new Map();
+          const sourceLabel = url;
+          let productJson = null;
+          doc.querySelectorAll('script[type="application/ld+json"]').forEach((script) => {
+            if (productJson) return;
+            try { productJson = findProductJson(JSON.parse(script.textContent)); } catch (error) { /* Ignore invalid publisher JSON-LD. */ }
+          });
+
+          const h1 = doc.querySelector("h1")?.textContent?.trim();
+          const metaTitle = doc.querySelector('meta[property="og:title"]')?.content || doc.title;
+          const name = productJson?.name || h1 || metaTitle || new URL(url).hostname;
+          const description = productJson?.description || doc.querySelector('meta[name="description"]')?.content || doc.querySelector('meta[property="og:description"]')?.content || "";
+          let image = productJson?.image || doc.querySelector('meta[property="og:image"]')?.content || "";
+          if (Array.isArray(image)) image = image[0];
+          if (image && typeof image === "object") image = image.url || image.contentUrl || "";
+          try { if (image) image = new URL(image, url).href; } catch (error) { image = ""; }
+
+          addField(map, "Model", productJson?.model || productJson?.sku || name, sourceLabel, "high");
+          addField(map, "Description", description, sourceLabel, "high");
+          const brand = typeof productJson?.brand === "string" ? productJson.brand : productJson?.brand?.name;
+          if (brand) addField(map, "Brand", brand, sourceLabel, "high");
+          (productJson?.additionalProperty || []).forEach((property) => addField(map, property.name, property.value, sourceLabel, "high"));
+
+          doc.querySelectorAll("table tr").forEach((row) => {
+            const cells = Array.from(row.querySelectorAll("th,td")).map((cell) => cell.textContent.replace(/\s+/g, " ").trim());
+            if (cells.length >= 2) addField(map, cells[0], cells.slice(1).join(" / "), sourceLabel, "high");
+          });
+          doc.querySelectorAll("dt").forEach((term) => {
+            const value = term.nextElementSibling;
+            if (value?.matches("dd")) addField(map, term.textContent, value.textContent, sourceLabel, "high");
+          });
+
+          const bodyText = doc.body?.textContent || "";
+          parseSpecificationText(bodyText, category, sourceLabel).forEach((field) => {
+            if (!map.has(field.key)) map.set(field.key, field);
+          });
+          return { name, description, image, fields: Array.from(map.values()) };
+        }
+
+        function inferName(source, category) {
+          const clean = String(source || "").trim();
+          if (!clean) return category === "pump" ? "Competitor diesel pump" : "Competitor diesel generator";
+          try {
+            const url = new URL(clean);
+            const tail = decodeURIComponent(url.pathname.split("/").filter(Boolean).pop() || "").replace(/[-_]+/g, " ");
+            return tail ? tail.replace(/\b\w/g, (char) => char.toUpperCase()) : url.hostname.replace(/^www\./, "");
+          } catch (error) {
+            return clean;
+          }
+        }
+
+        async function analyzeSource(event) {
+          event.preventDefault();
+          const category = byId("ci-category").value;
+          const source = byId("ci-source-input").value.trim();
+          const pasted = byId("ci-source-text").value.trim();
+          const explicitImage = byId("ci-image-url").value.trim();
+          const market = byId("ci-source-market").value;
+          if (!source && !pasted) {
+            setSourceStatus("warning", "Add a source first", "Enter an official product URL, a product name or pasted specification text.");
+            return;
+          }
+
+          setSourceStatus("idle", "Analyzing source...", "Checking structured product data, specification tables, product-page text and metadata.");
+          let evidence = null;
+          let fetchWarning = "";
+          let isUrl = false;
+          try { new URL(source); isUrl = /^https?:/i.test(source); } catch (error) { isUrl = false; }
+
+          if (isUrl) {
+            try {
+              const response = await fetch(source, { mode: "cors", headers: { Accept: "text/html,application/xhtml+xml" } });
+              if (!response.ok) throw new Error(`HTTP ${response.status}`);
+              const html = await response.text();
+              const doc = new DOMParser().parseFromString(html, "text/html");
+              evidence = extractDocumentEvidence(doc, source, category);
+            } catch (error) {
+              fetchWarning = "This website blocks direct browser crawling. Paste its specification table or brochure text in the fallback field; the production portal should route these URLs through an approved server-side crawler.";
+              if (!pasted) {
+                setSourceStatus("warning", "Direct crawl blocked", fetchWarning, inferName(source, category));
+                return;
+              }
+            }
+          }
+
+          if (!evidence) {
+            const name = inferName(source, category);
+            const fields = parseSpecificationText(pasted, category, isUrl ? source : "Pasted specification text");
+            if (!fields.some((field) => field.key === "modelName")) {
+              fields.unshift({ key: "modelName", label: "Model", value: name, selected: true, confidence: pasted ? "medium" : "low", source: isUrl ? source : "Product name input" });
+            }
+            evidence = { name, description: "", image: "", fields };
+          }
+
+          if (pasted && isUrl) {
+            const pastedFields = parseSpecificationText(pasted, category, "Pasted specification text");
+            const merged = new Map(evidence.fields.map((field) => [field.key, field]));
+            pastedFields.forEach((field) => merged.set(field.key, field));
+            evidence.fields = Array.from(merged.values());
+          }
+
+          const product = {
+            id: `competitor-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+            name: evidence.name || inferName(source, category),
+            category,
+            url: isUrl ? source : "",
+            source: source || "Pasted specification text",
+            market,
+            image: explicitImage || evidence.image || "",
+            description: evidence.description || "",
+            fields: evidence.fields,
+            createdAt: new Date().toISOString(),
+          };
+          state.products.push(product);
+          state.activeId = product.id;
+          renderSourceTabs();
+          renderFieldReview();
+          setSourceStatus(product.fields.length > 2 ? "success" : "warning", product.fields.length > 2 ? "Evidence extracted" : "Source added with limited evidence", `${product.fields.length} fields are ready for review. ${fetchWarning}`.trim(), product.fields.length > 2 ? "" : product.name);
+          byId("ci-source-text").value = "";
+          byId("ci-image-url").value = "";
+        }
+
+        function activeProduct() {
+          return state.products.find((product) => product.id === state.activeId) || null;
+        }
+
+        function renderSourceTabs() {
+          const container = byId("ci-source-tabs");
+          if (!state.products.length) {
+            container.innerHTML = "";
+            return;
+          }
+          container.innerHTML = state.products.map((product) => `
+            <div class="ci-source-chip ${product.id === state.activeId ? "active" : ""}" role="button" tabindex="0" data-ci-source-id="${escapeText(product.id)}">
+              <span>${escapeText(product.name)}</span>
+              <button class="remove-source" type="button" data-ci-remove-source="${escapeText(product.id)}" aria-label="Remove ${escapeText(product.name)}">×</button>
+            </div>
+          `).join("");
+        }
+
+        function renderFieldReview() {
+          const product = activeProduct();
+          const list = byId("ci-field-list");
+          const summary = byId("ci-review-summary");
+          if (!product) {
+            summary.textContent = "Add a competitor source to start building the evidence set.";
+            list.innerHTML = '<div class="ci-empty-state">No extracted competitor fields yet.</div>';
+            return;
+          }
+          const selected = product.fields.filter((field) => field.selected).length;
+          summary.textContent = `${product.name}: ${product.fields.length} extracted fields, ${selected} selected. Verify every value against the linked source.`;
+          list.innerHTML = product.fields.map((field) => `
+            <label class="ci-field-row">
+              <input type="checkbox" data-ci-field-select="${escapeText(field.key)}" ${field.selected ? "checked" : ""} />
+              <span class="ci-field-label"><strong>${escapeText(field.label)}</strong><small>${escapeText(field.source || product.source)}</small></span>
+              <input type="text" value="${escapeText(field.value)}" data-ci-field-value="${escapeText(field.key)}" aria-label="${escapeText(field.label)} value" />
+              <select data-ci-field-confidence="${escapeText(field.key)}" aria-label="${escapeText(field.label)} confidence">
+                <option value="high" ${field.confidence === "high" ? "selected" : ""}>High confidence</option>
+                <option value="medium" ${field.confidence === "medium" ? "selected" : ""}>Review</option>
+                <option value="low" ${field.confidence === "low" ? "selected" : ""}>Unverified</option>
+              </select>
+            </label>
+          `).join("");
+        }
+
+        function selectFields(mode) {
+          const product = activeProduct();
+          if (!product) return;
+          const recommended = recommendedFields[product.category];
+          product.fields.forEach((field) => { field.selected = mode === "all" || recommended.includes(field.key); });
+          renderFieldReview();
+        }
+
+        function addCustomField() {
+          const product = activeProduct();
+          const label = byId("ci-custom-label").value.trim();
+          const value = byId("ci-custom-value").value.trim();
+          if (!product || !label || !value) {
+            notify("Select a source and enter both a field label and value.");
+            return;
+          }
+          const baseKey = canonicalKey(label) || `custom-${slugify(label)}`;
+          let key = baseKey;
+          let suffix = 2;
+          while (product.fields.some((field) => field.key === key)) key = `${baseKey}-${suffix++}`;
+          product.fields.push({ key, label, value, selected: true, confidence: "medium", source: "Manual field" });
+          byId("ci-custom-label").value = "";
+          byId("ci-custom-value").value = "";
+          renderFieldReview();
+        }
+
+        function getYanmarProfile() {
+          const [group, model] = byId("ci-yanmar-model").value.split(":");
+          let variant = null;
+          try { variant = variantData?.[group]?.[model]; } catch (error) { variant = null; }
+          const fields = {};
+          (variant?.specs || []).forEach(([label, value]) => {
+            const key = canonicalKey(label);
+            if (key) fields[key] = value;
+          });
+          fields.modelName = model;
+          if (variant?.description) fields.description = variant.description;
+          if (!fields.engine && group === "ydg") fields.engine = "Genuine Yanmar air-cooled L-Series diesel engine";
+          if (!fields.application && variant?.specs) {
+            const angle = variant.specs.find(([label]) => String(label).toLowerCase().includes("message angle"));
+            if (angle) fields.application = angle[1];
+          }
+          fields.serviceSupport = "Yanmar distributor service and parts support; confirm local terms";
+          fields.warranty = "Confirm current local warranty terms";
+          return {
+            group,
+            model,
+            name: variant?.title || model,
+            image: variant?.image || (group === "ydp" ? "assets/YDP Warehouse.png" : "assets/YDG Cherry sakura.png"),
+            fields,
+          };
+        }
+
+        function updateRegionalBrief() {
+          const strategy = regionalStrategies[byId("ci-region").value] || regionalStrategies.global;
+          const brief = byId("ci-region-brief");
+          brief.querySelector("h3").textContent = strategy.title;
+          brief.querySelector("p:not(.small-red)").textContent = strategy.body;
+          byId("ci-priority-list").innerHTML = strategy.priorities.map((priority) => `<span>${escapeText(priority)}</span>`).join("");
+        }
+
+        function tcoResult() {
+          const values = {
+            yanmarPrice: Number(byId("ci-tco-yanmar-price").value),
+            competitorPrice: Number(byId("ci-tco-competitor-price").value),
+            yanmarFuel: Number(byId("ci-tco-yanmar-fuel").value),
+            competitorFuel: Number(byId("ci-tco-competitor-fuel").value),
+            yanmarService: Number(byId("ci-tco-yanmar-service").value || 0),
+            competitorService: Number(byId("ci-tco-competitor-service").value || 0),
+            hours: Number(byId("ci-tco-hours").value),
+            fuelPrice: Number(byId("ci-tco-fuel-price").value),
+            years: Number(byId("ci-tco-years").value),
+          };
+          const required = [values.yanmarPrice, values.competitorPrice, values.yanmarFuel, values.competitorFuel, values.hours, values.fuelPrice, values.years];
+          if (required.some((value) => !Number.isFinite(value) || value <= 0)) return null;
+          return {
+            yanmar: values.yanmarPrice + ((values.yanmarFuel * values.hours * values.fuelPrice) + values.yanmarService) * values.years,
+            competitor: values.competitorPrice + ((values.competitorFuel * values.hours * values.fuelPrice) + values.competitorService) * values.years,
+            assumptions: values,
+          };
+        }
+
+        function productMedia(product, isYanmar) {
+          if (product.image) return `<img src="${escapeText(product.image)}" alt="${escapeText(product.name)}" />`;
+          const initials = product.name.split(/\s+/).map((part) => part[0]).join("").slice(0, 3).toUpperCase();
+          return `<span class="comparison-product-placeholder">${escapeText(initials || (isYanmar ? "Y" : "ALT"))}</span>`;
+        }
+
+        function generateComparison() {
+          const targetCategory = activeProduct()?.category || state.products.find((product) => product.fields.some((field) => field.selected))?.category || "generator";
+          const modelSelect = byId("ci-yanmar-model");
+          const expectedGroup = targetCategory === "pump" ? "ydp:" : "ydg:";
+          if (!modelSelect.value.startsWith(expectedGroup)) modelSelect.value = targetCategory === "pump" ? "ydp:YDP20N" : "ydg:YDG5500V";
+          const competitors = state.products.filter((product) => product.category === targetCategory && product.fields.some((field) => field.selected));
+          if (!competitors.length) {
+            notify("Add competitor evidence and select at least one field.");
+            return;
+          }
+          const yanmar = getYanmarProfile();
+          const strategy = regionalStrategies[byId("ci-region").value] || regionalStrategies.global;
+          const title = byId("ci-comparison-title").value.trim() || "Professional equipment comparison";
+          const useCase = byId("ci-use-case").value;
+          const selectedKeys = [];
+          competitors.forEach((product) => product.fields.forEach((field) => {
+            if (field.selected && !selectedKeys.includes(field.key)) selectedKeys.push(field.key);
+          }));
+          const rows = selectedKeys.map((key) => {
+            const firstField = competitors.flatMap((product) => product.fields).find((field) => field.key === key);
+            return {
+              key,
+              label: firstField?.label || labelForKey(key),
+              yanmar: yanmar.fields[key] || "Confirm current local datasheet",
+              competitors: competitors.map((product) => product.fields.find((field) => field.key === key)?.value || "Not provided"),
+            };
+          });
+
+          const tco = tcoResult();
+          if (tco) {
+            const currency = byId("ci-currency").value;
+            const format = new Intl.NumberFormat("en", { style: "currency", currency, maximumFractionDigits: 0 });
+            rows.push({ key: "tco", label: `${tco.assumptions.years}-year estimated TCO`, yanmar: format.format(tco.yanmar), competitors: competitors.map((product, index) => index === 0 ? format.format(tco.competitor) : "Not entered") });
+          }
+
+          const products = [{ name: yanmar.name, image: yanmar.image, source: "Official Yanmar product data in portal", yanmar: true }, ...competitors.map((product) => ({ name: product.name, image: product.image, source: product.url || product.source, yanmar: false }))];
+          const preview = byId("ci-comparison-preview");
+          preview.innerHTML = `
+            <div class="comparison-sheet">
+              <div class="comparison-sheet-head">
+                <div><p class="small-red">Yanmar ${escapeText(yanmar.group.toUpperCase())} series</p><h2>${escapeText(title)}</h2><p>${escapeText(useCase)} · ${escapeText(strategy.title)}</p></div>
+                <div class="comparison-sheet-mark">YANMAR</div>
+              </div>
+              <div class="comparison-product-grid" style="--comparison-columns:${Math.min(products.length, 4)}">
+                ${products.map((product) => `
+                  <article class="comparison-product ${product.yanmar ? "yanmar" : ""}">
+                    <div class="comparison-product-media">${productMedia(product, product.yanmar)}</div>
+                    <div class="comparison-product-copy"><strong>${escapeText(product.name)}</strong><span>${product.yanmar ? "Yanmar reference model" : "Competitor evidence source"}</span></div>
+                  </article>
+                `).join("")}
+              </div>
+              <div class="comparison-table-wrap">
+                <table class="comparison-table">
+                  <thead><tr><th>Comparison point</th><th>${escapeText(yanmar.name)}</th>${competitors.map((product) => `<th>${escapeText(product.name)}</th>`).join("")}</tr></thead>
+                  <tbody>${rows.map((row) => `<tr><td>${escapeText(row.label)}</td><td class="yanmar-value">${escapeText(row.yanmar)}</td>${row.competitors.map((value) => `<td>${escapeText(value)}</td>`).join("")}</tr>`).join("")}</tbody>
+                </table>
+              </div>
+              <div class="comparison-value-band">
+                <div><h3>${escapeText(strategy.title)}</h3><p>${escapeText(strategy.value)}</p></div>
+                <div class="comparison-cta">${escapeText(strategy.cta)}</div>
+              </div>
+              <p class="ci-evidence-note">Evidence note: competitor values are taken from the sources selected in this tool and require final verification. Manufacturers may report sound, runtime, output and capacity under different standards or test conditions. TCO is shown only when verified local inputs are supplied.</p>
+            </div>
+          `;
+          state.generated = { title, useCase, strategy, yanmar, competitors, rows, products, generatedAt: new Date().toISOString(), html: preview.innerHTML };
+          try { if (typeof addUsageEvent === "function") addUsageEvent("Generated comparison sheet", title, yanmar.group.toUpperCase()); } catch (error) { /* Usage tracking is optional here. */ }
+          notify("Comparison sheet generated.");
+        }
+
+        function downloadBlob(filename, content, type) {
+          const blob = new Blob([content], { type });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = filename;
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }
+
+        function downloadComparisonHtml() {
+          if (!state.generated) generateComparison();
+          if (!state.generated) return;
+          const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>${escapeText(state.generated.title)}</title><style>body{margin:0;padding:28px;background:#f3f3f3;font-family:Arial,sans-serif;color:#171717}.comparison-sheet{max-width:1200px;margin:auto;background:#fff;border-top:8px solid #d71920;padding:24px}.comparison-product-grid{display:grid;grid-template-columns:repeat(${state.generated.products.length},1fr);gap:12px}.comparison-product{border:1px solid #ddd;padding:12px}.comparison-product img{width:100%;height:180px;object-fit:contain}.comparison-table{width:100%;border-collapse:collapse;margin-top:18px}.comparison-table th,.comparison-table td{border:1px solid #ddd;padding:11px;text-align:left}.comparison-table th{background:#f3f3f3}.yanmar-value{color:#d71920;font-weight:bold}.comparison-value-band{margin-top:18px;border-left:4px solid #d71920;background:#f5f5f5;padding:16px}.comparison-cta{margin-top:10px;background:#171717;color:#fff;padding:12px;font-weight:bold}.ci-evidence-note{font-size:11px;color:#666}@media(max-width:700px){.comparison-product-grid{grid-template-columns:1fr}.comparison-table{min-width:700px}}</style></head><body>${state.generated.html}</body></html>`;
+          downloadBlob(`${slugify(state.generated.title)}.html`, html, "text/html;charset=utf-8");
+        }
+
+        function downloadComparisonCsv() {
+          if (!state.generated) generateComparison();
+          if (!state.generated) return;
+          const names = [state.generated.yanmar.name, ...state.generated.competitors.map((product) => product.name)];
+          const csv = [["Comparison point", ...names], ...state.generated.rows.map((row) => [row.label, row.yanmar, ...row.competitors])]
+            .map((row) => row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(","))
+            .join("\r\n");
+          downloadBlob(`${slugify(state.generated.title)}.csv`, csv, "text/csv;charset=utf-8");
+        }
+
+        function saveComparison() {
+          if (!state.generated) generateComparison();
+          if (!state.generated) return;
+          const saved = JSON.parse(localStorage.getItem("yanmarComparisonDraftsV2") || "[]");
+          saved.unshift({
+            id: `draft-${Date.now()}`,
+            title: state.generated.title,
+            createdAt: new Date().toISOString(),
+            products: JSON.parse(JSON.stringify(state.products)),
+            activeId: state.activeId,
+            config: {
+              model: byId("ci-yanmar-model").value,
+              region: byId("ci-region").value,
+              useCase: byId("ci-use-case").value,
+              currency: byId("ci-currency").value,
+              title: byId("ci-comparison-title").value,
+            },
+          });
+          localStorage.setItem("yanmarComparisonDraftsV2", JSON.stringify(saved.slice(0, 10)));
+          renderSavedComparisons();
+          notify("Comparison draft saved in this browser.");
+        }
+
+        function renderSavedComparisons() {
+          const container = byId("ci-saved-list");
+          const saved = JSON.parse(localStorage.getItem("yanmarComparisonDraftsV2") || "[]");
+          if (!saved.length) {
+            container.innerHTML = '<div class="ci-empty-state">No saved comparison drafts yet.</div>';
+            return;
+          }
+          container.innerHTML = saved.map((draft) => `
+            <div class="saved-comparison-row">
+              <div><strong>${escapeText(draft.title)}</strong><span>${escapeText(new Date(draft.createdAt).toLocaleString())} · ${(draft.products || []).length} competitor source(s)</span></div>
+              <button class="header-action secondary" type="button" data-ci-load-draft="${escapeText(draft.id)}">Open</button>
+              <button class="header-action secondary" type="button" data-ci-delete-draft="${escapeText(draft.id)}" aria-label="Delete ${escapeText(draft.title)}">Delete</button>
+            </div>
+          `).join("");
+        }
+
+        function loadDraft(id) {
+          const saved = JSON.parse(localStorage.getItem("yanmarComparisonDraftsV2") || "[]");
+          const draft = saved.find((item) => item.id === id);
+          if (!draft) return;
+          state.products = draft.products || [];
+          state.activeId = draft.activeId || state.products[0]?.id || null;
+          byId("ci-yanmar-model").value = draft.config?.model || byId("ci-yanmar-model").value;
+          byId("ci-region").value = draft.config?.region || "global";
+          byId("ci-use-case").value = draft.config?.useCase || byId("ci-use-case").value;
+          byId("ci-currency").value = draft.config?.currency || "EUR";
+          byId("ci-comparison-title").value = draft.config?.title || draft.title;
+          renderSourceTabs();
+          renderFieldReview();
+          updateRegionalBrief();
+          generateComparison();
+          notify("Saved comparison opened.");
+        }
+
+        function deleteDraft(id) {
+          const saved = JSON.parse(localStorage.getItem("yanmarComparisonDraftsV2") || "[]").filter((item) => item.id !== id);
+          localStorage.setItem("yanmarComparisonDraftsV2", JSON.stringify(saved));
+          renderSavedComparisons();
+        }
+
+        const webCopyTemplates = {
+          en: {
+            ydg: { eyebrow: "Professional portable diesel power", headline: "Reliable power where professional work happens.", intro: "Yanmar YDG portable diesel generators help professional users keep equipment, tools and essential operations running with dependable diesel engineering and practical distributor support.", benefits: ["Dependable Yanmar diesel engineering for professional applications", "Efficient operation and practical runtime for planned work", "Clear model, service and application support through your local distributor"], application: "Use YDG for construction sites, rental fleets, agriculture, workshops and backup-power situations where a dependable portable source is required.", ctaTitle: "Find the right YDG for your duty cycle", ctaBody: "Share your required output, operating hours, voltage and application. Your distributor can check the current model specification and local availability.", cta: "Request YDG application advice" },
+            ydp: { eyebrow: "Professional portable water management", headline: "Keep water moving and work accessible.", intro: "Yanmar YDP portable diesel pumps support professional dewatering, water transfer and irrigation with practical capacities, dependable diesel power and application-focused distributor support.", benefits: ["Fresh-water, semi-trash and trash-pump options for different water conditions", "Professional Yanmar diesel engineering with practical start-system choices", "Clear selection support for flow, total head, port size and application"], application: "Use YDP for construction dewatering, irrigation, drainage, flood response and water transfer where reliable portable pumping is essential.", ctaTitle: "Select a YDP around the application", ctaBody: "Share the required flow, total head, hose length, water condition and operating time. Your distributor can verify the most suitable current model.", cta: "Request YDP selection support" },
+          },
+          de: {
+            ydg: { eyebrow: "Professionelle mobile Dieselenergie", headline: "Zuverlässige Energie dort, wo professionelle Arbeit stattfindet.", intro: "Mobile Yanmar YDG Dieselgeneratoren unterstützen professionelle Anwender mit zuverlässiger Dieseltechnik, effizientem Betrieb und praktischem Händlerservice.", benefits: ["Bewährte Yanmar Dieseltechnik für professionelle Einsätze", "Effizienter Betrieb und praxisgerechte Laufzeit", "Modell-, Service- und Anwendungsberatung durch den lokalen Händler"], application: "YDG eignet sich für Baustellen, Vermietung, Landwirtschaft, Werkstätten und Notstromanwendungen.", ctaTitle: "Den passenden YDG für den Einsatz finden", ctaBody: "Teilen Sie Leistungsbedarf, Betriebsstunden, Spannung und Anwendung mit. Ihr Händler prüft Spezifikation und Verfügbarkeit.", cta: "YDG Anwendungsberatung anfragen" },
+            ydp: { eyebrow: "Professionelles mobiles Wassermanagement", headline: "Wasser bewegen und Arbeitsbereiche zugänglich halten.", intro: "Mobile Yanmar YDP Dieselpumpen unterstützen Entwässerung, Wassertransfer und Bewässerung mit zuverlässiger Dieseltechnik und anwendungsbezogener Beratung.", benefits: ["Pumpenoptionen für Frischwasser, leicht verschmutztes Wasser und Schmutzwasser", "Professionelle Yanmar Dieseltechnik", "Auswahlhilfe für Fördermenge, Förderhöhe, Anschluss und Anwendung"], application: "YDP eignet sich für Bauentwässerung, Bewässerung, Drainage, Hochwassereinsätze und Wassertransfer.", ctaTitle: "YDP passend zur Anwendung auswählen", ctaBody: "Teilen Sie Fördermenge, Förderhöhe, Schlauchlänge, Wasserzustand und Betriebszeit mit.", cta: "YDP Auswahlberatung anfragen" },
+          },
+          es: {
+            ydg: { eyebrow: "Energía diésel portátil profesional", headline: "Energía fiable allí donde se realiza el trabajo profesional.", intro: "Los generadores diésel portátiles Yanmar YDG ayudan a mantener herramientas y operaciones esenciales con ingeniería diésel fiable y soporte local.", benefits: ["Ingeniería diésel Yanmar para aplicaciones profesionales", "Funcionamiento eficiente y autonomía práctica", "Soporte local para modelo, servicio y aplicación"], application: "Utilice YDG en construcción, alquiler, agricultura, talleres y energía de emergencia.", ctaTitle: "Encuentre el YDG adecuado para su trabajo", ctaBody: "Indique potencia, horas de trabajo, voltaje y aplicación para verificar el modelo y la disponibilidad.", cta: "Solicitar asesoramiento YDG" },
+            ydp: { eyebrow: "Gestión profesional y portátil del agua", headline: "Mantenga el agua en movimiento y el trabajo accesible.", intro: "Las bombas diésel portátiles Yanmar YDP ayudan en drenaje, trasvase e irrigación con rendimiento práctico y soporte de selección local.", benefits: ["Opciones para agua limpia, semisucia y agua con sólidos", "Ingeniería diésel profesional Yanmar", "Selección por caudal, altura, conexión y aplicación"], application: "Utilice YDP para drenaje de obras, irrigación, inundaciones y trasvase de agua.", ctaTitle: "Seleccione YDP según la aplicación", ctaBody: "Indique caudal, altura, longitud de manguera, condición del agua y tiempo de uso.", cta: "Solicitar selección YDP" },
+          },
+          pl: {
+            ydg: { eyebrow: "Profesjonalne przenośne zasilanie diesla", headline: "Niezawodna energia tam, gdzie wykonywana jest praca.", intro: "Przenośne generatory diesla Yanmar YDG wspierają profesjonalnych użytkowników niezawodną technologią i praktycznym wsparciem dystrybutora.", benefits: ["Sprawdzona technologia diesla Yanmar", "Wydajna praca i praktyczny czas działania", "Lokalne wsparcie doboru modelu, serwisu i zastosowania"], application: "YDG sprawdza się na budowach, w wynajmie, rolnictwie, warsztatach i zasilaniu awaryjnym.", ctaTitle: "Dobierz YDG do cyklu pracy", ctaBody: "Podaj wymaganą moc, czas pracy, napięcie i zastosowanie, aby potwierdzić model i dostępność.", cta: "Poproś o dobór YDG" },
+            ydp: { eyebrow: "Profesjonalne mobilne zarządzanie wodą", headline: "Utrzymaj przepływ wody i dostępność miejsca pracy.", intro: "Przenośne pompy diesla Yanmar YDP wspierają odwadnianie, transfer wody i nawadnianie dzięki niezawodnej technologii i lokalnemu wsparciu.", benefits: ["Opcje do wody czystej, lekko zanieczyszczonej i brudnej", "Profesjonalna technologia diesla Yanmar", "Dobór według przepływu, wysokości podnoszenia, przyłącza i zastosowania"], application: "YDP sprawdza się w budownictwie, nawadnianiu, drenażu, reagowaniu na powodzie i transferze wody.", ctaTitle: "Dobierz YDP do zastosowania", ctaBody: "Podaj wymagany przepływ, wysokość podnoszenia, długość węża, stan wody i czas pracy.", cta: "Poproś o dobór YDP" },
+          },
+          ar: {
+            ydg: { eyebrow: "طاقة ديزل متنقلة للاستخدام المهني", headline: "طاقة موثوقة حيث يتم إنجاز العمل المهني.", intro: "تساعد مولدات الديزل المتنقلة Yanmar YDG المستخدمين المهنيين على استمرار تشغيل المعدات والأعمال الأساسية بدعم من هندسة ديزل موثوقة وموزع محلي.", benefits: ["هندسة ديزل Yanmar موثوقة للتطبيقات المهنية", "تشغيل فعّال ومدة عمل عملية", "دعم محلي لاختيار الطراز والخدمة والتطبيق"], application: "استخدم YDG في مواقع البناء والتأجير والزراعة والورش والطاقة الاحتياطية.", ctaTitle: "اختر YDG المناسب لدورة العمل", ctaBody: "شارك القدرة المطلوبة وساعات التشغيل والجهد والتطبيق ليتم التحقق من الطراز والتوفر المحلي.", cta: "اطلب استشارة تطبيق YDG" },
+            ydp: { eyebrow: "إدارة مياه متنقلة للاستخدام المهني", headline: "حافظ على تدفق المياه وإمكانية الوصول إلى موقع العمل.", intro: "تدعم مضخات الديزل المتنقلة Yanmar YDP أعمال نزح المياه ونقل المياه والري بقدرات عملية ودعم محلي للاختيار.", benefits: ["خيارات للمياه النظيفة والمياه المحتوية على شوائب", "هندسة ديزل Yanmar للاستخدام المهني", "اختيار حسب التدفق والارتفاع وحجم المنفذ والتطبيق"], application: "استخدم YDP في نزح مياه البناء والري والصرف والاستجابة للفيضانات ونقل المياه.", ctaTitle: "اختر YDP حسب التطبيق", ctaBody: "شارك التدفق المطلوب والارتفاع وطول الخرطوم وحالة المياه ومدة التشغيل.", cta: "اطلب دعم اختيار YDP" },
+          },
+        };
+
+        function buildWebsiteCopy() {
+          const product = byId("webcopy-product").value;
+          const language = byId("webcopy-language").value;
+          const region = byId("webcopy-region").value;
+          const segment = byId("webcopy-segment").value;
+          const distributor = byId("webcopy-distributor").value.trim() || "Your Yanmar distributor";
+          const template = webCopyTemplates[language]?.[product] || webCopyTemplates.en[product];
+          const strategy = regionalStrategies[region] || regionalStrategies.global;
+          const productName = product === "ydg" ? "Yanmar YDG" : "Yanmar YDP";
+          const fields = [
+            { id: "eyebrow", label: "Eyebrow", value: template.eyebrow, type: "input" },
+            { id: "headline", label: "H1 headline", value: template.headline, type: "textarea" },
+            { id: "intro", label: "Intro paragraph", value: template.intro, type: "textarea" },
+            { id: "benefits", label: "Proof-led benefits", value: template.benefits.map((item) => `• ${item}`).join("\n"), type: "textarea" },
+            { id: "regional", label: "Regional value proposition", value: language === "en" ? strategy.value : `${template.intro}\n\nRegional proof focus: ${strategy.priorities.join(", ")}.`, type: "textarea" },
+            { id: "application", label: "Application section", value: `${template.application}\n\nPrimary segment: ${segment}.`, type: "textarea" },
+            { id: "ctaTitle", label: "CTA heading", value: template.ctaTitle, type: "input" },
+            { id: "ctaBody", label: "CTA supporting text", value: `${template.ctaBody} ${distributor} will validate model-specific claims before quotation.`, type: "textarea" },
+            { id: "cta", label: "CTA button", value: template.cta, type: "input" },
+            { id: "seoTitle", label: "SEO title", value: `${productName} | ${segment} | ${distributor}`.slice(0, 62), type: "input" },
+            { id: "meta", label: "Meta description", value: `${template.intro} Contact ${distributor} for verified specifications and local application support.`.slice(0, 158), type: "textarea" },
+            { id: "faq", label: "FAQ starter", value: `1. Which ${productName} model fits this application?\nUse the verified model selector and confirm the local specification with ${distributor}.\n\n2. Which information is needed for selection?\n${product === "ydg" ? "Required output, voltage, frequency, operating hours and connected equipment." : "Required flow, total head, hose length, water condition and operating time."}\n\n3. Where can I find service and parts support?\nContact ${distributor} for local service, warranty and parts information.`, type: "textarea" },
+          ];
+          const output = byId("webcopy-output");
+          output.dataset.direction = language === "ar" ? "rtl" : "ltr";
+          output.innerHTML = fields.map((field) => `
+            <div class="website-copy-block" dir="${language === "ar" ? "rtl" : "ltr"}">
+              <label for="webcopy-field-${field.id}">${escapeText(field.label)}</label>
+              ${field.type === "input" ? `<input id="webcopy-field-${field.id}" data-webcopy-field="${field.id}" value="${escapeText(field.value)}" />` : `<textarea id="webcopy-field-${field.id}" data-webcopy-field="${field.id}" rows="${field.id === "faq" ? 9 : field.id === "benefits" ? 4 : 3}">${escapeText(field.value)}</textarea>`}
+            </div>
+          `).join("");
+          updateWebsitePreview();
+          try { localStorage.setItem("yanmarWebsiteCopyLastV1", JSON.stringify({ product, language, region, segment, distributor, values: fields })); } catch (error) { /* Local draft storage is optional. */ }
+          notify("Regional website copy generated.");
+        }
+
+        function updateWebsitePreview() {
+          const preview = byId("webcopy-preview");
+          const headline = byId("webcopy-field-headline")?.value || "Regional website headline";
+          const intro = byId("webcopy-field-intro")?.value || "Generate copy to preview the page message.";
+          const cta = byId("webcopy-field-cta")?.value || "Request product advice";
+          preview.querySelector("h2").textContent = headline;
+          preview.querySelector("p:not(.small-red)").textContent = intro;
+          preview.querySelector(".preview-cta").textContent = cta;
+          preview.dir = byId("webcopy-language").value === "ar" ? "rtl" : "ltr";
+        }
+
+        function websiteCopyText() {
+          return Array.from(byId("webcopy-output").querySelectorAll(".website-copy-block")).map((block) => {
+            const label = block.querySelector("label")?.textContent || "Section";
+            const value = block.querySelector("input,textarea")?.value || "";
+            return `${label.toUpperCase()}\n${value}`;
+          }).join("\n\n");
+        }
+
+        async function copyWebsiteText() {
+          const text = websiteCopyText();
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+          } catch (error) {
+            const area = document.createElement("textarea");
+            area.value = text;
+            document.body.appendChild(area);
+            area.select();
+            document.execCommand("copy");
+            area.remove();
+          }
+          notify("Website copy copied.");
+        }
+
+        sourceForm.addEventListener("submit", analyzeSource);
+        byId("ci-category").addEventListener("change", () => {
+          const isPump = byId("ci-category").value === "pump";
+          byId("ci-yanmar-model").value = isPump ? "ydp:YDP20N" : "ydg:YDG5500V";
+          byId("ci-comparison-title").value = isPump ? "Professional portable diesel pump comparison" : "Professional portable diesel generator comparison";
+        });
+        byId("ci-load-example").addEventListener("click", () => {
+          byId("ci-category").value = "generator";
+          byId("ci-source-input").value = "Illustrative Alternative A (demo only)";
+          byId("ci-source-text").value = "Model: Illustrative Alternative A\nPrime power: 4.9 kVA\nEngine: Comparable single-cylinder diesel\nFuel tank: 16 L\nStarting system: Electric\nApplication: Longer-running site use\nBest fit: Larger-tank alternative\nWarranty: Verify with manufacturer\nService support: Verify local network";
+          setSourceStatus("warning", "Illustrative source loaded", "This demo data is not a real competitor claim. Select Analyze & add product to test the full workflow.");
+        });
+        byId("ci-select-recommended").addEventListener("click", () => selectFields("recommended"));
+        byId("ci-select-all").addEventListener("click", () => selectFields("all"));
+        byId("ci-add-custom-field").addEventListener("click", addCustomField);
+        byId("ci-region").addEventListener("change", updateRegionalBrief);
+        byId("ci-generate").addEventListener("click", generateComparison);
+        byId("ci-save").addEventListener("click", saveComparison);
+        byId("ci-download-html").addEventListener("click", downloadComparisonHtml);
+        byId("ci-download-csv").addEventListener("click", downloadComparisonCsv);
+        byId("ci-print").addEventListener("click", () => {
+          if (!state.generated) generateComparison();
+          if (!state.generated) return;
+          document.body.classList.add("printing-comparison");
+          window.print();
+          window.setTimeout(() => document.body.classList.remove("printing-comparison"), 800);
+        });
+
+        byId("ci-field-review").addEventListener("change", (event) => {
+          const product = activeProduct();
+          if (!product) return;
+          const key = event.target.dataset.ciFieldSelect || event.target.dataset.ciFieldValue || event.target.dataset.ciFieldConfidence;
+          if (!key) return;
+          const field = product.fields.find((item) => item.key === key);
+          if (!field) return;
+          if (event.target.dataset.ciFieldSelect) field.selected = event.target.checked;
+          if (event.target.dataset.ciFieldValue) field.value = event.target.value;
+          if (event.target.dataset.ciFieldConfidence) field.confidence = event.target.value;
+          byId("ci-review-summary").textContent = `${product.name}: ${product.fields.length} extracted fields, ${product.fields.filter((item) => item.selected).length} selected. Verify every value against the linked source.`;
+        });
+
+        byId("ci-source-tabs").addEventListener("click", (event) => {
+          const remove = event.target.closest("[data-ci-remove-source]");
+          if (remove) {
+            event.stopPropagation();
+            const id = remove.dataset.ciRemoveSource;
+            state.products = state.products.filter((product) => product.id !== id);
+            if (state.activeId === id) state.activeId = state.products[0]?.id || null;
+            renderSourceTabs();
+            renderFieldReview();
+            return;
+          }
+          const chip = event.target.closest("[data-ci-source-id]");
+          if (!chip) return;
+          state.activeId = chip.dataset.ciSourceId;
+          renderSourceTabs();
+          renderFieldReview();
+        });
+
+        byId("ci-saved-list").addEventListener("click", (event) => {
+          const load = event.target.closest("[data-ci-load-draft]");
+          const remove = event.target.closest("[data-ci-delete-draft]");
+          if (load) loadDraft(load.dataset.ciLoadDraft);
+          if (remove) deleteDraft(remove.dataset.ciDeleteDraft);
+        });
+
+        byId("webcopy-generate").addEventListener("click", buildWebsiteCopy);
+        byId("webcopy-copy-all").addEventListener("click", copyWebsiteText);
+        byId("webcopy-download").addEventListener("click", () => {
+          const text = websiteCopyText();
+          if (!text) return;
+          downloadBlob(`yanmar-${byId("webcopy-product").value}-website-copy-${byId("webcopy-region").value}.txt`, text, "text/plain;charset=utf-8");
+        });
+        byId("webcopy-output").addEventListener("input", updateWebsitePreview);
+
+        const distributorSelect = byId("distributor-select");
+        if (distributorSelect) {
+          byId("webcopy-distributor").value = distributorSelect.value;
+          distributorSelect.addEventListener("change", () => { byId("webcopy-distributor").value = distributorSelect.value; });
+        }
+
+        updateRegionalBrief();
+        renderSavedComparisons();
+        buildWebsiteCopy();
+      })();
     </script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
