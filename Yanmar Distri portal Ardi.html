@@ -170,11 +170,11 @@
       }
 
       body.topbar-compact .header-tools .distributor-context-control {
-        flex: 1 1 520px;
-        grid-template-columns: minmax(250px, 1fr) minmax(220px, 0.82fr);
+        flex: 1 1 680px;
+        grid-template-columns: minmax(360px, 1fr) minmax(260px, 0.72fr);
         gap: 6px;
-        max-width: 620px;
-        min-width: min(100%, 440px);
+        max-width: 780px;
+        min-width: min(100%, 560px);
       }
 
       body.topbar-compact .header-tools .control-group input,
@@ -224,11 +224,11 @@
 
       .distributor-context-control {
         display: grid;
-        flex: 1 1 420px;
-        grid-template-columns: minmax(220px, 1fr) minmax(200px, 0.82fr);
+        flex: 1 1 620px;
+        grid-template-columns: minmax(340px, 1fr) minmax(240px, 0.72fr);
         align-items: end;
         column-gap: 6px;
-        max-width: 560px;
+        max-width: 760px;
         min-width: 0;
       }
 
@@ -244,6 +244,7 @@
       .distributor-context-control select {
         width: 100%;
         min-width: 0;
+        text-overflow: clip;
       }
 
       body.admin-mode .distributor-context-control {
@@ -1494,7 +1495,7 @@
       }
 
       #admin-distributor-activity .activity-table {
-        min-width: 820px;
+        min-width: 980px;
         table-layout: auto;
       }
 
@@ -1503,6 +1504,24 @@
         min-width: 240px;
         overflow-wrap: normal;
         word-break: normal;
+      }
+
+      #admin-activity-feed .admin-item,
+      #admin-activity-feed .admin-item-head,
+      #admin-usage-detail .tag-row,
+      #admin-usage-detail .tag {
+        min-width: 0;
+        overflow: visible;
+      }
+
+      #admin-activity-feed .admin-item-head {
+        align-items: flex-start;
+      }
+
+      #admin-activity-feed h3,
+      #admin-usage-detail .tag {
+        white-space: normal;
+        overflow-wrap: anywhere;
       }
 
       .compact-form {
@@ -2906,6 +2925,58 @@
       .portal-toast.show {
         opacity: 1;
         transform: translateY(0);
+      }
+
+      .distributor-switch-confirmation {
+        position: fixed;
+        top: 108px;
+        right: 24px;
+        z-index: 82;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 10px;
+        width: min(560px, calc(100vw - 32px));
+        border: 1px solid #bde4cf;
+        border-radius: 8px;
+        background: #f2fbf6;
+        color: #173f2a;
+        box-shadow: var(--shadow);
+        opacity: 0;
+        padding: 13px 14px;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: 0.18s ease;
+      }
+
+      .distributor-switch-confirmation.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .distributor-switch-confirmation strong,
+      .distributor-switch-confirmation span {
+        display: block;
+      }
+
+      .distributor-switch-confirmation strong {
+        font-size: 14px;
+      }
+
+      .distributor-switch-confirmation span {
+        margin-top: 3px;
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .distributor-switch-confirmation .check-dot {
+        display: grid;
+        width: 30px;
+        height: 30px;
+        place-items: center;
+        border-radius: 50%;
+        background: #137a4a;
+        color: #fff;
+        font-weight: 900;
       }
 
       .modal-actions {
@@ -4626,6 +4697,96 @@
         background: var(--line);
       }
 
+      .tco-page-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .tco-page-grid .span-all {
+        grid-column: 1 / -1;
+      }
+
+      .standalone-tco-grid {
+        display: grid;
+        grid-template-columns: minmax(170px, 0.78fr) repeat(var(--tco-columns, 3), minmax(170px, 1fr));
+        gap: 1px;
+        overflow-x: auto;
+        margin-top: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--line);
+      }
+
+      .tco-option-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .tco-option-head button {
+        display: grid;
+        width: 26px;
+        height: 26px;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 5px;
+        background: var(--white);
+        color: var(--ci-red);
+        cursor: pointer;
+        font-weight: 900;
+      }
+
+      .tco-output-sheet {
+        overflow: hidden;
+        border: 1px solid #d8dade;
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .tco-output-head {
+        border-top: 8px solid var(--ci-red);
+        padding: 24px 28px 18px;
+      }
+
+      .tco-output-head h2 {
+        margin: 4px 0 7px;
+        font-size: clamp(28px, 4vw, 48px);
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .tco-summary-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        margin: 0 28px 20px;
+        background: var(--line);
+      }
+
+      .tco-summary-strip div {
+        background: #f7f7f8;
+        padding: 12px;
+      }
+
+      .tco-summary-strip span,
+      .tco-summary-strip strong {
+        display: block;
+      }
+
+      .tco-summary-strip span {
+        color: #666;
+        font-size: 10px;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
+      .tco-summary-strip strong {
+        margin-top: 5px;
+        font-size: 16px;
+      }
+
       .ci-tco-cell {
         min-width: 0;
         background: var(--white);
@@ -5203,6 +5364,9 @@
         </button>
         <button class="nav-button" data-page="competitive-intelligence">
           <span class="nav-icon">CMP</span><span class="nav-text">Comparison Builder</span><span>›</span>
+        </button>
+        <button class="nav-button" data-page="tco-calculator">
+          <span class="nav-icon">TCO</span><span class="nav-text">TCO Calculator</span><span>›</span>
         </button>
         <button class="nav-button" data-page="website-copy">
           <span class="nav-icon">WEB</span><span class="nav-text">Website Copy Studio</span><span>›</span>
@@ -6480,6 +6644,55 @@
             <div class="saved-comparison-list" id="ci-saved-list">
               <div class="ci-empty-state">No saved comparison drafts yet.</div>
             </div>
+          </article>
+        </section>
+
+        <section class="page stack intelligence-page" id="tco-calculator">
+          <div class="section-hero">
+            <p class="label">Admin tool</p>
+            <h1>TCO Calculator & Sheet Builder</h1>
+            <p class="intro">Build a standalone lifecycle-cost calculation for YDG, YDP or L-Series products. This is separate from the comparison sheet and stays editable in the demo.</p>
+          </div>
+
+          <article class="section-card">
+            <div class="section-top">
+              <div><p class="label">Setup</p><h2>Product, currency and assumptions</h2></div>
+              <div class="icon-box">TCO</div>
+            </div>
+            <div class="tco-page-grid">
+              <div class="field"><label for="tco-product-line">Product family</label><select id="tco-product-line"><option>YDG</option><option>YDP</option><option>L-Series</option></select></div>
+              <div class="field"><label for="tco-model-name">Yanmar model</label><input id="tco-model-name" value="YDG5500V Stage V" /></div>
+              <div class="field"><label for="tco-currency">Currency</label><select id="tco-currency"><option>EUR</option><option>USD</option><option>CAD</option><option>SAR</option><option>AED</option><option>PLN</option><option>SEK</option><option>ZAR</option><option>AUD</option></select></div>
+              <div class="field span-all"><label for="tco-sheet-title">Sheet title</label><input id="tco-sheet-title" value="Yanmar total cost of ownership sheet" /></div>
+              <div class="field"><label for="tco-hours">Annual operating hours</label><input id="tco-hours" type="number" min="0" step="1" value="750" /></div>
+              <div class="field"><label for="tco-fuel-price">Fuel price / litre</label><input id="tco-fuel-price" type="number" min="0" step="0.01" value="1.75" /></div>
+              <div class="field"><label for="tco-years">Ownership period</label><input id="tco-years" type="number" min="1" step="1" value="5" /></div>
+              <div class="field"><label for="tco-downtime-cost">Downtime cost / hour</label><input id="tco-downtime-cost" type="number" min="0" step="0.01" value="65" /></div>
+            </div>
+          </article>
+
+          <article class="section-card">
+            <div class="section-top">
+              <div><p class="label">Inputs</p><h2>Yanmar and alternatives</h2></div>
+              <p class="source-note">TCO uses acquisition, fuel, service, parts, downtime, finance/insurance and residual value. Use verified local data before external publication.</p>
+            </div>
+            <div class="standalone-tco-grid" id="standalone-tco-grid"></div>
+            <div class="website-copy-toolbar" style="margin-top:14px">
+              <button class="header-action secondary" type="button" id="tco-add-alternative">Add alternative</button>
+              <button class="primary-button" type="button" id="tco-calculate">Calculate TCO</button>
+              <button class="header-action secondary" type="button" id="tco-save">Save sheet</button>
+              <button class="header-action secondary" type="button" id="tco-download-csv">Download CSV</button>
+              <button class="header-action secondary" type="button" id="tco-download-html">Download HTML</button>
+              <button class="header-action secondary" type="button" id="tco-print">Print / PDF</button>
+            </div>
+          </article>
+
+          <article class="section-card">
+            <div class="section-top">
+              <div><p class="label">Output</p><h2>Generated TCO sheet</h2></div>
+              <div class="icon-box">OUT</div>
+            </div>
+            <div id="tco-output" class="ci-empty-state">Enter values and calculate the TCO sheet.</div>
           </article>
         </section>
 
@@ -8284,6 +8497,10 @@
         </form>
       </div>
     </div>
+    <div class="distributor-switch-confirmation" id="distributor-switch-confirmation" aria-live="polite">
+      <div class="check-dot">✓</div>
+      <div><strong>Distributor selected</strong><span>Market context updated for the demo.</span></div>
+    </div>
     <div class="portal-toast" id="portal-toast" aria-live="polite"></div>
 
     <script>
@@ -8301,6 +8518,7 @@
         "brochure-library": "Brochure Library",
         "visual-workspace": "Visual Asset Workspace",
         "competitive-intelligence": "Comparison Builder",
+        "tco-calculator": "TCO Calculator",
         "website-copy": "Website Copy Studio",
         activation: "Starter Playbook",
         "channel-playbook": "Channel Playbook",
@@ -9497,7 +9715,9 @@
       const templateReset = document.getElementById("template-reset");
       const templateLogoFile = document.getElementById("template-logo-file");
       const portalToast = document.getElementById("portal-toast");
+      const distributorSwitchConfirmation = document.getElementById("distributor-switch-confirmation");
       let toastTimer = null;
+      let distributorSwitchTimer = null;
       let currentModalAsset = null;
       let currentResultsAsset = null;
       let currentTemplateAsset = null;
@@ -9510,6 +9730,17 @@
         portalToast.classList.add("show");
         window.clearTimeout(toastTimer);
         toastTimer = window.setTimeout(() => portalToast.classList.remove("show"), 2600);
+      }
+
+      function showDistributorSwitchConfirmation(name) {
+        if (!distributorSwitchConfirmation || !name) return;
+        const region = inferRegion(name);
+        const country = inferCountry(name) || "Demo market";
+        distributorSwitchConfirmation.querySelector("strong").textContent = `Demo switched to ${name}`;
+        distributorSwitchConfirmation.querySelector("span").textContent = `${country} · ${region} · distributor context, CTA priorities and copy recommendations updated.`;
+        distributorSwitchConfirmation.classList.add("show");
+        window.clearTimeout(distributorSwitchTimer);
+        distributorSwitchTimer = window.setTimeout(() => distributorSwitchConfirmation.classList.remove("show"), 4200);
       }
 
       const platformGuidance = {
@@ -11179,6 +11410,231 @@
           products: "YDG + YDP + L-Series",
           status: "Active",
           notes: "Added for Asia country comparison.",
+        },
+        {
+          name: "Asia Tractor Co.,Ltd.",
+          region: "Southeast Asia",
+          country: "Thailand",
+          contact: "Dealer sales / service / parts team",
+          role: "Sub seller Tractor, Combine Harvester, Excavator",
+          email: "",
+          phone: "",
+          website: "",
+          address: "Thailand",
+          language: "Thai / English",
+          products: "Tractor, Combine, Compact Equipment, YDG + YDP",
+          status: "Active",
+          notes: "Added from dealer locator screenshot for Thailand coverage.",
+        },
+        {
+          name: "Bandonpiya Tractor Co.,Ltd. (Headquarter)",
+          region: "Southeast Asia",
+          country: "Thailand",
+          contact: "Dealer sales / service / parts team",
+          role: "Seller Tractor, HDE and Excavator",
+          email: "",
+          phone: "",
+          website: "",
+          address: "Thailand",
+          language: "Thai / English",
+          products: "Agricultural equipment, Tractor, Combine, Tiller, Compact Equipment, YDG + YDP",
+          status: "Active",
+          notes: "Added from dealer locator screenshot for Thailand coverage.",
+        },
+        {
+          name: "Chanthaburi S.K. Center Co.,Ltd. (Headquarter)",
+          region: "Southeast Asia",
+          country: "Thailand",
+          contact: "Dealer sales / service / parts team",
+          role: "Dealer Tractor, HDE and Excavator",
+          email: "",
+          phone: "",
+          website: "",
+          address: "Chanthaburi, Thailand",
+          language: "Thai / English",
+          products: "Agricultural equipment, Tractor, Combine, Rice Transplanter, Tiller, Compact Equipment, YDG + YDP",
+          status: "Active",
+          notes: "Added from dealer locator screenshot for Thailand coverage.",
+        },
+        {
+          name: "Chanthaburi S.K.Center Co.,Ltd. (Ban Bueng Branch)",
+          region: "Southeast Asia",
+          country: "Thailand",
+          contact: "Dealer sales / service / parts / test drive team",
+          role: "Dealer Tractor, HDE and Excavator",
+          email: "",
+          phone: "",
+          website: "",
+          address: "Ban Bueng, Thailand",
+          language: "Thai / English",
+          products: "Agricultural equipment, Compact Equipment, YDG + YDP",
+          status: "Active",
+          notes: "Added from dealer locator screenshot for Thailand coverage.",
+        },
+        {
+          name: "Chanthaburi S.K.Center Co.,Ltd. (Klang Branch)",
+          region: "Southeast Asia",
+          country: "Thailand",
+          contact: "Dealer sales / service / parts / test drive team",
+          role: "Dealer Tractor, HDE and Excavator",
+          email: "",
+          phone: "",
+          website: "",
+          address: "Klang, Thailand",
+          language: "Thai / English",
+          products: "Agricultural equipment, Tractor, Combine, Rice Transplanter, Compact Equipment, YDG + YDP",
+          status: "Active",
+          notes: "Added from dealer locator screenshot for Thailand coverage.",
+        },
+        {
+          name: "Ngaunhonglee Agricultural Machinery Co.,Ltd. (Phisanulok branch)",
+          region: "Southeast Asia",
+          country: "Thailand",
+          contact: "Dealer sales / service / parts / test drive team",
+          role: "Dealer Tractor Transplanter and HDE",
+          email: "",
+          phone: "",
+          website: "",
+          address: "Phitsanulok, Thailand",
+          language: "Thai / English",
+          products: "Agricultural equipment, Tractor, Combine, Rice Transplanter, Tiller, Compact Equipment, YDG + YDP",
+          status: "Active",
+          notes: "Added from dealer locator screenshot for Thailand coverage.",
+        },
+        {
+          name: "Phairat Karnkaset Co.,Ltd. (Headquarter)",
+          region: "Southeast Asia",
+          country: "Thailand",
+          contact: "Dealer sales / service / parts / test drive team",
+          role: "Dealer Tractor and HDE",
+          email: "",
+          phone: "",
+          website: "",
+          address: "Thailand",
+          language: "Thai / English",
+          products: "Agricultural equipment, Tractor, Combine, Rice Transplanter, Tiller, Compact Equipment, YDG + YDP",
+          status: "Active",
+          notes: "Added from dealer locator screenshot for Thailand coverage.",
+        },
+        {
+          name: "Ratchaburi Tractor Partnership Limited (Headquarter)",
+          region: "Southeast Asia",
+          country: "Thailand",
+          contact: "Dealer sales / service / parts / test drive team",
+          role: "Dealer Tractor, HDE and Excavator",
+          email: "",
+          phone: "",
+          website: "",
+          address: "Ratchaburi, Thailand",
+          language: "Thai / English",
+          products: "Agricultural equipment, Tractor, Combine, Tiller, Compact Equipment, YDG + YDP",
+          status: "Active",
+          notes: "Added from dealer locator screenshot for Thailand coverage.",
+        },
+        {
+          name: "Ratchaburi Tractor Partnership Limited (Saraya)",
+          region: "Southeast Asia",
+          country: "Thailand",
+          contact: "Dealer sales / service / parts team",
+          role: "Dealer Tractor, HDE and Excavator",
+          email: "",
+          phone: "",
+          website: "",
+          address: "Saraya, Thailand",
+          language: "Thai / English",
+          products: "Agricultural equipment, Tractor, Combine, Rice Transplanter, Compact Equipment, YDG + YDP",
+          status: "Active",
+          notes: "Added from dealer locator screenshot for Thailand coverage.",
+        },
+        {
+          name: "KWANG NAM COMPANY LTD",
+          region: "Asia",
+          country: "South Korea",
+          contact: "Dealer sales / service / parts team",
+          role: "Generator and industrial engine dealer",
+          email: "",
+          phone: "",
+          website: "",
+          address: "Korea, Republic of",
+          language: "Korean / English",
+          products: "Generators, Industrial Engine, YDG + L-Series",
+          status: "Active",
+          notes: "Added from dealer locator screenshot for South Korea coverage.",
+        },
+        {
+          name: "Kwangnam Company Co.,Ltd. - Gimpo Head Office & Service Center",
+          region: "Asia",
+          country: "South Korea",
+          contact: "Dealer sales / service / parts team",
+          role: "Head office and service center",
+          email: "",
+          phone: "",
+          website: "",
+          address: "Gimpo, Korea, Republic of",
+          language: "Korean / English",
+          products: "Generators, Marine Commercial, Industrial Engine, YDG + L-Series",
+          status: "Active",
+          notes: "Added from dealer locator screenshot for South Korea coverage.",
+        },
+        {
+          name: "ヤンマー建機株式会社 北海道営業部 札幌支店",
+          region: "Asia",
+          country: "Japan",
+          contact: "Dealer sales / service team",
+          role: "Compact equipment, portable generators, pumps and welders dealer",
+          email: "",
+          phone: "",
+          website: "",
+          address: "Sapporo, Japan",
+          language: "Japanese",
+          products: "Compact Equipment, Portable Generators, Portable Pumps, Welders, YDG + YDP",
+          status: "Active",
+          notes: "Added from dealer locator screenshot for Japan coverage.",
+        },
+        {
+          name: "ヤンマー建機株式会社 北海道営業部 函館営業所",
+          region: "Asia",
+          country: "Japan",
+          contact: "Dealer sales / service team",
+          role: "Compact equipment, portable generators, pumps and welders dealer",
+          email: "",
+          phone: "",
+          website: "",
+          address: "Hakodate, Japan",
+          language: "Japanese",
+          products: "Compact Equipment, Portable Generators, Portable Pumps, Welders, YDG + YDP",
+          status: "Active",
+          notes: "Added from dealer locator screenshot for Japan coverage.",
+        },
+        {
+          name: "ヤンマー建機株式会社 北海道営業部 旭川営業所",
+          region: "Asia",
+          country: "Japan",
+          contact: "Dealer sales / service team",
+          role: "Compact equipment, portable generators, pumps and welders dealer",
+          email: "",
+          phone: "",
+          website: "",
+          address: "Asahikawa, Japan",
+          language: "Japanese",
+          products: "Compact Equipment, Portable Generators, Portable Pumps, Welders, YDG + YDP",
+          status: "Active",
+          notes: "Added from dealer locator screenshot for Japan coverage.",
+        },
+        {
+          name: "ヤンマー建機株式会社 北海道営業部 釧路営業所",
+          region: "Asia",
+          country: "Japan",
+          contact: "Dealer sales / service team",
+          role: "Compact equipment, portable generators, pumps and welders dealer",
+          email: "",
+          phone: "",
+          website: "",
+          address: "Kushiro, Japan",
+          language: "Japanese",
+          products: "Compact Equipment, Portable Generators, Portable Pumps, Welders, YDG + YDP",
+          status: "Active",
+          notes: "Added from dealer locator screenshot for Japan coverage.",
         },
         {
           name: "Al-Futtaim Auto & Machinery Co. Branch Office",
@@ -15365,6 +15821,7 @@
       distributorSelect.addEventListener("change", () => {
         syncDistributorContext();
         renderDistributorSearch(distributorSelect.value);
+        showDistributorSwitchConfirmation(distributorSelect.value);
       });
       if (distributorSearch) {
         distributorSearch.addEventListener("input", () => {
@@ -15372,6 +15829,7 @@
         });
         distributorSearch.addEventListener("change", () => {
           selectDistributorByName(distributorSearch.value);
+          showDistributorSwitchConfirmation(distributorSelect.value);
         });
       }
       if (requestDistributor) {
@@ -16331,7 +16789,7 @@
                 `).join("")}
               </div>
               <div class="comparison-table-wrap">
-                <table class="comparison-table">
+                <table class="comparison-table" style="min-width:${Math.max(720, (competitors.length + 2) * 190)}px">
                   <thead><tr><th>Comparison point</th><th>${escapeText(yanmar.name)}</th>${competitors.map((product) => `<th>${escapeText(product.name)}</th>`).join("")}</tr></thead>
                   <tbody>${rows.map((row) => `<tr><td>${escapeText(row.label)}</td><td class="yanmar-value">${escapeText(row.yanmar)}</td>${row.competitors.map((value) => `<td>${escapeText(value)}</td>`).join("")}</tr>`).join("")}</tbody>
                 </table>
@@ -16614,6 +17072,198 @@
           byId("webcopy-distributor").value = distributorSelect.value;
           distributorSelect.addEventListener("change", () => { byId("webcopy-distributor").value = distributorSelect.value; });
         }
+
+        const standaloneTcoFields = [
+          ["label", "Label", "text"],
+          ["purchase", "Purchase price", "number"],
+          ["setup", "Transport / setup", "number"],
+          ["fuel", "Fuel use / hour", "number"],
+          ["service", "Annual service", "number"],
+          ["parts", "Annual parts", "number"],
+          ["downtime", "Downtime hours / year", "number"],
+          ["finance", "Annual finance / insurance", "number"],
+          ["residual", "Residual value", "number"],
+        ];
+        let standaloneTcoOptions = [
+          { id: "yanmar", locked: true, label: "Yanmar reference", purchase: "2900", setup: "150", fuel: "1.25", service: "180", parts: "90", downtime: "4", finance: "0", residual: "900" },
+          { id: "alt-a", label: "Alternative A", purchase: "", setup: "", fuel: "", service: "", parts: "", downtime: "", finance: "", residual: "" },
+          { id: "alt-b", label: "Alternative B", purchase: "", setup: "", fuel: "", service: "", parts: "", downtime: "", finance: "", residual: "" },
+        ];
+
+        function tcoFieldId(option, field) {
+          return `standalone-tco-${option.id}-${field}`;
+        }
+
+        function captureStandaloneTcoOptions() {
+          standaloneTcoOptions = standaloneTcoOptions.map((option) => {
+            const next = { ...option };
+            standaloneTcoFields.forEach(([field]) => {
+              const input = byId(tcoFieldId(option, field));
+              if (input) next[field] = input.value;
+            });
+            return next;
+          });
+        }
+
+        function renderStandaloneTcoGrid() {
+          const grid = byId("standalone-tco-grid");
+          if (!grid) return;
+          grid.style.setProperty("--tco-columns", String(standaloneTcoOptions.length));
+          grid.innerHTML = `
+            <div class="ci-tco-cell head">Cost item</div>
+            ${standaloneTcoOptions.map((option) => `
+              <div class="ci-tco-cell head tco-option-head">
+                <span>${option.locked ? "Yanmar" : escapeText(option.label || "Alternative")}</span>
+                ${option.locked ? "" : `<button type="button" data-tco-remove="${escapeText(option.id)}" aria-label="Remove ${escapeText(option.label || "alternative")}">×</button>`}
+              </div>
+            `).join("")}
+            ${standaloneTcoFields.map(([field, label, type]) => `
+              <div class="ci-tco-cell">${escapeText(label)}</div>
+              ${standaloneTcoOptions.map((option) => `
+                <div class="ci-tco-cell"><input id="${tcoFieldId(option, field)}" type="${type}" min="0" step="0.01" value="${escapeText(option[field] || "")}" /></div>
+              `).join("")}
+            `).join("")}
+          `;
+        }
+
+        function addStandaloneTcoAlternative() {
+          captureStandaloneTcoOptions();
+          const count = standaloneTcoOptions.filter((option) => !option.locked).length + 1;
+          standaloneTcoOptions.push({ id: `alt-${Date.now()}`, label: `Alternative ${count}`, purchase: "", setup: "", fuel: "", service: "", parts: "", downtime: "", finance: "", residual: "" });
+          renderStandaloneTcoGrid();
+        }
+
+        function removeStandaloneTcoAlternative(id) {
+          captureStandaloneTcoOptions();
+          standaloneTcoOptions = standaloneTcoOptions.filter((option) => option.locked || option.id !== id);
+          renderStandaloneTcoGrid();
+        }
+
+        function applyStandaloneTcoPreset() {
+          const product = byId("tco-product-line")?.value || "YDG";
+          const presets = {
+            YDG: { model: "YDG5500V Stage V", hours: "750", fuelPrice: "1.75", years: "5", downtimeCost: "65", y: { purchase: "2900", setup: "150", fuel: "1.25", service: "180", parts: "90", downtime: "4", finance: "0", residual: "900" } },
+            YDP: { model: "YDP30N fresh water pump", hours: "520", fuelPrice: "1.65", years: "5", downtimeCost: "70", y: { purchase: "2400", setup: "120", fuel: "0.95", service: "160", parts: "120", downtime: "4", finance: "0", residual: "700" } },
+            "L-Series": { model: "L100V / L100N diesel engine", hours: "900", fuelPrice: "1.75", years: "5", downtimeCost: "80", y: { purchase: "1700", setup: "180", fuel: "1.05", service: "145", parts: "90", downtime: "3", finance: "0", residual: "550" } },
+          };
+          const preset = presets[product] || presets.YDG;
+          byId("tco-model-name").value = preset.model;
+          byId("tco-hours").value = preset.hours;
+          byId("tco-fuel-price").value = preset.fuelPrice;
+          byId("tco-years").value = preset.years;
+          byId("tco-downtime-cost").value = preset.downtimeCost;
+          captureStandaloneTcoOptions();
+          standaloneTcoOptions = standaloneTcoOptions.map((option) => option.locked ? { ...option, label: preset.model, ...preset.y } : option);
+          renderStandaloneTcoGrid();
+        }
+
+        function standaloneTcoAssumptions() {
+          return {
+            hours: Number(byId("tco-hours")?.value || 0),
+            fuelPrice: Number(byId("tco-fuel-price")?.value || 0),
+            years: Number(byId("tco-years")?.value || 0),
+            downtimeCost: Number(byId("tco-downtime-cost")?.value || 0),
+            currency: byId("tco-currency")?.value || "EUR",
+          };
+        }
+
+        function standaloneTcoRows() {
+          captureStandaloneTcoOptions();
+          const assumptions = standaloneTcoAssumptions();
+          return standaloneTcoOptions.map((option) => {
+            const purchase = Number(option.purchase || 0);
+            const setup = Number(option.setup || 0);
+            const fuelUse = Number(option.fuel || 0);
+            const service = Number(option.service || 0);
+            const parts = Number(option.parts || 0);
+            const downtimeHours = Number(option.downtime || 0);
+            const finance = Number(option.finance || 0);
+            const residual = Number(option.residual || 0);
+            const acquisition = purchase + setup;
+            const fuel = fuelUse * assumptions.hours * assumptions.fuelPrice * assumptions.years;
+            const serviceParts = (service + parts) * assumptions.years;
+            const downtime = downtimeHours * assumptions.downtimeCost * assumptions.years;
+            const financeInsurance = finance * assumptions.years;
+            const total = Math.max(0, acquisition + fuel + serviceParts + downtime + financeInsurance - residual);
+            return { ...option, acquisition, fuelCost: fuel, serviceParts, downtimeCost: downtime, financeInsurance, total, perYear: assumptions.years ? total / assumptions.years : 0, perHour: assumptions.hours && assumptions.years ? total / (assumptions.hours * assumptions.years) : 0 };
+          });
+        }
+
+        function formatStandaloneMoney(value) {
+          const currency = standaloneTcoAssumptions().currency;
+          try {
+            return new Intl.NumberFormat("en", { style: "currency", currency, maximumFractionDigits: Number(value) < 100 ? 2 : 0 }).format(Number(value) || 0);
+          } catch (error) {
+            return `${currency} ${Math.round(Number(value) || 0).toLocaleString("en")}`;
+          }
+        }
+
+        function renderStandaloneTcoOutput() {
+          const rows = standaloneTcoRows();
+          const assumptions = standaloneTcoAssumptions();
+          const best = rows.filter((row) => row.total > 0).sort((a, b) => a.total - b.total)[0];
+          const title = byId("tco-sheet-title")?.value || "Yanmar total cost of ownership sheet";
+          const model = byId("tco-model-name")?.value || "Yanmar reference";
+          const output = byId("tco-output");
+          if (!output) return;
+          output.className = "tco-output-sheet";
+          output.innerHTML = `
+            <div class="tco-output-head"><p class="small-red">Yanmar ${escapeText(byId("tco-product-line")?.value || "YDG")}</p><h2>${escapeText(title)}</h2><p>${escapeText(model)} · ${escapeText(distributorSelect?.value || "Selected distributor")} · ${escapeText(assumptions.currency)}</p></div>
+            <div class="tco-summary-strip">
+              <div><span>Hours / year</span><strong>${escapeText(String(assumptions.hours || 0))}</strong></div>
+              <div><span>Years</span><strong>${escapeText(String(assumptions.years || 0))}</strong></div>
+              <div><span>Fuel price</span><strong>${escapeText(formatStandaloneMoney(assumptions.fuelPrice))}</strong></div>
+              <div><span>Best TCO</span><strong>${escapeText(best?.label || "Complete inputs")}</strong></div>
+            </div>
+            <div class="comparison-table-wrap">
+              <table class="comparison-table">
+                <thead><tr><th>Option</th><th>Acquisition</th><th>Fuel</th><th>Service + parts</th><th>Downtime</th><th>Finance / insurance</th><th>Residual</th><th>Total TCO</th><th>Per year</th><th>Per hour</th></tr></thead>
+                <tbody>${rows.map((row) => `<tr><td>${escapeText(row.label || row.id)}</td><td>${escapeText(formatStandaloneMoney(row.acquisition))}</td><td>${escapeText(formatStandaloneMoney(row.fuelCost))}</td><td>${escapeText(formatStandaloneMoney(row.serviceParts))}</td><td>${escapeText(formatStandaloneMoney(row.downtimeCost))}</td><td>${escapeText(formatStandaloneMoney(row.financeInsurance))}</td><td>${escapeText(formatStandaloneMoney(row.residual))}</td><td class="${row.locked ? "yanmar-value" : ""}">${escapeText(formatStandaloneMoney(row.total))}</td><td>${escapeText(formatStandaloneMoney(row.perYear))}</td><td>${escapeText(formatStandaloneMoney(row.perHour))}</td></tr>`).join("")}</tbody>
+              </table>
+            </div>
+            <p class="ci-evidence-note">TCO demo output: verify local fuel use, service intervals, warranty, financing, taxes, downtime cost and residual value before using as a customer-facing claim.</p>
+          `;
+          state.generatedTco = { title, model, assumptions, rows, html: output.outerHTML, generatedAt: new Date().toISOString() };
+          try { if (typeof addUsageEvent === "function") addUsageEvent("Generated TCO sheet", title, byId("tco-product-line")?.value || "TCO"); } catch (error) { /* Optional tracking. */ }
+          notify("TCO sheet calculated.");
+        }
+
+        function downloadStandaloneTcoCsv() {
+          if (!state.generatedTco) renderStandaloneTcoOutput();
+          if (!state.generatedTco) return;
+          const header = ["Option", "Acquisition", "Fuel", "Service + parts", "Downtime", "Finance / insurance", "Residual", "Total TCO", "Per year", "Per hour"];
+          const rows = state.generatedTco.rows.map((row) => [row.label, row.acquisition, row.fuelCost, row.serviceParts, row.downtimeCost, row.financeInsurance, row.residual, row.total, row.perYear, row.perHour]);
+          downloadBlob(`${slugify(state.generatedTco.title)}.csv`, [header, ...rows].map((row) => row.map((value) => `"${String(value).replace(/"/g, '""')}"`).join(",")).join("\r\n"), "text/csv;charset=utf-8");
+        }
+
+        function downloadStandaloneTcoHtml() {
+          if (!state.generatedTco) renderStandaloneTcoOutput();
+          if (!state.generatedTco) return;
+          downloadBlob(`${slugify(state.generatedTco.title)}.html`, `<!doctype html><meta charset="utf-8"><title>${escapeText(state.generatedTco.title)}</title><style>body{font-family:Arial;margin:28px;color:#171717}.comparison-table{width:100%;border-collapse:collapse}.comparison-table th,.comparison-table td{border:1px solid #ddd;padding:10px;text-align:left}.comparison-table th{background:#f4f4f4}.yanmar-value{color:#d71920;font-weight:bold}.tco-output-head{border-top:8px solid #d71920;padding:22px}.tco-summary-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#ddd;margin:0 0 18px}.tco-summary-strip div{background:#f7f7f8;padding:12px}.ci-evidence-note{color:#666;font-size:12px}</style>${state.generatedTco.html}`, "text/html;charset=utf-8");
+        }
+
+        function saveStandaloneTcoSheet() {
+          if (!state.generatedTco) renderStandaloneTcoOutput();
+          if (!state.generatedTco) return;
+          const key = "yanmarStandaloneTcoSheetsV1";
+          const sheets = JSON.parse(localStorage.getItem(key) || "[]");
+          sheets.unshift({ id: `${Date.now()}-${Math.random().toString(16).slice(2)}`, ...state.generatedTco });
+          localStorage.setItem(key, JSON.stringify(sheets.slice(0, 30)));
+          notify("TCO sheet saved in this HTML demo.");
+        }
+
+        renderStandaloneTcoGrid();
+        byId("tco-add-alternative")?.addEventListener("click", addStandaloneTcoAlternative);
+        byId("standalone-tco-grid")?.addEventListener("click", (event) => {
+          const remove = event.target.closest("[data-tco-remove]");
+          if (remove) removeStandaloneTcoAlternative(remove.dataset.tcoRemove);
+        });
+        byId("tco-product-line")?.addEventListener("change", applyStandaloneTcoPreset);
+        byId("tco-calculate")?.addEventListener("click", renderStandaloneTcoOutput);
+        byId("tco-save")?.addEventListener("click", saveStandaloneTcoSheet);
+        byId("tco-download-csv")?.addEventListener("click", downloadStandaloneTcoCsv);
+        byId("tco-download-html")?.addEventListener("click", downloadStandaloneTcoHtml);
+        byId("tco-print")?.addEventListener("click", () => window.print());
 
         updateRegionalBrief();
         renderSavedComparisons();
