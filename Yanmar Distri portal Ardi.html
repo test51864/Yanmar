@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yanmar Distributor Portal</title>
+    <title>Yanmar Amplify</title>
     <style>
       :root {
         --red: #d71920;
@@ -5211,11 +5211,14 @@
         }
       }
     </style>
-  </head>
+  <link rel="stylesheet" href="ym-final-board-upgrade.css?v=13.0">
+  <link rel="stylesheet" href="ym-responsive-final.css?v=2.1">
+<link rel="stylesheet" href="ym-board-ready-v15.css?v=15.6">
+</head>
   <body>
-    <header class="topbar notranslate" translate="no">
+    <header class="topbar" translate="yes">
       <div class="topbar-inner">
-        <div class="brand notranslate" translate="no" aria-label="Yanmar Distributor Portal Demo">
+        <div class="brand notranslate" translate="no" aria-label="Amplify demo header with YANMAR logo">
           <svg class="yanmar-logo" viewBox="0 0 2048 248" aria-label="YANMAR" role="img">
             <path d="M8 0 L253 101 L498 0 L498 60 L253 162 L8 60 Z" fill="#ef001e"></path>
             <path d="M8 91 L241 185 L241 247 L8 150 Z" fill="#ef001e"></path>
@@ -5224,15 +5227,15 @@
           </svg>
           <div class="brand-label">
             <div class="brand-line">
-              <span class="brand-title-main">Distributor Portal</span>
+              <span class="brand-title-main">Amplify</span>
               <span class="demo-badge">Demo</span>
             </div>
             <span class="creator-badge">Created by Ardi Delawi</span>
           </div>
         </div>
         <div class="header-tools">
-          <label class="control-group notranslate" translate="no">
-            <span id="language-control-label" class="notranslate" translate="no">Language</span>
+          <label class="control-group">
+            <span id="language-control-label">Language</span>
             <select id="language-select" class="notranslate" translate="no">
               <option value="en">English</option>
               <option value="nl">Dutch (Nederlands)</option>
@@ -5328,7 +5331,7 @@
           <span class="nav-icon">H</span><span class="nav-text">Home</span><span>›</span>
         </button>
         <button class="nav-button" data-page="demo">
-          <span class="nav-icon">D</span><span class="nav-text">Demo Walkthrough</span><span>›</span>
+          <span class="nav-icon">D</span><span class="nav-text">Portal Knowledge</span><span>›</span>
         </button>
         <p class="nav-group">Product toolkits</p>
         <button class="nav-button" data-page="ydg">
@@ -5423,6 +5426,13 @@
           <button class="nav-button" data-admin-target="admin-comparison-tool">
             <span class="nav-icon">CMP</span><span class="nav-text">Comparison</span><span>›</span>
           </button>
+          <p class="nav-group">Decision tools</p>
+          <button class="nav-button" type="button" data-admin-tool-target="competitive-intelligence" title="Open the shared Product Comparison Builder">
+            <span class="nav-icon">CMP</span><span class="nav-text">Comparison Builder</span><span>›</span>
+          </button>
+          <button class="nav-button" type="button" data-admin-tool-target="tco-calculator" title="Open the shared TCO Calculator">
+            <span class="nav-icon">TCO</span><span class="nav-text">TCO Calculator</span><span>›</span>
+          </button>
           <p class="nav-group">Governance</p>
           <button class="nav-button" data-admin-target="admin-role-access">
             <span class="nav-icon">ROL</span><span class="nav-text">Roles / Access</span><span>›</span>
@@ -5467,7 +5477,7 @@
             <div class="hero-grid">
               <div class="hero-main">
                 <p class="eyebrow">YDG / YDP distributor support</p>
-                <h1>Distributor Portal</h1>
+                <h1>Yanmar Amplify</h1>
                 <p class="hero-copy">
                   Ready-to-use marketing and communication support for distributors promoting Yanmar YDG and YDP products.
                 </p>
@@ -5593,7 +5603,7 @@
         <section class="page stack" id="demo">
           <div class="page-header">
             <p class="label">Demo</p>
-            <h1>Distributor portal demo flow</h1>
+            <h1>Amplify demo flow</h1>
             <p class="intro">A short walkthrough for showing how the demo supports distributors and how Yanmar can review requests, feedback and new content needs.</p>
           </div>
           <div class="translation-status show" id="translation-status">
@@ -5666,7 +5676,7 @@
                 <div class="briefing-details-body">
                   <div class="four-grid">
                     <div class="detail"><div class="detail-label">Assignment scope</div><p>Strategic B2B marketing communication for YDG and YDP in Europe, with Poland, Spain and Germany as useful pilot markets.</p></div>
-                    <div class="detail"><div class="detail-label">Yanmar value</div><p>Moves distributor support from reactive file sharing to structured activation, co-marketing agreements, co-advertising, local examples and measurable follow-up.</p></div>
+                    <div class="detail"><div class="detail-label">Yanmar value</div><p>Moves distributor support from reactive file sharing to structured activation, marketing agreements, co-advertising, local examples and measurable follow-up.</p></div>
                     <div class="detail"><div class="detail-label">School proof</div><p>Connects research, target-group behavior, concept development, content creation, KPI logic and professional advisory choices.</p></div>
                     <div class="detail"><div class="detail-label">Scope guardrail</div><p>This is a direct-use prototype and strategy base. Paid media buying, live CRM integration and final dealer database connection are outside graduation scope.</p></div>
                   </div>
@@ -5689,7 +5699,7 @@
                 <div class="briefing-details-body">
                   <div class="four-grid">
                     <div class="detail"><div class="detail-label">Problem analysis</div><p>The portal directly addresses the diagnosed problem: distributors have limited marketing capacity and need ready-to-use, consistent YDG/YDP communication support.</p></div>
-                    <div class="detail"><div class="detail-label">Research to product</div><p>Research insights are translated into target audiences, value propositions, platform guidance, campaign assets, co-marketing agreements and measurable activation workflows.</p></div>
+                    <div class="detail"><div class="detail-label">Research to product</div><p>Research insights are translated into target audiences, value propositions, platform guidance, campaign assets, marketing agreements and measurable activation workflows.</p></div>
                     <div class="detail"><div class="detail-label">Subconclusions to design</div><p>The main design choices follow from the analysis: a central toolkit, product-specific messaging, asset instructions, distributor feedback, content calendar and admin tracking.</p></div>
                     <div class="detail"><div class="detail-label">Stakeholder fit</div><p>Distributors get practical activation support; Yanmar gets visibility on usage, requests, content approvals, KPI progress and regional follow-up needs.</p></div>
                     <div class="detail"><div class="detail-label">Logical structure</div><p>The demo flow is systematic: select distributor, choose asset, plan activity, complete calendar item, approve content, measure progress and export follow-up.</p></div>
@@ -5761,17 +5771,17 @@
                 <div class="three-grid">
                   <div class="placeholder-card" data-asset-index="1" role="button" tabindex="0">
                     <!-- Insert clean YDG product image here. -->
-                    <div class="placeholder"><img src="assets/YDG Cherry sakura.png" alt="YDG generator product visual" style="width:100%;height:100%;object-fit:cover"></div>
+                    <div class="placeholder"><img loading="lazy" decoding="async" src="assets/YDG Cherry sakura.png" alt="YDG generator product visual" style="width:100%;height:100%;object-fit:cover"></div>
                     <div class="placeholder-card-body"><p class="small-red">YDG Diesel Generators</p><h3>Product shot</h3><p>Clean YDG product image on a neutral background.</p></div>
                   </div>
                   <div class="placeholder-card" data-asset-index="15" role="button" tabindex="0">
                     <!-- Insert YDG application scene image here. -->
-                    <div class="placeholder"><img src="assets/YDG3700N construction site.png" alt="YDG worksite application visual" style="width:100%;height:100%;object-fit:cover"></div>
+                    <div class="placeholder"><img loading="lazy" decoding="async" src="assets/YDG3700N construction site.png" alt="YDG worksite application visual" style="width:100%;height:100%;object-fit:cover"></div>
                     <div class="placeholder-card-body"><p class="small-red">YDG Diesel Generators</p><h3>Application scene</h3><p>YDG in a realistic outdoor or worksite setting.</p></div>
                   </div>
                   <div class="placeholder-card" data-asset-index="8" role="button" tabindex="0">
                     <!-- Insert YDG marketing visual here. -->
-                    <div class="placeholder"><img src="assets/Black out ad.png" alt="YDG backup power campaign visual" style="width:100%;height:100%;object-fit:cover"></div>
+                    <div class="placeholder"><img loading="lazy" decoding="async" src="assets/Black out ad.png" alt="YDG backup power campaign visual" style="width:100%;height:100%;object-fit:cover"></div>
                     <div class="placeholder-card-body"><p class="small-red">YDG Diesel Generators</p><h3>Marketing visual</h3><p>Campaign-ready visual for LinkedIn, website or distributor promotion.</p></div>
                   </div>
                 </div>
@@ -5808,7 +5818,7 @@
             </div>
             <div class="variant-card" data-variant-group="ydg">
               <div class="variant-image" data-variant-image>
-                <img src="assets/YDG Cherry sakura.png" alt="YDG product image">
+                <img loading="lazy" decoding="async" src="assets/YDG Cherry sakura.png" alt="YDG product image">
               </div>
               <div>
                 <p class="small-red" data-variant-label>YDG5500N</p>
@@ -5933,17 +5943,17 @@
                 <div class="three-grid">
                   <div class="placeholder-card" data-asset-index="17" role="button" tabindex="0">
                     <!-- Insert clear YDP product image here. -->
-                    <div class="placeholder"><img src="assets/YDP Warehouse.png" alt="YDP product visual" style="width:100%;height:100%;object-fit:cover"></div>
+                    <div class="placeholder"><img loading="lazy" decoding="async" src="assets/YDP Warehouse.png" alt="YDP product visual" style="width:100%;height:100%;object-fit:cover"></div>
                     <div class="placeholder-card-body"><p class="small-red">YDP Diesel Pumps</p><h3>Product shot</h3><p>Clear YDP product image showing the diesel pump.</p></div>
                   </div>
                   <div class="placeholder-card" data-asset-index="11" role="button" tabindex="0">
                     <!-- Insert YDP flooding or dewatering application image here. -->
-                    <div class="placeholder"><img src="assets/YDP.png" alt="YDP dewatering application visual" style="width:100%;height:100%;object-fit:cover"></div>
+                    <div class="placeholder"><img loading="lazy" decoding="async" src="assets/YDP.png" alt="YDP dewatering application visual" style="width:100%;height:100%;object-fit:cover"></div>
                     <div class="placeholder-card-body"><p class="small-red">YDP Diesel Pumps</p><h3>Application scene</h3><p>YDP in action during flooding or dewatering.</p></div>
                   </div>
                   <div class="placeholder-card" data-asset-index="2" role="button" tabindex="0">
                     <!-- Insert YDP campaign visual here. -->
-                    <div class="placeholder"><img src="assets/YDP2.png" alt="YDP campaign visual" style="width:100%;height:100%;object-fit:cover"></div>
+                    <div class="placeholder"><img loading="lazy" decoding="async" src="assets/YDP2.png" alt="YDP campaign visual" style="width:100%;height:100%;object-fit:cover"></div>
                     <div class="placeholder-card-body"><p class="small-red">YDP Diesel Pumps</p><h3>Marketing visual</h3><p>Campaign visual such as 'Water doesn't belong here. YDP does.' or 'When water stops work, YDP keeps it moving.'</p></div>
                   </div>
                 </div>
@@ -5982,7 +5992,7 @@
             </div>
             <div class="variant-card" data-variant-group="ydp">
               <div class="variant-image" data-variant-image>
-                <img src="assets/ydp20n-pump-clear-water-2__1065-6.jpg" alt="YDP product image">
+                <img loading="lazy" decoding="async" src="assets/ydp20n-pump-clear-water-2__1065-6.jpg" alt="YDP product image">
               </div>
               <div>
                 <p class="small-red" data-variant-label>YDP clear water pump</p>
@@ -6126,7 +6136,7 @@
             </div>
             <div class="variant-card" data-variant-group="lseries">
               <div class="variant-image" data-variant-image>
-                <img src="https://www.yanmar.com/eu/industrial/wp-content/uploads/sites/11/2021/07/01_L100V-4-1024x1024.jpg" alt="Yanmar L100V air-cooled diesel engine product image">
+                <img loading="lazy" decoding="async" src="https://www.yanmar.com/eu/industrial/wp-content/uploads/sites/11/2021/07/01_L100V-4-1024x1024.jpg" alt="Yanmar L100V air-cooled diesel engine product image">
               </div>
               <div>
                 <p class="small-red" data-variant-label>L100V</p>
@@ -6509,7 +6519,7 @@
                 <p class="small-red">Evidence status</p>
                 <h3>Ready for a source</h3>
                 <p>The crawler first tries structured product data, specification tables and page metadata. Every extracted value remains editable and must be verified before publishing.</p>
-                <a id="ci-search-link" href="https://www.google.com" target="_blank" rel="noreferrer" hidden>Open product search</a>
+              <span id="ci-search-link" hidden></span>
               </aside>
             </div>
           </article>
@@ -6754,12 +6764,6 @@
                 </div>
                 <div class="website-copy-output" id="webcopy-output"></div>
               </div>
-              <aside class="website-copy-preview" id="webcopy-preview">
-                <p class="small-red">Live page preview</p>
-                <h2>Professional portable power, ready for the work ahead.</h2>
-                <p>Generate a regional draft to preview the headline, supporting value and local call to action.</p>
-                <span class="preview-cta">Request product advice</span>
-              </aside>
             </div>
           </article>
 
@@ -6789,7 +6793,7 @@
         <section class="page stack" id="channel-playbook">
           <div class="page-header">
             <p class="label">Channel Playbook</p>
-            <h1>Omnichannel co-marketing guide</h1>
+              <h1>Omnichannel marketing guide</h1>
             <p class="intro">A compact channel strategy for distributors with different marketing capacity levels. Use it to turn Yanmar-approved assets into consistent LinkedIn, Instagram, YouTube, website, email and sales activity.</p>
           </div>
           <div class="warning-note">
@@ -6807,12 +6811,12 @@
               <div class="detail"><div class="detail-label">Audience targeting</div><p>Choose one main audience per activation: rental, construction, facility, municipal, agriculture, industrial, emergency response or sales follow-up customers.</p></div>
               <div class="detail"><div class="detail-label">Channel plan</div><p>Use LinkedIn for B2B awareness, website/email for conversion, YouTube for explanation, showroom assets for sales support and the calendar for timing and ownership.</p></div>
               <div class="detail"><div class="detail-label">Ready-to-use content</div><p>Distributors can use approved copy, visuals, briefs, templates and format notes from the asset workspace, then localize the message and contact details for their market.</p></div>
-              <div class="detail"><div class="detail-label">Co-advertising support</div><p>Use the co-marketing agreement fields in the calendar to record Yanmar support, distributor responsibilities, approval needs and proof of use after publishing.</p></div>
+              <div class="detail"><div class="detail-label">Co-advertising support</div><p>Use the marketing agreement fields in the calendar to record Yanmar support, distributor responsibilities, approval needs and proof of use after publishing.</p></div>
             </div>
             <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top: 16px">
               <button class="primary-button" type="button" data-page="campaigns">Open campaign concepts</button>
               <button class="header-action secondary" type="button" data-page="visual-workspace">Open ready-to-use assets</button>
-              <button class="header-action secondary" type="button" data-page="calendar">Plan co-marketing activity</button>
+              <button class="header-action secondary" type="button" data-page="calendar">Plan marketing activity</button>
             </div>
           </article>
           <div class="three-grid">
@@ -6832,7 +6836,7 @@
               <div class="icon-box">ADV</div>
               <h2>Advanced rhythm</h2>
               <p>1-2 posts per week, monthly YouTube or application content, local campaign examples and contribution of market assets back to Yanmar.</p>
-              <div class="detail"><div class="detail-label">Use when</div><p>Distributor has stronger digital maturity and can support co-marketing activity, co-advertising or performance reporting.</p></div>
+              <div class="detail"><div class="detail-label">Use when</div><p>Distributor has stronger digital maturity and can support coordinated marketing activity, co-advertising or performance reporting.</p></div>
             </article>
           </div>
           <article class="section-card">
@@ -6847,7 +6851,7 @@
               <div class="detail"><div class="detail-label">Website / SEO</div><p>Use product pages, banners and localized landing content to convert interest into downloads, inquiries and distributor contact.</p></div>
               <div class="detail"><div class="detail-label">Email / sales</div><p>Use for qualified follow-up with brochures, datasheets, comparison sheets and local availability. Track replies, clicks and quote requests.</p></div>
               <div class="detail"><div class="detail-label">Store / showroom</div><p>Use infographics, posters and product comparison material to support walk-in or dealer counter conversations.</p></div>
-              <div class="detail"><div class="detail-label">Co-marketing agreement</div><p>Yanmar provides approved English base content, claims and assets; distributors localize, publish, report proof of use and request approval when local adaptations change the message or visual.</p></div>
+              <div class="detail"><div class="detail-label">Marketing agreement</div><p>Yanmar provides approved English base content, claims and assets; distributors localize, publish, report proof of use and request approval when local adaptations change the message or visual.</p></div>
               <div class="detail"><div class="detail-label">KPI priority</div><p>Measure business signals first: inquiries, downloads, completed calendar actions, local examples, sales feedback and qualified engagement.</p></div>
             </div>
           </article>
@@ -6919,9 +6923,9 @@
                   </select>
                 </div>
                 <div class="field">
-                  <label for="calendar-comarketing">Co-marketing agreement</label>
+                  <label for="calendar-comarketing">Marketing agreement</label>
                   <select id="calendar-comarketing">
-                    <option>No co-marketing agreement</option>
+                    <option>No marketing agreement</option>
                     <option>Joint Yanmar + distributor campaign</option>
                     <option>Co-advertising support requested</option>
                     <option>Local distributor execution agreed</option>
@@ -6951,7 +6955,7 @@
                 <textarea id="calendar-notes" placeholder="Add campaign details, required assets, target audience, local timing, Yanmar support needed or KPI target."></textarea>
               </div>
               <div class="field">
-                <label for="calendar-comarketing-notes">Co-marketing agreement notes</label>
+                <label for="calendar-comarketing-notes">Marketing agreement notes</label>
                 <textarea id="calendar-comarketing-notes" placeholder="Example: Yanmar supplies approved English copy and visual; distributor localizes, publishes on LinkedIn and sends proof of use for KPI tracking."></textarea>
               </div>
               <button class="primary-button" type="submit">Save calendar week</button>
@@ -6991,7 +6995,7 @@
               <div class="local-visual">
                 <!-- Insert localized flooding campaign visual here. -->
                 <div class="local-inner" style="padding:0; overflow:hidden">
-                  <img src="assets/AHCL mockup linkedin.webp" alt="Abdullah Hashim Company LTD LinkedIn mock-up" style="width:100%;height:100%;object-fit:contain;background:#fff">
+                  <img loading="lazy" decoding="async" src="assets/AHCL mockup linkedin.webp" alt="Abdullah Hashim Company LTD LinkedIn mock-up" style="width:100%;height:100%;object-fit:contain;background:#fff">
                 </div>
               </div>
               <p style="margin: 14px 0 0">
@@ -7091,7 +7095,7 @@
                       <option>Application video</option>
                       <option>YouTube explainer script</option>
                       <option>SEO product page copy</option>
-                <option>Co-marketing / co-advertising activation brief</option>
+                <option>Coordinated marketing / co-advertising activation brief</option>
                       <option>Customer testimonial request</option>
                       <option>Recent product news / update</option>
                       <option>Other</option>
@@ -7402,7 +7406,7 @@
                   </div>
                   <div class="field">
                     <label for="contribution-url">Asset link or file path</label>
-                    <input id="contribution-url" placeholder="Example: assets/local-ydp-flooding-post.png or SharePoint link" />
+                    <input id="contribution-url" placeholder="Example: assets/Post.png or SharePoint link" />
                   </div>
                 </div>
                 <div class="field">
@@ -7580,9 +7584,9 @@
                   </select>
                 </div>
                 <div class="field">
-                  <label for="admin-calendar-comarketing">Co-marketing agreement</label>
+                  <label for="admin-calendar-comarketing">Marketing agreement</label>
                   <select id="admin-calendar-comarketing">
-                    <option>No co-marketing agreement</option>
+                    <option>No marketing agreement</option>
                     <option>Joint Yanmar + distributor campaign</option>
                     <option>Co-advertising support requested</option>
                     <option>Local distributor execution agreed</option>
@@ -7612,7 +7616,7 @@
                 <textarea id="admin-calendar-notes" placeholder="Add required assets, KPI target, owner notes or follow-up action."></textarea>
               </div>
               <div class="field">
-                <label for="admin-calendar-comarketing-notes">Co-marketing agreement notes</label>
+                <label for="admin-calendar-comarketing-notes">Marketing agreement notes</label>
                 <textarea id="admin-calendar-comarketing-notes" placeholder="Example: Confirm approval status, shared responsibilities, reporting proof and follow-up owner for this distributor activity."></textarea>
               </div>
               <button class="primary-button" type="submit">Save distributor calendar week</button>
@@ -8312,95 +8316,6 @@
         </div>
       </div>
     </div>
-    <div class="modal" id="template-editor-modal" aria-hidden="true">
-      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="template-editor-title">
-        <div class="modal-head">
-          <div>
-            <p class="label">Template Studio</p>
-            <h2 id="template-editor-title" style="margin: 0">Edit distributor template</h2>
-            <p style="margin: 10px 0 0; color: #666">Use this demo editor for quick local copy, contact details and distributor logo placement. Final publishing still needs local translation and Yanmar claim/brand review.</p>
-          </div>
-          <button class="modal-close" id="template-editor-close" type="button" aria-label="Close">×</button>
-        </div>
-        <div class="template-editor-layout">
-          <div class="template-canvas-wrap">
-            <canvas id="template-canvas" width="1080" height="1080"></canvas>
-          </div>
-          <div class="template-editor-panel">
-            <div class="source-note">
-              <p><strong>Recommended workflow:</strong> Canva is fastest for simple localization. Use Adobe InDesign, Photoshop or Illustrator for heavier production. Add your own local language, distributor details, logo and contact information before sharing.</p>
-            </div>
-            <div class="field">
-              <label for="template-headline">Headline</label>
-              <input id="template-headline" placeholder="Example: Reliable power for your worksite" />
-            </div>
-            <div class="field">
-              <label for="template-body">Body copy</label>
-              <textarea id="template-body" placeholder="Short local message or benefit statement."></textarea>
-            </div>
-            <div class="field">
-              <label for="template-cta">CTA</label>
-              <input id="template-cta" placeholder="Example: Contact your local distributor" />
-            </div>
-            <div class="field">
-              <label for="template-contact">Distributor contact details</label>
-              <input id="template-contact" placeholder="Website, email, phone or branch name" />
-            </div>
-            <div class="field">
-              <label for="template-logo-file">Optional distributor logo</label>
-              <input id="template-logo-file" type="file" accept="image/*" />
-            </div>
-            <div class="form-grid">
-              <div class="field">
-                <label for="template-layout">Layout</label>
-                <select id="template-layout">
-                  <option value="left">Left message panel</option>
-                  <option value="bottom">Bottom information band</option>
-                  <option value="top">Top announcement band</option>
-                  <option value="overlay">Dark image overlay</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="template-image-fit">Image fit</label>
-                <select id="template-image-fit">
-                  <option value="cover">Fill canvas</option>
-                  <option value="contain">Show full image</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="template-text-scale">Text scale</label>
-                <select id="template-text-scale">
-                  <option value="balanced">Balanced</option>
-                  <option value="compact">Compact</option>
-                  <option value="large">Large campaign text</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="template-panel-style">Panel style</label>
-                <select id="template-panel-style">
-                  <option value="white">Yanmar white panel</option>
-                  <option value="red">Yanmar red panel</option>
-                  <option value="dark">Dark panel</option>
-                  <option value="minimal">Minimal no panel</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="template-accent-color">Accent color</label>
-                <input id="template-accent-color" type="color" value="#d71920" />
-              </div>
-              <div class="field">
-                <label for="template-text-color">Text color</label>
-                <input id="template-text-color" type="color" value="#111111" />
-              </div>
-            </div>
-            <div class="asset-action-row">
-              <button class="primary-button" type="button" id="template-download">Download edited PNG</button>
-              <button class="header-action secondary" type="button" id="template-reset">Reset fields</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="modal" id="results-modal" aria-hidden="true">
       <div class="modal-card results-modal-card" role="dialog" aria-modal="true" aria-labelledby="results-modal-title">
         <div class="modal-head">
@@ -8506,7 +8421,7 @@
     <script>
       const pageNames = {
         home: "Home",
-        demo: "Demo Walkthrough",
+        demo: "Portal Knowledge",
         ydg: "YDG Toolkit",
         "ydg-models": "YDG Model Selector",
         ydp: "YDP Toolkit",
@@ -8562,7 +8477,7 @@
         ["YouTube explainer script", "Turns technical product information into a structured educational video.", "Use for product explanation, application walkthroughs and sales-team learning.", "support", "Request needed", "YouTube explainer script", "YouTube"],
         ["SEO product page copy", "Helps distributors explain YDG/YDP applications, benefits and CTAs on their website.", "Localize for distributor websites and connect to brochure downloads or inquiry forms.", "support", "Request needed", "SEO product page copy", "Distributor website"],
         ["Sales training one-pager", "Supports sales teams with key messages, objections, proof points and follow-up prompts.", "Use during distributor onboarding, sales meetings and internal product briefings.", "support", "Request needed", "Sales follow-up material", "Sales presentation"],
-        ["Co-marketing agreement brief", "Clarifies how Yanmar and distributors share campaign roles, assets, approvals, co-advertising responsibilities and reporting.", "Use before local campaigns so responsibilities, local adaptation rules and KPI tracking are clear.", "support", "Request needed", "Co-marketing / co-advertising activation brief", "All channels"],
+        ["Marketing agreement brief", "Clarifies how Yanmar and distributors share campaign roles, assets, approvals, co-advertising responsibilities and reporting.", "Use before local campaigns so responsibilities, local adaptation rules and KPI tracking are clear.", "support", "Request needed", "Coordinated marketing / co-advertising activation brief", "All channels"],
         ["Local distributor mock-up", "Shows how a market can localize the message and visual context.", "Use AHCL as the example for regional flooding and dewatering communication.", "visual-workspace", "Available as example", "Localized LinkedIn post", "LinkedIn"],
         ["Event LinkedIn post", "Supports Yanmar visibility around exhibitions, trade fairs and event participation.", "Use as an approved event communication example for distributor reposts or regional event updates.", "visual-workspace", "Available as event asset", "Localized LinkedIn post", "LinkedIn"],
       ];
@@ -9061,7 +8976,7 @@
       }
 
       const highlightedCampaignIndexes = new Set([0, 1, 6, 11]);
-      const highlightedAssetNames = new Set(["LinkedIn post", "Campaign visual", "Application video", "YouTube explainer script", "SEO product page copy", "Sales training one-pager", "Co-marketing agreement brief", "Event LinkedIn post"]);
+  const highlightedAssetNames = new Set(["LinkedIn post", "Campaign visual", "Application video", "YouTube explainer script", "SEO product page copy", "Sales training one-pager", "Marketing agreement brief", "Event LinkedIn post"]);
       const highlightedVisualIndexes = new Set([0, 1, 2, 5, 16, 24, 25, 26]);
 
       function attentionIndicator(label = "New", title = "New item or needs attention") {
@@ -9089,7 +9004,7 @@
               <span class="product-label">${product}</span>
               ${
                 image
-                  ? `<img src="${image}" alt="${title}" />`
+                  ? `<img loading="lazy" decoding="async" src="${image}" alt="${title}" />`
                   : `<div class="coming-soon-box"><div class="icon-box" style="margin: 0 auto">${product}</div><p class="small-red" style="margin-top: 12px">Coming soon</p><span>Campaign visual to be developed</span></div>`
               }
             </div>
@@ -9365,7 +9280,7 @@
               <div class="visual-thumb ${asset.image ? "" : "placeholder-thumb"} ${asset.fit === "contain" ? "contain" : ""}">
                 ${
                   asset.image
-                    ? `<img src="${asset.image}" alt="${asset.title}" />`
+                    ? `<img loading="lazy" decoding="async" src="${asset.image}" alt="${asset.title}" />`
                     : `<div><div class="icon-box" style="margin: 0 auto">${asset.product.split(" ")[0]}</div><p class="small-red" style="margin-top: 12px">${asset.comingSoon ? "Coming soon" : "Add image here"}</p></div>`
                 }
               </div>
@@ -9526,7 +9441,7 @@
 
       function setAdminMode(isAdmin) {
         document.body.classList.toggle("admin-mode", isAdmin);
-        if (adminToggle) adminToggle.textContent = isAdmin ? "Distributor portal" : "Yanmar admin view";
+        if (adminToggle) adminToggle.textContent = isAdmin ? "Distributor view" : "Yanmar admin view";
         updateAssistantDockMode(isAdmin);
       }
 
@@ -10172,7 +10087,7 @@
             : "";
         }
         modalImage.innerHTML = asset.image
-          ? `<img src="${asset.image}" alt="${asset.title}" />`
+          ? `<img loading="lazy" decoding="async" src="${asset.image}" alt="${asset.title}" />`
           : `<div style="text-align:center; padding: 24px"><div class="icon-box" style="margin: 0 auto">${asset.product.split(" ")[0]}</div><p class="small-red" style="margin-top: 14px">${asset.comingSoon ? "Coming soon" : "Image placeholder"}</p><p>${asset.comingSoon ? "Yanmar has planned this asset slot. Request priority or local requirements through support." : "Insert your final campaign, store or product visual here."}</p></div>`;
         modalInstructions.innerHTML = "";
         if (modalActions) {
@@ -10182,14 +10097,10 @@
           const reportResultsAction = asset.reportable && !document.body.classList.contains("admin-mode")
             ? `<button class="header-action secondary" type="button" data-modal-action="report-results"><span class="attention-marker" title="New function">!</span> Report campaign results</button>`
             : "";
-          const templateStudioAction = isTemplateAsset && asset.image
-            ? `<button class="header-action secondary" type="button" data-modal-action="template-studio"><span class="attention-marker" title="New function">!</span> Open Template Studio</button>`
-            : "";
           modalActions.innerHTML = `
             ${asset.comingSoon ? "" : `<button class="primary-button" type="button" data-modal-action="used">Mark as used</button>`}
             ${asset.image ? `<a class="primary-button" href="${asset.image}" download target="_blank" rel="noreferrer" data-track-download="${escapeHTML(asset.title)}" data-track-product="${escapeHTML(asset.product)}">Download visual</a>` : ""}
-            ${templateStudioAction}
-            ${reportResultsAction}
+                        ${reportResultsAction}
             <button class="header-action secondary" type="button" data-modal-action="adapt">${asset.comingSoon ? "Request this asset" : "Request adaptation"}</button>
             ${adminEditAction}
           `;
@@ -10632,7 +10543,7 @@
         const downloadName = `${variant.label.replaceAll(" ", "-")}-product-image`;
         container.querySelector("[data-variant-image]").innerHTML =
           variant.image
-            ? `<a class="variant-download-frame" href="${variant.image}" download="${downloadName}" target="_blank" rel="noreferrer" data-track-download="${variant.title}" data-track-product="${group.toUpperCase()}"><div><img src="${variant.image}" alt="${variant.title}" /><p class="download-hint">Click image to download</p></div></a>`
+            ? `<a class="variant-download-frame" href="${variant.image}" download="${downloadName}" target="_blank" rel="noreferrer" data-track-download="${variant.title}" data-track-product="${group.toUpperCase()}"><div><img loading="lazy" decoding="async" src="${variant.image}" alt="${variant.title}" /><p class="download-hint">Click image to download</p></div></a>`
             : `<div class="engine-placeholder"><div><div class="engine-placeholder-mark">${group === "lseries" ? "L" : "IMG"}</div><h3>${variant.title}</h3><p>Insert the correct official product image here.</p></div></div>`;
         container.querySelector("[data-variant-label]").textContent = variant.label;
         container.querySelector("[data-variant-title]").textContent = variant.title;
@@ -13102,11 +13013,7 @@
           }
           if (modalAction.dataset.modalAction === "report-results") {
             openCampaignResultsModal(currentModalAsset);
-          }
-          if (modalAction.dataset.modalAction === "template-studio") {
-            openTemplateEditor(currentModalAsset);
-          }
-          return;
+          }          return;
         }
 
         const campaignResultSave = event.target.closest("[data-campaign-result-save]");
@@ -13534,7 +13441,7 @@
         const isImage = item.assetIsImage || href.startsWith("data:image/") || href.match(/\.(png|jpg|jpeg|webp|avif|gif|svg)(\?|#|$)/i);
         if (isImage) {
           return `<a class="upload-preview-link" href="${escapeHTML(href)}" target="_blank" rel="noreferrer"${downloadAttr}>
-            <img src="${escapeHTML(href)}" alt="${escapeHTML(name)}" />
+            <img loading="lazy" decoding="async" src="${escapeHTML(href)}" alt="${escapeHTML(name)}" />
             <span>Open uploaded image</span>
           </a>`;
         }
@@ -14178,7 +14085,7 @@
       }
 
       function exportCalendarCSV() {
-        const rows = [["Week", "Distributor", "Region", "Country", "Owner", "Product", "Channel", "Co-marketing agreement", "Status", "Activity", "Notes", "Co-marketing notes", "Updated"]];
+        const rows = [["Week", "Distributor", "Region", "Country", "Owner", "Product", "Channel", "Marketing agreement", "Status", "Activity", "Notes", "Joint activity notes", "Updated"]];
         Object.values(calendarData())
           .sort((a, b) => Number(a.week) - Number(b.week))
           .forEach((item) => rows.push([
@@ -14189,7 +14096,7 @@
             item.owner,
             item.product,
             item.channel,
-            item.coMarketing || "No co-marketing agreement",
+            item.coMarketing || "No marketing agreement",
             item.status,
             item.activity,
             item.notes,
@@ -15084,8 +14991,8 @@
         const meta = item
           ? `${item.product || "Product"} · ${item.channel || "Channel"}`
           : "Open slot for distributor or Yanmar planning";
-        const coMarketingLine = item?.coMarketing && item.coMarketing !== "No co-marketing agreement"
-          ? `<p class="small-red">Co-marketing: ${escapeHTML(item.coMarketing)}</p>`
+        const coMarketingLine = item?.coMarketing && item.coMarketing !== "No marketing agreement"
+          ? `<p class="small-red">Joint marketing: ${escapeHTML(item.coMarketing)}</p>`
           : "";
         const completeDistributorAttr = admin && item?.distributor ? ` data-calendar-complete-distributor="${escapeHTML(item.distributor)}"` : "";
         const action = item?.status === "Completed"
@@ -15195,7 +15102,7 @@
         if (calendarDistributor) calendarDistributor.value = item?.distributor || (distributorSelect ? distributorSelect.value : "");
         document.getElementById("calendar-product").value = item?.product || "Multiple products";
         document.getElementById("calendar-channel").value = item?.channel || "All channels";
-        document.getElementById("calendar-comarketing").value = item?.coMarketing || "No co-marketing agreement";
+        document.getElementById("calendar-comarketing").value = item?.coMarketing || "No marketing agreement";
         document.getElementById("calendar-status").value = item?.status || "Planned";
         document.getElementById("calendar-activity").value = item?.activity || "";
         document.getElementById("calendar-notes").value = item?.notes || "";
@@ -15211,7 +15118,7 @@
         document.getElementById("admin-calendar-owner").value = item?.owner || "Distributor";
         document.getElementById("admin-calendar-product").value = item?.product || "Multiple products";
         document.getElementById("admin-calendar-channel").value = item?.channel || "All channels";
-        document.getElementById("admin-calendar-comarketing").value = item?.coMarketing || "No co-marketing agreement";
+        document.getElementById("admin-calendar-comarketing").value = item?.coMarketing || "No marketing agreement";
         document.getElementById("admin-calendar-status").value = item?.status || "Planned";
         document.getElementById("admin-calendar-activity").value = item?.activity || "";
         document.getElementById("admin-calendar-notes").value = item?.notes || "";
@@ -15496,10 +15403,10 @@
 
       function renderAdminContentCard(item) {
         const uploadedImageHTML = item.assetDataUrl && item.assetIsImage
-          ? `<img src="${item.assetDataUrl}" alt="${escapeHTML(item.title)}" />`
+          ? `<img loading="lazy" decoding="async" src="${item.assetDataUrl}" alt="${escapeHTML(item.title)}" />`
           : "";
         const linkedImageHTML = item.url && item.url.match(/\.(png|jpg|jpeg|webp|avif|gif|svg)$/i)
-          ? `<img src="${escapeHTML(item.url)}" alt="${escapeHTML(item.title)}" />`
+          ? `<img loading="lazy" decoding="async" src="${escapeHTML(item.url)}" alt="${escapeHTML(item.title)}" />`
           : "";
         const imageHTML = uploadedImageHTML || linkedImageHTML;
         const comingSoonHTML = item.comingSoon || item.status === "Coming soon"
@@ -15730,13 +15637,17 @@
         if (!languageSelect) return;
         const currentValue = languageSelect.value;
         const label = document.getElementById("language-control-label");
-        if (label) label.textContent = "Language";
+        if (label) {
+          if (!label.textContent.trim()) label.textContent = "Language";
+          label.classList.remove("notranslate");
+          label.setAttribute("translate", "yes");
+        }
         languageSelect.classList.add("notranslate");
         languageSelect.setAttribute("translate", "no");
         const labelWrapper = languageSelect.closest("label");
         if (labelWrapper) {
-          labelWrapper.classList.add("notranslate");
-          labelWrapper.setAttribute("translate", "no");
+          labelWrapper.classList.remove("notranslate");
+          labelWrapper.setAttribute("translate", "yes");
         }
         Object.entries(languageLabels).forEach(([value, labelText]) => {
           const option = Array.from(languageSelect.options).find((item) => item.value === value);
@@ -16382,12 +16293,7 @@
           status.dataset.state = kind;
           status.querySelector("h3").textContent = title;
           status.querySelector("p:last-of-type").textContent = body;
-          if (searchQuery) {
-            link.href = `https://www.google.com/search?q=${encodeURIComponent(searchQuery + " official product specifications")}`;
-            link.hidden = false;
-          } else {
-            link.hidden = true;
-          }
+          link.hidden = true;
         }
 
         function canonicalKey(label) {
@@ -16697,7 +16603,9 @@
             group,
             model,
             name: variant?.title || model,
-            image: variant?.image || (group === "ydp" ? "assets/YDP Warehouse.png" : "assets/YDG Cherry sakura.png"),
+            image: group === "ydp"
+              ? "assets/YDP-white-background.png"
+              : (model.includes("3700") ? "assets/YDG3700-white-background.png" : "assets/YDG5500-white-background.png"),
             fields,
           };
         }
@@ -16732,7 +16640,7 @@
         }
 
         function productMedia(product, isYanmar) {
-          if (product.image) return `<img src="${escapeText(product.image)}" alt="${escapeText(product.name)}" />`;
+          if (product.image) return `<img loading="lazy" decoding="async" src="${escapeText(product.image)}" alt="${escapeText(product.name)}" />`;
           const initials = product.name.split(/\s+/).map((part) => part[0]).join("").slice(0, 3).toUpperCase();
           return `<span class="comparison-product-placeholder">${escapeText(initials || (isYanmar ? "Y" : "ALT"))}</span>`;
         }
@@ -16821,7 +16729,8 @@
         function downloadComparisonHtml() {
           if (!state.generated) generateComparison();
           if (!state.generated) return;
-          const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>${escapeText(state.generated.title)}</title><style>body{margin:0;padding:28px;background:#f3f3f3;font-family:Arial,sans-serif;color:#171717}.comparison-sheet{max-width:1200px;margin:auto;background:#fff;border-top:8px solid #d71920;padding:24px}.comparison-product-grid{display:grid;grid-template-columns:repeat(${state.generated.products.length},1fr);gap:12px}.comparison-product{border:1px solid #ddd;padding:12px}.comparison-product img{width:100%;height:180px;object-fit:contain}.comparison-table{width:100%;border-collapse:collapse;margin-top:18px}.comparison-table th,.comparison-table td{border:1px solid #ddd;padding:11px;text-align:left}.comparison-table th{background:#f3f3f3}.yanmar-value{color:#d71920;font-weight:bold}.comparison-value-band{margin-top:18px;border-left:4px solid #d71920;background:#f5f5f5;padding:16px}.comparison-cta{margin-top:10px;background:#171717;color:#fff;padding:12px;font-weight:bold}.ci-evidence-note{font-size:11px;color:#666}@media(max-width:700px){.comparison-product-grid{grid-template-columns:1fr}.comparison-table{min-width:700px}}</style></head><body>${state.generated.html}</body></html>`;
+          const portableSheet = state.generated.html.replace(/src="(assets\/[^"]+)"/g, (_match, source) => `src="${new URL(source, window.location.href).href}"`);
+          const html = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>${escapeText(state.generated.title)}</title><style>body{margin:0;padding:28px;background:#f3f3f3;font-family:Arial,sans-serif;color:#171717}.comparison-sheet{max-width:1200px;margin:auto;background:#fff;border-top:8px solid #d71920;padding:24px}.comparison-product-grid{display:grid;grid-template-columns:repeat(${state.generated.products.length},1fr);gap:12px}.comparison-product{border:1px solid #ddd;padding:12px}.comparison-product img{width:100%;height:180px;object-fit:contain;background:#fff}.comparison-table{width:100%;border-collapse:collapse;margin-top:18px}.comparison-table th,.comparison-table td{border:1px solid #ddd;padding:11px;text-align:left}.comparison-table th{background:#f3f3f3}.yanmar-value{color:#d71920;font-weight:bold}.comparison-value-band{margin-top:18px;border-left:4px solid #d71920;background:#f5f5f5;padding:16px}.comparison-cta{margin-top:10px;background:#171717;color:#fff;padding:12px;font-weight:bold}.ci-evidence-note{font-size:11px;color:#666}@media(max-width:700px){.comparison-product-grid{grid-template-columns:1fr}.comparison-table{min-width:700px}}</style></head><body>${portableSheet}</body></html>`;
           downloadBlob(`${slugify(state.generated.title)}.html`, html, "text/html;charset=utf-8");
         }
 
@@ -16954,11 +16863,19 @@
           `).join("");
           updateWebsitePreview();
           try { localStorage.setItem("yanmarWebsiteCopyLastV1", JSON.stringify({ product, language, region, segment, distributor, values: fields })); } catch (error) { /* Local draft storage is optional. */ }
-          notify("Regional website copy generated.");
+          const copyUpdateMessages = {
+            en: "Copy recommendations updated.",
+            de: "Copy-Empfehlungen aktualisiert.",
+            es: "Recomendaciones de texto actualizadas.",
+            pl: "Zalecenia dotyczace tresci zostaly zaktualizowane.",
+            ar: "\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u062a\u0648\u0635\u064a\u0627\u062a \u0627\u0644\u0646\u0635."
+          };
+          notify(copyUpdateMessages[language] || copyUpdateMessages.en);
         }
 
         function updateWebsitePreview() {
           const preview = byId("webcopy-preview");
+          if (!preview) return;
           const headline = byId("webcopy-field-headline")?.value || "Regional website headline";
           const intro = byId("webcopy-field-intro")?.value || "Generate copy to preview the page message.";
           const cta = byId("webcopy-field-cta")?.value || "Request product advice";
@@ -17270,6 +17187,9 @@
         buildWebsiteCopy();
       })();
     </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  </body>
+    <script async defer src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
+  <script src="ym-final-board-upgrade.js?v=13.2"></script>
+<script src="ym-board-ready-v15.js?v=15.6"></script>
+</body>
 </html>
